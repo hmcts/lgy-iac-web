@@ -8,7 +8,7 @@ properties([
 @Library("Infrastructure")
 
 def type = "java"
-def product = "dts-legacy"
+def product = "lgy-iac"
 def component = "lgy-iac-web"
 
 // docs: https://github.com/hmcts/cnp-jenkins-library#nightly-pipeline

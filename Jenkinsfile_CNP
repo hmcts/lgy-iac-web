@@ -3,7 +3,7 @@
 @Library("Infrastructure")
 
 def type = "java"
-def product = "dts-legacy"
+def product = "lgy-iac"
 def component = "lgy-iac-web"
 
 // docs:

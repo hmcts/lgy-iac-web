@@ -4,7 +4,7 @@
 
 def type = "java"
 def product = "lgy-iac"
-def component = "lgy-iac-web"
+def component = "web"
 
 // docs:
 // 1. https://github.com/hmcts/cnp-jenkins-library

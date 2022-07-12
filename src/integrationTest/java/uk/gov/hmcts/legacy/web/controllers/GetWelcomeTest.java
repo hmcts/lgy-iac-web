@@ -1,4 +1,4 @@
-package uk.gov.hmcts.legacy.controllers;
+package uk.gov.hmcts.legacy.web.controllers;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

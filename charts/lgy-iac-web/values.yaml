@@ -4,5 +4,5 @@ java:
   ingressHost: lgy-iac-web-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal
   aadIdentityName: dts-legacy
   environment:
-    FAVOURITE_FRUIT: plum
+    FAVOURITE_FRUIT: IAC Fees
 

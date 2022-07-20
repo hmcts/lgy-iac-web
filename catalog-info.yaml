@@ -10,7 +10,7 @@ metadata:
   tags:
     - java
   links:
-    - url: https://hmcts-reform.slack.com/app_redirect?channel=cloud-native
+    - url: https://hmcts-dts.slack.com/app_redirect?channel=cloud-native
       title: cloud-native on Slack
       icon: chat
 spec:

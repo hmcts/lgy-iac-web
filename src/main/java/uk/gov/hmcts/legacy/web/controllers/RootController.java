@@ -27,7 +27,7 @@ public class RootController {
     @RequestMapping(value = "/", method = GET, produces = TEXT_PLAIN_VALUE)
 
     public ResponseEntity<String> welcome() {
-        return ok("Welcome to lgy-iac-web dts-legacy application. My favourite fruit is "
+        return ok("Welcome to lgy-iac-web dts-legacy application. My favourite legacy app is "
                       + System.getenv("FAVOURITE_FRUIT"));
     }
 }

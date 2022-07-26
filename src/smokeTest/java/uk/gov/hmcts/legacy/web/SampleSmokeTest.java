@@ -1,4 +1,4 @@
-package uk.gov.hmcts.legacy.controllers;
+package uk.gov.hmcts.legacy.web;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -6,16 +6,21 @@ import io.restassured.response.Response;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import static io.restassured.RestAssured.given;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+@RunWith(SpringRunner.class)
+@SpringBootTest
+@ActiveProfiles("smoke")
 class SampleSmokeTest {
     protected static final String CONTENT_TYPE_VALUE = "application/json";
 
-    @Value("${TEST_URL:http://localhost:8080}")
+    @Value("${test-url}")
     private String testUrl;
 
     @BeforeEach

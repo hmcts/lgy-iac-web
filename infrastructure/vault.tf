@@ -9,11 +9,9 @@ module "vault" {
   product_group_name         = "DTS SDS Developers"
   create_managed_identity    = true
   common_tags                = var.common_tags
-  network_acls_allowed_subnet_ids = [data.azurerm_subnet.jenkins_subnet.id]
-  network_acls_allowed_ip_ranges = ["IPs"]
-  network_acls_default_action = "Deny" # Allow by default
 }
 
+/*
 # Set by the Jenkins pipeline
 variable "mgmt_subscription_id" {}
 
@@ -30,3 +28,4 @@ data "azurerm_subnet" "jenkins_subnet" {
   virtual_network_name = var.env == "sbox" ? "ss-ptlsbox-vnet" : "ss-ptl-vnet"
   resource_group_name  = var.env == "sbox" ? "ss-ptlsbox-network-rg" : "ss-ptl-network-rg"
 }
+*/

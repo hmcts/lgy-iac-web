@@ -15,12 +15,12 @@ variable "common_tags" {
 }
 
 variable "tenant_id" {
-  type        = "string"
+  type        = string
   description = "The Tenant ID of the Azure Active Directory"
 }
 
 variable "jenkins_AAD_objectId" {
-  type        = "string"
+  type        = string
   description = "This is the ID of the Application you wish to give access to the Key Vault via the access policy"
 }
 

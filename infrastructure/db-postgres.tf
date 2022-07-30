@@ -12,6 +12,8 @@ module "database" {
   common_tags        = var.common_tags
   subscription       = var.subscription
   sku_capacity       = 4
+  key_vault_rg       = "genesis-rg"
+  key_vault_name     = "dtssharedservices${var.env}kv"
 }
 
 resource "azurerm_key_vault_secret" "postgres-user" {

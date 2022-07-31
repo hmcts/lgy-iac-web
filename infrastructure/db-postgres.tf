@@ -40,8 +40,8 @@ module "database" {
   name               = "${var.product}-v11"
   location           = var.location
   env                = var.env
-  postgresql_user    = "lgy-iac-admin"
-  database_name      = "lgy-iac"
+  postgresql_user    = "lgyiacadmin"
+  database_name      = "lgyiac"
   postgresql_version = "11"
   subnet_id          = data.azurerm_subnet.postgres.id
   sku_name           = "GP_Gen5_4"

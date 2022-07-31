@@ -54,4 +54,3 @@ module "database" {
   key_vault_name     = "dtssharedservices${var.env}kv"
   business_area      = "SDS"
 }
-Grover1388

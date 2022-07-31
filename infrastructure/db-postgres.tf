@@ -1,19 +1,7 @@
-module "database" {
-  source             = "git@github.com:hmcts/cnp-module-postgres?ref=master"
-  product            = "hmcts-${var.product}"
-  location           = var.location
-  env                = var.env
-  postgresql_user    = "lgy-iac-admin"
-  database_name      = "lgy-iac"
-  postgresql_version = "11"
-  sku_name           = "GP_Gen5_4"
-  sku_tier           = "GeneralPurpose"
-  storage_mb         = "179200"
-  common_tags        = var.common_tags
-  subscription       = var.subscription
-  sku_capacity       = 4
-  key_vault_rg       = "genesis-rg"
-  key_vault_name     = "dtssharedservices${var.env}kv"
+data "azurerm_subnet" "postgres" {
+  name                 = "iaas"
+  resource_group_name  = "ss-${var.env}-network-rg"
+  virtual_network_name = "ss-${var.env}-vnet"
 }
 
 resource "azurerm_key_vault_secret" "postgres-user" {
@@ -45,3 +33,25 @@ resource "azurerm_key_vault_secret" "postgres-database" {
   value        = module.database.postgresql_database
   key_vault_id = module.vault.key_vault_id
 }
+
+module "database" {
+  source             = "git@github.com:hmcts/cnp-module-postgres?ref=postgresql_tf"
+  product            = "hmcts-${var.product}"
+  name               = "${var.product}-v11"
+  location           = var.location
+  env                = var.env
+  postgresql_user    = "lgy-iac-admin"
+  database_name      = "lgy-iac"
+  postgresql_version = "11"
+  subnet_id          = data.azurerm_subnet.postgres.id
+  sku_name           = "GP_Gen5_4"
+  sku_tier           = "GeneralPurpose"
+  storage_mb         = "179200"
+  common_tags        = var.common_tags
+  subscription       = var.subscription
+  sku_capacity       = 4
+  key_vault_rg       = "genesis-rg"
+  key_vault_name     = "dtssharedservices${var.env}kv"
+  business_area      = "SDS"
+}
+Grover1388

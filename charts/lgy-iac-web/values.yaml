@@ -5,6 +5,7 @@ java:
   aadIdentityName: dts-legacy
   keyVaults:
     lgy-iac:
+      resourceGroup: lgy-iac-{{ .Values.global.environment }}
       secrets:
         - name: lgy-iac-POSTGRES-DATABASE
           alias: POSTGRES_DATABASE

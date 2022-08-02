@@ -15,6 +15,8 @@ java:
           alias: POSTGRES_USER
         - name: lgy-iac-POSTGRES-PASS
           alias: POSTGRES_PASSWORD
+        - name: web-POSTGRES-DATABASE
+          alias: POSTGRES_DATABASE_WEB
   environment:
     POSTGRES_SSL_MODE: require
     FLYWAY_URL: jdbc:postgresql://lgy-iac-v11-{{ .Values.global.environment }}.postgres.database.azure.com:5432/lgyiac?&sslmode=require

@@ -29,7 +29,7 @@ resource "azurerm_key_vault_secret" "postgres-port" {
 }
 
 resource "azurerm_key_vault_secret" "postgres-database" {
-  name         = "web-POSTGRES-DATABASE"
+  name         = "lgy-iac-POSTGRES-DATABASE"
   value        = module.database.postgresql_database
   key_vault_id = module.vault.key_vault_id
 }

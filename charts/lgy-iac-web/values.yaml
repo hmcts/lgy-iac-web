@@ -7,14 +7,16 @@ java:
     lgy-iac:
       resourceGroup: lgy-iac-{{ .Values.global.environment }}
       secrets:
-        - name: web-POSTGRES-DATABASE
+        - name: lgy-iac-POSTGRES-DATABASE
           alias: POSTGRES_DATABASE
-        - name: web-POSTGRES-HOST
+        - name: lgy-iac-POSTGRES-HOST
           alias: POSTGRES_HOST
-        - name: web-POSTGRES-USER
+        - name: lgy-iac-POSTGRES-USER
           alias: POSTGRES_USER
-        - name: web-POSTGRES-PASS
+        - name: lgy-iac-POSTGRES-PASS
           alias: POSTGRES_PASSWORD
+        - name: web-POSTGRES-DATABASE
+          alias: POSTGRES_DATABASE_WEB
   environment:
     POSTGRES_SSL_MODE: require
     FLYWAY_URL: jdbc:postgresql://lgy-iac-v11-{{ .Values.global.environment }}.postgres.database.azure.com:5432/lgyiac?&sslmode=require

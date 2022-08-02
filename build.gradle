@@ -136,8 +136,9 @@ sonarqube {
   properties {
     property "sonar.projectName", "HMCTS :: lgy-iac-web"
     property "sonar.projectKey", "com.github.hmcts:lgy-iac-web"
+    property "sonar.tests", "src/test, src/integrationTest"
     property "sonar.coverage.jacoco.xmlReportPaths", "${jacocoTestReport.reports.xml.destination.path}"
-    property "sonar.exclusions", ["**/config/**", "**/controllers/**"]
+    property "sonar.exclusions", ["**/config/**", "**/controllers/**", "**Exception**"]
   }
 }
 

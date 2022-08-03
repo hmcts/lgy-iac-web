@@ -34,6 +34,36 @@ resource "azurerm_key_vault_secret" "postgres-database" {
   key_vault_id = module.vault.key_vault_id
 }
 
+resource "azurerm_key_vault_secret" "web-postgres-user" {
+  name         = "web-POSTGRES-USER"
+  value        = module.database.user_name
+  key_vault_id = module.vault.key_vault_id
+}
+
+resource "azurerm_key_vault_secret" "web-postgres-password" {
+  name         = "web-POSTGRES-PASS"
+  value        = module.database.postgresql_password
+  key_vault_id = module.vault.key_vault_id
+}
+
+resource "azurerm_key_vault_secret" "web-postgres-host" {
+  name         = "web-POSTGRES-HOST"
+  value        = module.database.host_name
+  key_vault_id = module.vault.key_vault_id
+}
+
+resource "azurerm_key_vault_secret" "web-postgres-port" {
+  name         = "web-POSTGRES-PORT"
+  value        = module.database.postgresql_listen_port
+  key_vault_id = module.vault.key_vault_id
+}
+
+resource "azurerm_key_vault_secret" "web-postgres-database" {
+  name         = "web-POSTGRES-DATABASE"
+  value        = module.database.postgresql_database
+  key_vault_id = module.vault.key_vault_id
+}
+
 module "database" {
   source             = "git@github.com:hmcts/cnp-module-postgres?ref=postgresql_tf"
   product            = "hmcts-${var.product}"

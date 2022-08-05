@@ -13,7 +13,6 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import uk.gov.hmcts.legacy.web.controllers.RootController;
 import uk.gov.hmcts.legacy.web.data.migration.FlywayNoOpStrategy;
 
 

@@ -23,8 +23,8 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_DATABASE:lgyiac}?sslmode=${POSTGRES_SSL_MODE:require}
-    username: ${FLYWAY_USER}
-    password: ${FLYWAY_PASSWORD}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD:}
     properties:
       charSet: UTF-8
 #    hikari:

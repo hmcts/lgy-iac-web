@@ -2,6 +2,9 @@ java:
   # Don't modify below here
   image: ${IMAGE_NAME}
   ingressHost: ${SERVICE_FQDN}
+  postgresql:
+    enabled: true
+  disableKeyVaults: true
   environment:
     RUN_DB_MIGRATION_ON_STARTUP: false
     FAVOURITE_FRUIT: IAC Fees Dev
@@ -10,4 +13,3 @@ java:
     POSTGRES_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
     POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
     POSTGRES_HOST: "{{ .Release.Name }}-postgresql"
-

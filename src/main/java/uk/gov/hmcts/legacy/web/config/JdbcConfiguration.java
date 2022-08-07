@@ -6,8 +6,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import javax.sql.DataSource;
 import java.sql.SQLException;
+import javax.sql.DataSource;
 
 @Configuration
 public class JdbcConfiguration {
@@ -20,7 +20,7 @@ public class JdbcConfiguration {
             LOGGER.info("in jdbcTemplate");
             LOGGER.info("datasource." + dataSource.getConnection().toString());
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            LOGGER.error("getConnection error" + e.getMessage());
         }
         return new JdbcTemplate(dataSource);
     }

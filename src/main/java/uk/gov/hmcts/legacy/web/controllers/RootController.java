@@ -46,7 +46,7 @@ public class RootController {
             LOGGER.info("jdbc insert failure");
         }
         */
-
+        LOGGER.info(" ResponseEntity");
         return ok("Welcome to lgy-iac-web dts-legacy application. My favourite legacy app is "
                       + System.getenv("FAVOURITE_FRUIT"));
     }

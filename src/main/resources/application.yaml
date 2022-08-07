@@ -14,6 +14,12 @@ management:
 springdoc:
   packagesToScan: uk.gov.hmcts.legacy.web.controllers
 
+logging:
+  level:
+    root: INFO
+    org.springframework.jdbc.core: DEBUG
+    org.flywaydb.core.Flyway: DEBUG
+
 #If you use a database then uncomment below lines and update db properties accordingly
 spring:
   config:
@@ -45,4 +51,4 @@ spring:
 dbMigration:
   # When true, the app will run DB migration on startup.
   # Otherwise, it will just check if all migrations have been applied (and fail to start if not).
-  runOnStartup: ${RUN_DB_MIGRATION_ON_STARTUP:true}
+  runOnStartup: ${RUN_DB_MIGRATION_ON_STARTUP:false}

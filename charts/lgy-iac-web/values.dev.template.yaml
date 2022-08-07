@@ -5,4 +5,9 @@ java:
   environment:
     RUN_DB_MIGRATION_ON_STARTUP: false
     FAVOURITE_FRUIT: IAC Fees Dev
+    POSTGRES_SSL_MODE: disable
+    POSTGRES_PASSWORD: "{{ .Values.postgresql.postgresqlPassword}}"
+    POSTGRES_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
+    POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+    POSTGRES_HOST: "{{ .Release.Name }}-postgresql"
 

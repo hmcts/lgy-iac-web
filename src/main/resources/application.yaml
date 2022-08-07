@@ -34,13 +34,13 @@ spring:
 #      poolName: {to-be-defined}HikariCP
 #      maxLifetime: 7200000
 #      connectionTimeout: 30000
-  jpa:
-    properties:
-      hibernate:
-        jdbc:
-          lob:
-            # silence the 'wall-of-text' - unnecessary exception throw about blob types
-            non_contextual_creation: true
+#  jpa:
+#    properties:
+#      hibernate:
+#        jdbc:
+#          lob:
+#           # silence the 'wall-of-text' - unnecessary exception throw about blob types
+#            non_contextual_creation: true
 
 dbMigration:
   # When true, the app will run DB migration on startup.

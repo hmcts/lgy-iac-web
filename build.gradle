@@ -227,7 +227,7 @@ dependencies {
   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-aop'
   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-json'
-  implementation group: 'org.springframework', name: 'spring-jdbc', version: '5.3.22'
+  implementation group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc', version: '2.7.2'
   implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.6.8'
   implementation group: 'com.github.hmcts.java-logging', name: 'logging', version: reformLoggingVersion
   implementation group: 'com.github.hmcts.java-logging', name: 'logging-appinsights', version: reformLoggingVersion
@@ -236,6 +236,7 @@ dependencies {
   implementation group: 'org.apache.logging.log4j', name: 'log4j-to-slf4j', version: log4JVersion
   implementation group: 'io.rest-assured', name: 'rest-assured'
   implementation group: 'org.flywaydb', name: 'flyway-core', version: '8.4.1'
+  implementation group: 'org.postgresql', name: 'postgresql', version: '42.3.3'
   implementation 'junit:junit:4.13.1'
 
 /*

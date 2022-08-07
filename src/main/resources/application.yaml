@@ -22,8 +22,7 @@ spring:
     name: lgy-iac-web
   datasource:
     driver-class-name: org.postgresql.Driver
-    #url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}${DB_OPTIONS:}
-    url: ${FLYWAY_URL}
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_DATABASE:lgyiac}?sslmode=${POSTGRES_SSL_MODE:require}
     username: ${FLYWAY_USER}
     password: ${FLYWAY_PASSWORD}
     properties:

@@ -1,6 +1,8 @@
 package uk.gov.hmcts.legacy.web.config;
 
 import org.flywaydb.core.Flyway;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
@@ -24,8 +26,11 @@ import uk.gov.hmcts.legacy.web.data.migration.FlywayNoOpStrategy;
 @ConditionalOnProperty(prefix = "dbMigration", name = "runOnStartup", havingValue = "false")
 public class FlywayConfiguration {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(FlywayConfiguration.class);
+
     @Bean
     public FlywayMigrationStrategy flywayMigrationStrategy() {
+        LOGGER.info("in jdbcTemplate");
         return new FlywayNoOpStrategy();
     }
 }

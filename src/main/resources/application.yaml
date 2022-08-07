@@ -16,7 +16,7 @@ springdoc:
 
 logging:
   level:
-    root: INFO
+    root: DEBUG
     org.springframework.jdbc.core: DEBUG
     org.flywaydb.core.Flyway: DEBUG
 

@@ -17,13 +17,13 @@ springdoc:
 #If you use a database then uncomment below lines and update db properties accordingly
 spring:
   config:
-    import: "optional:configtree:/mnt/secrets/dts-legacy/"
+    import: "optional:configtree:/mnt/secrets/lgy-iac/"
   application:
     name: lgy-iac-web
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_DATABASE:lgyiac}?sslmode=${POSTGRES_SSL_MODE:require}
-    username: lgyiacadmin@lgy-iac-v11-stg
+    username: ${POSTGRES_USER}
     password: ${POSTGRES_PASSWORD:}
     properties:
       charSet: UTF-8

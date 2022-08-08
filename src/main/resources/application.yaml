@@ -19,15 +19,22 @@ management:
 springdoc:
   packagesToScan: uk.gov.hmcts.legacy.web.controllers
 
+env:
+  dbhost: ${DB_HOST:postgresql-11-staging.cutundmgf1ze.eu-west-2.rds.amazonaws.com}
+  dbport: ${DB_PORT:5432}
+  dbname: ${DB_NAME:postgres}
+  dbuser: ${DB_USER_NAME:dbadmin}
+  dbpass: ${DB_PASSWORD:4Zur3!2016}
+
 #If you use a database then uncomment below lines and update db properties accordingly
 spring:
   config:
     import: "optional:configtree:/mnt/secrets/lgy-iac/"
   application:
     name: lgy-iac-web
-#  datasource:
+  datasource:
 #    driver-class-name: org.postgresql.Driver
-#    url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}${DB_OPTIONS:}
+    url: jdbc:postgresql://${env.dbhost}:${env.dbport}/${env.dbname}?user=${env.dbuser}&password=${env.dbpass}
 #    username: ${DB_USER_NAME}
 #    password: ${DB_PASSWORD}
 #    properties:

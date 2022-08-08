@@ -6,7 +6,7 @@ java:
     enabled: true
   disableKeyVaults: true
   environment:
-    RUN_DB_MIGRATION_ON_STARTUP: false
+    RUN_DB_MIGRATION_ON_STARTUP: true
     FAVOURITE_FRUIT: IAC Fees Dev
     POSTGRES_SSL_MODE: disable
     POSTGRES_PASSWORD: "{{ .Values.postgresql.postgresqlPassword}}"

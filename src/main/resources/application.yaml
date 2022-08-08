@@ -16,7 +16,7 @@ springdoc:
 
 logging:
   level:
-    root: DEBUG
+    root: INFO
     org.springframework.jdbc.core: DEBUG
     org.flywaydb.core.Flyway: DEBUG
 
@@ -26,15 +26,15 @@ spring:
     import: "optional:configtree:/mnt/secrets/lgy-iac/"
   application:
     name: lgy-iac-web
-  flyway:
-    enabled: false
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_DATABASE:lgyiac}?sslmode=${POSTGRES_SSL_MODE:require}
-    username: ${POSTGRES_USER}
-    password: ${POSTGRES_PASSWORD}
-    properties:
-      charSet: UTF-8
+#  flyway:
+#    enabled: false
+#  datasource:
+#    driver-class-name: org.postgresql.Driver
+#    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_DATABASE:lgyiac}?sslmode=${POSTGRES_SSL_MODE:require}
+#    username: ${POSTGRES_USER}
+#    password: ${POSTGRES_PASSWORD}
+#    properties:
+#      charSet: UTF-8
 #    hikari:
 #      minimumIdle: 2
 #      maximumPoolSize: 10

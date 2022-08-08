@@ -20,11 +20,11 @@ springdoc:
   packagesToScan: uk.gov.hmcts.legacy.web.controllers
 
 env:
-  dbhost: ${DB_HOST:postgresql-11-staging.cutundmgf1ze.eu-west-2.rds.amazonaws.com}
-  dbport: ${DB_PORT:5432}
-  dbname: ${DB_NAME:postgres}
-  dbuser: ${DB_USER_NAME:dbadmin}
-  dbpass: ${DB_PASSWORD:4Zur3!2016}
+  dbhost: ${POSTGRES_HOST:postgresql-11-staging.cutundmgf1ze.eu-west-2.rds.amazonaws.com}
+  dbport: ${POSTGRES_PORT:5432}
+  dbname: ${POSTGRES_DATABASE:postgres}
+  dbuser: ${POSTGRES_USER:dbadmin}
+  dbpass: ${POSTGRES_PASSWORD:}
 
 #If you use a database then uncomment below lines and update db properties accordingly
 spring:

@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import static org.springframework.http.MediaType.TEXT_PLAIN_VALUE;
@@ -41,17 +43,26 @@ public class RootController {
     })
     @RequestMapping(value = "/", method = GET, produces = TEXT_PLAIN_VALUE)
 
+    @SuppressWarnings("PMD.CloseResource")
     public ResponseEntity<String> welcome() {
 
         LOGGER.info("dbHost is " + dbHost);
         LOGGER.info("dbUrl is " + dbUrl);
 
+        LOGGER.info("testing connection to database....");
         try (Connection conn = DriverManager.getConnection(dbUrl)) {
-            LOGGER.info("in try-with-resources");
+            LOGGER.info("connection OK - select from table");
+            try (PreparedStatement pstmt = conn.prepareStatement("SELECT 1 FROM recipe")) {
+                ResultSet rs = pstmt.executeQuery();
+                if (rs.next()) {
+                    LOGGER.info("retrieved record from table");
+                } else {
+                    LOGGER.info("Error: no data retrieved");
+                }
+            }
         } catch (SQLException e) {
-            LOGGER.error("getConnection failed " + e.getMessage());
+            LOGGER.error("jdbc failure: " + e.getMessage() + ":" + e.getSQLState());
         }
-        LOGGER.info("connection OK");
 
         return ok("Welcome to lgy-iac-web dts-legacy application. My favourite legacy app is "
                       + System.getenv("FAVOURITE_FRUIT"));

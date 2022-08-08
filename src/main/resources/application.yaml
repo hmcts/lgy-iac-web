@@ -24,7 +24,7 @@ env:
   dbport: ${POSTGRES_PORT:5432}
   dbname: ${POSTGRES_DATABASE:postgres}
   dbuser: ${POSTGRES_USER:dbadmin}
-  dbpass: ${POSTGRES_PASSWORD}
+  dbpass: ${POSTGRES_PASSWORD:}
 
 #If you use a database then uncomment below lines and update db properties accordingly
 spring:

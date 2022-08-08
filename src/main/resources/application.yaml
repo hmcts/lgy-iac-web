@@ -5,6 +5,7 @@ logging:
   level:
     root: INFO
     org.flywaydb.core.Flyway: DEBUG
+    java.sql: DEBUG
 
 management:
   endpoint:
@@ -32,9 +33,9 @@ spring:
     import: "optional:configtree:/mnt/secrets/lgy-iac/"
   application:
     name: lgy-iac-web
-  datasource:
+#datasource:
 #    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://${env.dbhost}:${env.dbport}/${env.dbname}
+#    url: jdbc:postgresql://${env.dbhost}:${env.dbport}/${env.dbname}?user=${env.dbuser}&password=${env.dbpass}&sslmode=require
 #    username: ${DB_USER_NAME}
 #    password: ${DB_PASSWORD}
 #    properties:
@@ -57,4 +58,4 @@ spring:
 dbMigration:
   # When true, the app will run DB migration on startup.
   # Otherwise, it will just check if all migrations have been applied (and fail to start if not).
-  runOnStartup: ${RUN_DB_MIGRATION_ON_STARTUP:false}
+  runOnStartup: ${RUN_DB_MIGRATION_ON_STARTUP:true}

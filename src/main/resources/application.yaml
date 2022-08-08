@@ -55,6 +55,9 @@ spring:
 #            # silence the 'wall-of-text' - unnecessary exception throw about blob types
 #            non_contextual_creation: true
 
+flyway.enabled: ${ENABLE_DB_MIGRATE:true}
+flyway.locations: classpath:db/migration
+
 dbMigration:
   # When true, the app will run DB migration on startup.
   # Otherwise, it will just check if all migrations have been applied (and fail to start if not).

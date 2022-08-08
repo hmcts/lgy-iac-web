@@ -32,16 +32,16 @@ public class RootController {
     @Value("${env.dbhost}")
     private String dbHost;
 
-    @Value("${spring.datasource.dbport}")
+    @Value("${env.dbport}")
     private String dbPort;
 
-    @Value("${spring.datasource.dbname}")
+    @Value("${env.dbname}")
     private String dbName;
 
-    @Value("${spring.datasource.dbuser}")
+    @Value("${env.dbuser}")
     private String dbUser;
 
-    @Value("${spring.datasource.dbpass}")
+    @Value("${env.dbpass}")
     private String dbPass;
 
     @Operation(summary = "Get welcome api",

@@ -1,6 +1,11 @@
 server:
   port: 8080
 
+logging:
+  level:
+    root: INFO
+    org.flywaydb.core.Flyway: DEBUG
+
 management:
   endpoint:
     health:
@@ -17,7 +22,7 @@ springdoc:
 #If you use a database then uncomment below lines and update db properties accordingly
 spring:
   config:
-    import: "optional:configtree:/mnt/secrets/dts-legacy/"
+    import: "optional:configtree:/mnt/secrets/lgy-iac/"
   application:
     name: lgy-iac-web
 #  datasource:
@@ -45,4 +50,4 @@ spring:
 dbMigration:
   # When true, the app will run DB migration on startup.
   # Otherwise, it will just check if all migrations have been applied (and fail to start if not).
-  runOnStartup: ${RUN_DB_MIGRATION_ON_STARTUP:true}
+  runOnStartup: ${RUN_DB_MIGRATION_ON_STARTUP:false}

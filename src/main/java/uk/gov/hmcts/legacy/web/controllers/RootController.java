@@ -15,6 +15,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Properties;
 
 import static org.springframework.http.MediaType.TEXT_PLAIN_VALUE;
 import static org.springframework.http.ResponseEntity.ok;
@@ -31,8 +32,17 @@ public class RootController {
     @Value("${env.dbhost}")
     private String dbHost;
 
-    @Value("${spring.datasource.url}")
-    private String dbUrl;
+    @Value("${env.dbport}")
+    private String dbPort;
+
+    @Value("${env.dbname}")
+    private String dbName;
+
+    @Value("${env.dbuser}")
+    private String dbUser;
+
+    @Value("${env.dbpass}")
+    private String dbPass;
 
     @Operation(summary = "Get welcome api",
         description = "This is a welcome endpoint"
@@ -46,11 +56,14 @@ public class RootController {
     @SuppressWarnings("PMD.CloseResource")
     public ResponseEntity<String> welcome() {
 
-        LOGGER.info("dbHost is " + dbHost);
-        LOGGER.info("dbUrl is " + dbUrl);
+        Properties connectionInfo = new Properties();
+        connectionInfo.setProperty("user", dbUser);
+        connectionInfo.setProperty("password", dbPass);
 
-        LOGGER.info("testing connection to database....");
-        try (Connection conn = DriverManager.getConnection(dbUrl)) {
+        String dbUrl = String.format("jdbc:postgresql://%s:%s/%s?ssl_mode=require", dbHost, dbPort, dbName);
+        LOGGER.info("testing connection to database.... with url <" + dbUrl + "> user <" + dbUser + ">");
+
+        try (Connection conn = DriverManager.getConnection(dbUrl, connectionInfo)) {
             LOGGER.info("connection OK - select from table");
             try (PreparedStatement pstmt = conn.prepareStatement("SELECT 1 FROM recipe")) {
                 ResultSet rs = pstmt.executeQuery();

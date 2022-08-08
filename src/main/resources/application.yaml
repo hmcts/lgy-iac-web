@@ -34,7 +34,7 @@ spring:
     name: lgy-iac-web
   datasource:
 #    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://${env.dbhost}:${env.dbport}/${env.dbname}?user=${env.dbuser}&password=${env.dbpass}&sslmode=require
+    url: jdbc:postgresql://${env.dbhost}:${env.dbport}/${env.dbname}
 #    username: ${DB_USER_NAME}
 #    password: ${DB_PASSWORD}
 #    properties:

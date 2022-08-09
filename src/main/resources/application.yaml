@@ -3,9 +3,7 @@ server:
 
 logging:
   level:
-    root: INFO
-    org.flywaydb.core.Flyway: DEBUG
-    java.sql: DEBUG
+    root: DEBUG
 
 management:
   endpoint:
@@ -21,43 +19,30 @@ springdoc:
   packagesToScan: uk.gov.hmcts.legacy.web.controllers
 
 env:
-  dbhost: ${POSTGRES_HOST:postgresql-11-staging.cutundmgf1ze.eu-west-2.rds.amazonaws.com}
+  dbhost: ${POSTGRES_HOST:localhost}
   dbport: ${POSTGRES_PORT:5432}
   dbname: ${POSTGRES_DATABASE:postgres}
   dbuser: ${POSTGRES_USER:dbadmin}
   dbpass: ${POSTGRES_PASSWORD:}
 
-#If you use a database then uncomment below lines and update db properties accordingly
 spring:
   config:
     import: "optional:configtree:/mnt/secrets/lgy-iac/"
   application:
     name: lgy-iac-web
-#datasource:
-#    driver-class-name: org.postgresql.Driver
-#    url: jdbc:postgresql://${env.dbhost}:${env.dbport}/${env.dbname}?user=${env.dbuser}&password=${env.dbpass}&sslmode=require
-#    username: ${DB_USER_NAME}
-#    password: ${DB_PASSWORD}
-#    properties:
-#      charSet: UTF-8
-#    hikari:
-#      minimumIdle: 2
-#      maximumPoolSize: 10
-#      idleTimeout: 10000
-#      poolName: {to-be-defined}HikariCP
-#      maxLifetime: 7200000
-#      connectionTimeout: 30000
-#  jpa:
-#    properties:
-#      hibernate:
-#        jdbc:
-#          lob:
-#            # silence the 'wall-of-text' - unnecessary exception throw about blob types
-#            non_contextual_creation: true
-
-flyway:
-  enabled: ${RUN_DB_MIGRATION_ON_STARTUP:true}
-  locations: classpath:db/migration
+  flyway:
+    enabled: ${RUN_DB_MIGRATION_ON_STARTUP:true}
+    url: ${FLYWAY_URL:${spring.datasource.url}}
+    user: ${FLYWAY_USER:${env.dbuser}}
+    password: ${FLYWAY_PASSWORD:}
+    baselineOnMigrate: true
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${env.dbhost}:${env.dbport}/${env.dbname}?sslmode=require
+    username: ${env.dbname}
+    password: ${env.dbpass}
+    properties:
+      charSet: UTF-8
 
 dbMigration:
   # When true, the app will run DB migration on startup.

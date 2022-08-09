@@ -8,7 +8,6 @@ import uk.gov.hmcts.legacy.web.exception.PendingMigrationScriptException;
 
 import java.util.stream.Stream;
 
-
 public class FlywayNoOpStrategy implements FlywayMigrationStrategy {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(FlywayNoOpStrategy.class);

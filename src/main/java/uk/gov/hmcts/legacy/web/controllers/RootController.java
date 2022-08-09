@@ -44,6 +44,9 @@ public class RootController {
     @Value("${env.dbpass}")
     private String dbPass;
 
+    @Value("${dbMigration.runOnStartup}")
+    private String dbRunAtStartup;
+
     @Operation(summary = "Get welcome api",
         description = "This is a welcome endpoint"
     )
@@ -55,6 +58,8 @@ public class RootController {
 
     @SuppressWarnings("PMD.CloseResource")
     public ResponseEntity<String> welcome() {
+
+        LOGGER.info("Run migration is <" + dbRunAtStartup + ">");
 
         Properties connectionInfo = new Properties();
         connectionInfo.setProperty("user", dbUser);

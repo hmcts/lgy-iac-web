@@ -32,10 +32,10 @@ spring:
   application:
     name: lgy-iac-web
   flyway:
-    enabled: ${RUN_DB_MIGRATION_ON_STARTUP:true}
+    enabled: ${RUN_DB_MIGRATION_ON_STARTUP}
     url: ${FLYWAY_URL:${spring.datasource.url}}
     user: ${FLYWAY_USER:${env.dbuser}}
-    password: ${FLYWAY_PASSWORD:}
+    password: ${FLYWAY_PASSWORD:dummy}
     baselineOnMigrate: true
   datasource:
     driver-class-name: org.postgresql.Driver
@@ -49,3 +49,18 @@ dbMigration:
   # When true, the app will run DB migration on startup.
   # Otherwise, it will just check if all migrations have been applied (and fail to start if not).
   runOnStartup: ${RUN_DB_MIGRATION_ON_STARTUP:true}
+
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+  flyway:
+    enabled: false
+---
+spring:
+  config:
+    activate:
+      on-profile: smoke
+  flyway:
+    enabled: false

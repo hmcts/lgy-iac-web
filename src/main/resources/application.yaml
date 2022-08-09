@@ -3,7 +3,8 @@ server:
 
 logging:
   level:
-    root: DEBUG
+    root: INFO
+    org.flywaydb.core.Flyway: DEBUG
 
 management:
   endpoint:

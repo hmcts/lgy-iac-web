@@ -60,6 +60,8 @@ public class RootController {
     public ResponseEntity<String> welcome() {
 
         LOGGER.info("Run migration is <" + dbRunAtStartup + ">");
+        LOGGER.info("dbUser <" + dbUser + ">");
+        LOGGER.info("dbPass <" + dbPass + ">");
 
         Properties connectionInfo = new Properties();
         connectionInfo.setProperty("user", dbUser);

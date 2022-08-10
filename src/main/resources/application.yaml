@@ -32,7 +32,8 @@ spring:
   application:
     name: lgy-iac-web
   flyway:
-    enabled: ${RUN_DB_MIGRATION_ON_STARTUP}
+    #enabled: ${RUN_DB_MIGRATION_ON_STARTUP}
+    enabled: false
     url: ${FLYWAY_URL:${spring.datasource.url}}
     user: ${FLYWAY_USER:${env.dbuser}}
     password: ${FLYWAY_PASSWORD:dummy}

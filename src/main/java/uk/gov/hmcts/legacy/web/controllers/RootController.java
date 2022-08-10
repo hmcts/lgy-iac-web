@@ -59,7 +59,7 @@ public class RootController {
     })
     @RequestMapping(value = "/", method = GET, produces = TEXT_PLAIN_VALUE)
 
-    @SuppressWarnings("PMD.CloseResource")
+    @SuppressWarnings({"PMD.CloseResource", "PMD.AvoidLiteralsInIfCondition"})
     public ResponseEntity<String> welcome() {
 
         LOGGER.info("Run migration is <" + dbRunAtStartup + ">");
@@ -70,25 +70,28 @@ public class RootController {
         LOGGER.info("dPort <" + dbPort + ">");
         LOGGER.info("dbName <" + dbName + ">");
 
-        Properties connectionInfo = new Properties();
-        connectionInfo.setProperty("user", dbUser);
-        connectionInfo.setProperty("password", dbPass);
+        if (!"localhost".equals(dbHost)) {
 
-        String dbUrl = String.format("jdbc:postgresql://%s:%s/%s?ssl_mode=require", dbHost, dbPort, dbName);
-        LOGGER.info("testing connection to database.... with url <" + dbUrl + "> user <" + dbUser + ">");
+            Properties connectionInfo = new Properties();
+            connectionInfo.setProperty("user", dbUser);
+            connectionInfo.setProperty("password", dbPass);
 
-        try (Connection conn = DriverManager.getConnection(dbUrl, connectionInfo)) {
-            LOGGER.info("connection OK - select from fees table");
-            try (PreparedStatement pstmt = conn.prepareStatement("SELECT 1 FROM dbo.fees")) {
-                ResultSet rs = pstmt.executeQuery();
-                if (rs.next()) {
-                    LOGGER.info("retrieved record from table");
-                } else {
-                    LOGGER.info("Error: no data retrieved");
+            String dbUrl = String.format("jdbc:postgresql://%s:%s/%s?ssl_mode=require", dbHost, dbPort, dbName);
+            LOGGER.info("testing connection to database.... with url <" + dbUrl + "> user <" + dbUser + ">");
+
+            try (Connection conn = DriverManager.getConnection(dbUrl, connectionInfo)) {
+                LOGGER.info("connection OK - select from fees table");
+                try (PreparedStatement pstmt = conn.prepareStatement("SELECT 1 FROM dbo.fees")) {
+                    ResultSet rs = pstmt.executeQuery();
+                    if (rs.next()) {
+                        LOGGER.info("retrieved record from table");
+                    } else {
+                        LOGGER.info("Error: no data retrieved");
+                    }
                 }
+            } catch (SQLException e) {
+                LOGGER.error("jdbc failure: " + e.getMessage() + ":" + e.getSQLState());
             }
-        } catch (SQLException e) {
-            LOGGER.error("jdbc failure: " + e.getMessage() + ":" + e.getSQLState());
         }
 
         return ok("Welcome to lgy-iac-web dts-legacy application. My favourite legacy app is "

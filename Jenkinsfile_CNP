@@ -6,9 +6,31 @@ def type = "java"
 def product = "lgy-iac"
 def component = "web"
 
+def vaultOverrides = [
+  'dev': 'stg'
+]
+
+def vaultSecrets = [
+  'lgy-iac-${env}': [
+    secret('web-POSTGRES-PASS', 'POSTGRES_PASSWORD'),
+    secret('web-POSTGRES-USER', 'POSTGRES_USER'),
+  ]
+]
+
+static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
+  [$class     : 'AzureKeyVaultSecret',
+   secretType : 'Secret',
+   name       : secretName,
+   version    : '',
+   envVariable: envVar
+  ]
+}
+
 // docs:
 // 1. https://github.com/hmcts/cnp-jenkins-library
 // 2. https://hmcts.github.io/ways-of-working/common-pipeline/common-pipeline.html#common-pipeline
 withPipeline(type, product, component) {
+  overrideVaultEnvironments(vaultOverrides)
+  loadVaultSecrets(secrets)
   enableDbMigration(product)
 }

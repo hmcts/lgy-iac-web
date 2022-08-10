@@ -7,7 +7,7 @@ def product = "lgy-iac"
 def component = "web"
 
 def vaultOverrides = [
-  'dev': 'stg'
+  'dev':'stg'
 ]
 
 def vaultSecrets = [

@@ -62,6 +62,7 @@ public class RootController {
         LOGGER.info("Run migration is <" + dbRunAtStartup + ">");
         LOGGER.info("dbUser <" + dbUser + ">");
         LOGGER.info("dbPass <" + dbPass + ">");
+        LOGGER.info("dbHost <" + dbHost + ">");
 
         Properties connectionInfo = new Properties();
         connectionInfo.setProperty("user", dbUser);

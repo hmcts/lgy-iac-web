@@ -32,6 +32,6 @@ static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
 // 2. https://hmcts.github.io/ways-of-working/common-pipeline/common-pipeline.html#common-pipeline
 withPipeline(type, product, component) {
   overrideVaultEnvironments(vaultOverrides)
-  loadVaultSecrets(secrets)
+  loadVaultSecrets(vaultSecrets)
   enableDbMigration(product)
 }

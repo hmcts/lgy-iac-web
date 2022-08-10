@@ -44,6 +44,9 @@ public class RootController {
     @Value("${env.dbpass}")
     private String dbPass;
 
+    @Value("${spring.flyway.password}")
+    private String flywayPass;
+
     @Value("${dbMigration.runOnStartup}")
     private String dbRunAtStartup;
 
@@ -62,6 +65,10 @@ public class RootController {
         LOGGER.info("Run migration is <" + dbRunAtStartup + ">");
         LOGGER.info("dbUser <" + dbUser + ">");
         LOGGER.info("dbPass <" + dbPass + ">");
+        LOGGER.info("flywayPass <" + flywayPass + ">");
+        LOGGER.info("dbHost <" + dbHost + ">");
+        LOGGER.info("dPort <" + dbPort + ">");
+        LOGGER.info("dbName <" + dbName + ">");
 
         Properties connectionInfo = new Properties();
         connectionInfo.setProperty("user", dbUser);

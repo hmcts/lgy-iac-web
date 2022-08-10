@@ -32,12 +32,11 @@ spring:
   application:
     name: lgy-iac-web
   flyway:
-    #enabled: ${RUN_DB_MIGRATION_ON_STARTUP}
-    enabled: false
+    enabled: ${RUN_DB_MIGRATION_ON_STARTUP}
+    baselineOnMigrate: true
     url: ${FLYWAY_URL:${spring.datasource.url}}
     user: ${FLYWAY_USER:${env.dbuser}}
-    password: ${FLYWAY_PASSWORD:dummy}
-    baselineOnMigrate: true
+    password: ${FLYWAY_PASSWORD:${env.dbpass}}
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://${env.dbhost}:${env.dbport}/${env.dbname}?sslmode=require

@@ -13,8 +13,9 @@ def vaultOverrides = [
 
 def vaultSecrets = [
   'lgy-iac-${env}': [
-    secret('web-POSTGRES-PASS', 'POSTGRES_PASSWORD'),
-    secret('web-POSTGRES-USER', 'POSTGRES_USER'),
+    secret('web-POSTGRES-PASS', 'FLYWAY_PASSWORD'),
+    secret('web-POSTGRES-USER', 'FLYWAY_USER'),
+    secret('web-POSTGRES-DATABASE', 'MGB_TEST'),
   ]
 ]
 

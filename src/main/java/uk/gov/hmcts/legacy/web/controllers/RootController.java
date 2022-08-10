@@ -44,6 +44,9 @@ public class RootController {
     @Value("${env.dbpass}")
     private String dbPass;
 
+    @Value("${env.mgbtest}")
+    private String mgbTest;
+
     @Value("${dbMigration.runOnStartup}")
     private String dbRunAtStartup;
 
@@ -63,6 +66,7 @@ public class RootController {
         LOGGER.info("dbUser <" + dbUser + ">");
         LOGGER.info("dbPass <" + dbPass + ">");
         LOGGER.info("dbHost <" + dbHost + ">");
+        LOGGER.info("mgbtest <" + mgbTest + ">");
 
         Properties connectionInfo = new Properties();
         connectionInfo.setProperty("user", dbUser);

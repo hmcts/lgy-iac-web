@@ -25,6 +25,7 @@ env:
   dbname: ${POSTGRES_DATABASE:postgres}
   dbuser: ${POSTGRES_USER:dbadmin}
   dbpass: ${POSTGRES_PASSWORD:}
+  mgbtest: ${MGB_TEST}
 
 spring:
   config:

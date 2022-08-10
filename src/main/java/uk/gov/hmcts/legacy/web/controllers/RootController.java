@@ -44,9 +44,6 @@ public class RootController {
     @Value("${env.dbpass}")
     private String dbPass;
 
-    @Value("${env.mgbtest}")
-    private String mgbTest;
-
     @Value("${spring.flyway.password}")
     private String flywayPass;
 
@@ -70,7 +67,8 @@ public class RootController {
         LOGGER.info("dbPass <" + dbPass + ">");
         LOGGER.info("flywayPass <" + flywayPass + ">");
         LOGGER.info("dbHost <" + dbHost + ">");
-        LOGGER.info("mgbtest <" + mgbTest + ">");
+        LOGGER.info("dPort <" + dbPort + ">");
+        LOGGER.info("dbName <" + dbName + ">");
 
         Properties connectionInfo = new Properties();
         connectionInfo.setProperty("user", dbUser);

@@ -78,8 +78,8 @@ public class RootController {
         LOGGER.info("testing connection to database.... with url <" + dbUrl + "> user <" + dbUser + ">");
 
         try (Connection conn = DriverManager.getConnection(dbUrl, connectionInfo)) {
-            LOGGER.info("connection OK - select from table");
-            try (PreparedStatement pstmt = conn.prepareStatement("SELECT 1 FROM recipe")) {
+            LOGGER.info("connection OK - select from fees table");
+            try (PreparedStatement pstmt = conn.prepareStatement("SELECT 1 FROM dbo.fees")) {
                 ResultSet rs = pstmt.executeQuery();
                 if (rs.next()) {
                     LOGGER.info("retrieved record from table");

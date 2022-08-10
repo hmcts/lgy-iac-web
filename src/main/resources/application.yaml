@@ -22,9 +22,9 @@ springdoc:
 env:
   dbhost: ${POSTGRES_HOST:localhost}
   dbport: ${POSTGRES_PORT:5432}
-  dbname: ${POSTGRES_DATABASE:postgres}
-  dbuser: ${POSTGRES_USER:dbadmin}
-  dbpass: ${POSTGRES_PASSWORD:}
+  dbname: ${POSTGRES_DATABASE:lgyiac}
+  dbuser: ${POSTGRES_USER:lgyiacadmin}
+  dbpass: ${POSTGRES_PASSWORD:dummy}
 
 spring:
   config:
@@ -32,7 +32,7 @@ spring:
   application:
     name: lgy-iac-web
   flyway:
-    enabled: ${RUN_DB_MIGRATION_ON_STARTUP}
+    enabled: ${RUN_DB_MIGRATION_ON_STARTUP:true}
     baselineOnMigrate: true
     url: ${FLYWAY_URL:${spring.datasource.url}}
     user: ${FLYWAY_USER:${env.dbuser}}

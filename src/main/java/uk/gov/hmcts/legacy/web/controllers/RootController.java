@@ -47,6 +47,9 @@ public class RootController {
     @Value("${env.mgbtest}")
     private String mgbTest;
 
+    @Value("${spring.flyway.password}")
+    private String flywayPass;
+
     @Value("${dbMigration.runOnStartup}")
     private String dbRunAtStartup;
 
@@ -65,6 +68,7 @@ public class RootController {
         LOGGER.info("Run migration is <" + dbRunAtStartup + ">");
         LOGGER.info("dbUser <" + dbUser + ">");
         LOGGER.info("dbPass <" + dbPass + ">");
+        LOGGER.info("flywayPass <" + flywayPass + ">");
         LOGGER.info("dbHost <" + dbHost + ">");
         LOGGER.info("mgbtest <" + mgbTest + ">");
 

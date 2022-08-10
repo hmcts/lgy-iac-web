@@ -6,3 +6,6 @@ java:
   environment:
     FAVOURITE_FRUIT: IAC Fees Dev
     RUN_DB_MIGRATION_ON_STARTUP: 'true'
+    FLYWAY_PASSWORD: ${POSTGRES_PASS}
+    MGB_TEST: ${MGB_TEST}
+

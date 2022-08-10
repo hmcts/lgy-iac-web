@@ -22,4 +22,6 @@ public class FlywayNoOpStrategy implements FlywayMigrationStrategy {
                 throw new PendingMigrationScriptException(info.getScript());
             });
     }
+
+
 }

@@ -24,3 +24,8 @@ variable "jenkins_AAD_objectId" {
   description = "This is the ID of the Application you wish to give access to the Key Vault via the access policy"
 }
 
+// Variables from replicated storage-account.tf
+variable "mgmt_subscription_id" {}
+variable storage_account_repl_type {
+  default = "LRS"
+}

@@ -20,7 +20,7 @@ locals {
   jenkins_subnet_ids = [for k, v in data.azurerm_subnet.jenkins_subnets : data.azurerm_subnet.jenkins_subnets[k].id]
   env_subnet_ids = [for k, v in data.azurerm_subnet.environment_subnets : data.azurerm_subnet.environment_subnets[k].id]
 
-  tags = "iacfees"
+  tags    = var.common_tags
 }
 
 module "storage_account" {

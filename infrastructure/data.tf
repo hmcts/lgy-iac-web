@@ -4,6 +4,8 @@
 
 # *** Maybe need to add perftest (ss-test-vnet) ***
 
+
+
 locals {
   subnet_names = [
     "aks-00",
@@ -22,7 +24,7 @@ data "azurerm_subnet" "jenkins_subnets" {
 
 data "azurerm_subnet" "environment_subnets" {
   for_each             = toset(local.subnet_names)
-  provider             = azurerm.mgmt
+  provider             = azurerm.aks
   name                 = each.value
   virtual_network_name = "ss-${var.env}-vnet"
   resource_group_name  = "ss-${var.env}-network-rg"

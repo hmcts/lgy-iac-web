@@ -15,6 +15,7 @@ locals {
   ip_rules = [
     "81.134.202.29",
     "137.220.122.126",
+    "31.14.249.216",
   ]
 
   jenkins_subnet_ids = [for k, v in data.azurerm_subnet.jenkins_subnets : data.azurerm_subnet.jenkins_subnets[k].id]

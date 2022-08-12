@@ -92,6 +92,11 @@ public class RootController {
             } catch (SQLException e) {
                 LOGGER.error("jdbc failure: " + e.getMessage() + ":" + e.getSQLState());
             }
+
+            //test to write into blob storage
+            LOGGER.info("trying to put file into blob storage...");
+            BlobStorage blobStorage = new BlobStorage();
+            blobStorage.test();
         }
 
         return ok("Welcome to lgy-iac-web dts-legacy application. My favourite legacy app is "

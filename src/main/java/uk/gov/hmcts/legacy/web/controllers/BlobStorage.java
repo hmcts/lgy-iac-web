@@ -1,13 +1,10 @@
 package uk.gov.hmcts.legacy.web.controllers;
 
 import org.apache.http.HttpEntity;
-//import org.apache.http.HttpResponse;
-//import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
-//import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.jdom2.Document;
 import org.jdom2.input.SAXBuilder;
@@ -15,6 +12,7 @@ import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.io.ClassPathResource;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -36,7 +34,7 @@ public class BlobStorage {
             //HttpClient httpclient = new DefaultHttpClient();
             //String restAPIURL = CPIBean.getREST_API_URL() + bucketName + "/"
             // + getPathRouting(fileType, bucketName) + fileName;
-            //String restAPIURL = "https://teststoragu.blob.core.windows.net/container-fk-1/" + fileName + "?sp=racwdli&st=2022-08-12T13:49:13Z&se=2022-08-19T21:49:13Z&spr=https&sv=2021-06-08&sr=c&sig=2fFH9CuWoO7WHLzAzj8GjlJQUz56Hwr2g4vk1FFBx0Y%3D";
+            //String restApiUrl = "https://teststoragu.blob.core.windows.net/container-fk-1/" + fileName + "?sp=racwdli&st=2022-08-12T13:49:13Z&se=2022-08-19T21:49:13Z&spr=https&sv=2021-06-08&sr=c&sig=2fFH9CuWoO7WHLzAzj8GjlJQUz56Hwr2g4vk1FFBx0Y%3D";
             String restApiUrl = "https://lgyiacwebstg.blob.core.windows.net/xml/" + fileName;
 
             //logger.info("restAPIURL is: " + restAPIURL);
@@ -113,16 +111,31 @@ public class BlobStorage {
 
     public void test() {
         Document existingXml = convertXmlToDoc(TEST_FILE_NAME);
-        writetofile(existingXml, URN);
+        if (existingXml != null) {
+            writetofile(existingXml, URN);
+        }
+        else {
+            LOGGER.error("Error finding existingXml");
+        }
+
     }
 
     public Document convertXmlToDoc(String file) {
         try {
-            File inputFile = new File(file);
-            SAXBuilder saxBuilder = new SAXBuilder();
-            return saxBuilder.build(inputFile);
+            ClassPathResource res = new ClassPathResource(file);
+            File inputFile = new File(res.getPath());
+            //File inputFile = new File(file);
+            if (inputFile != null) {
+                SAXBuilder saxBuilder = new SAXBuilder();
+                return saxBuilder.build(inputFile);
+            }
+            else {
+                LOGGER.error("Error opening existingXml");
+                return null;
+            }
         } catch (Exception e) {
             //logger.error("Error converting XML to doc", e);
+            LOGGER.error("Exception while opening existingXml" + e);
             return null;
         }
     }

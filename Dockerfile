@@ -48,7 +48,9 @@ RUN mkdir -p /opt/moj/IACFees.files/Backup/XML_Files/
 
 ADD deploy/IACFees.war /opt/tomcat/webapps
 ADD deploy/start_tomcat.sh /opt/tomcat/bin
-RUN chmod +x /opt/tomcat/bin/start_tomcat.sh
+
+RUN chmod 777 /opt/tomcat/bin
+RUN chmod 777 /opt/tomcat/bin/start_tomcat.sh
 
 # The default ENTRYPOINT is the equivalent of "java -jar" which gives an error about java specification
 # Make sure to call a valid entrypoint (even on the command line, e.g. '--entrypoint "/busybox/sh"')

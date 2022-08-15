@@ -1,11 +1,14 @@
 package uk.gov.hmcts.legacy.web.controllers;
 
 import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
+//import org.apache.http.HttpResponse;
+//import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.ByteArrayEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.client.CloseableHttpClient;
+//import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.client.HttpClients;
 import org.jdom2.Document;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.Format;
@@ -21,15 +24,16 @@ public class BlobStorage {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(RootController.class);
 
-    static String referenceXMLName = "229910219260.xml";
-    static String URN = "TestXML01";
+    private static final String  TEST_FILE_NAME = "229910219260.xml";
+    private static final String URN = "TestXML01";
 
-    public boolean uploadToBlobStorage(HttpEntity data, String fileName, String containerName) {
+    public boolean uploadToBlobStorage(HttpEntity data, String fileName, String containerName) throws IOException {
 
-        try {
+        //CloseableHttpClient httpclient = HttpClients.createDefault();
+        try (CloseableHttpClient httpclient = HttpClients.createDefault()) {
             //String fileType = getFileTypeFromName(fileName);
 
-            HttpClient httpclient = new DefaultHttpClient();
+            //HttpClient httpclient = new DefaultHttpClient();
             //String restAPIURL = CPIBean.getREST_API_URL() + bucketName + "/"
             // + getPathRouting(fileType, bucketName) + fileName;
             //String restAPIURL = "https://teststoragu.blob.core.windows.net/container-fk-1/" + fileName + "?sp=racwdli&st=2022-08-12T13:49:13Z&se=2022-08-19T21:49:13Z&spr=https&sv=2021-06-08&sr=c&sig=2fFH9CuWoO7WHLzAzj8GjlJQUz56Hwr2g4vk1FFBx0Y%3D";
@@ -41,29 +45,31 @@ public class BlobStorage {
             put.addHeader("Accept", "*/*");
             put.addHeader("Content-type", "multipart/form-data");
             put.addHeader("x-ms-blob-type", "BlockBlob");
-            //put.addHeader("x-ms-blob-content-disposition", "attachment; filename=\"test01.doc\"");
 
             put.setEntity(data);
 
-            HttpResponse postResponse = httpclient.execute(put);
+            //HttpResponse postResponse = httpclient.execute(put);
+            try (CloseableHttpResponse postResponse = httpclient.execute(put)) {
+                //logger.info(postResponse);
+                //logger.info("Status Code is: " + post Response.getStatusLine().getStatusCode());
 
-            //logger.info(postResponse);
-            //logger.info("Status Code is: " + post Response.getStatusLine().getStatusCode());
+                LOGGER.info("blob storage response: " + postResponse.getStatusLine().getStatusCode() + "---"
+                                + postResponse.getStatusLine().getReasonPhrase());
 
-            //System.out.println("************* blob storage response" + postResponse.getStatusLine().getStatusCode()
-            // + postResponse.getStatusLine().getReasonPhrase());
-            LOGGER.info("blob storage response: " + postResponse.getStatusLine().getStatusCode() + "---"
-                            + postResponse.getStatusLine().getReasonPhrase());
-
-            if (postResponse.getStatusLine().getStatusCode() != 200) {
-                throw new Exception("S3Storage.uploadToS3 - Filename: " + fileName);
-            } else {
+                /*if (postResponse.getStatusLine().getStatusCode() != 200) {
+                    //throw new Exception("S3Storage.uploadToS3 - Filename: " + fileName);
+                    LOGGER.error("BlobStorage.uploadToContainer - Filename: " + fileName);
+                } else {
+                    return true;
+                }*/
                 return true;
             }
+
 
         } catch (Exception ex) {
             // TO-DO - add notification system to team to alert of failed upload eg. Slack or Email etc
             //logger.error("S3Storage.uploadToS3", ex);
+            LOGGER.error("S3Storage.uploadToS3", ex);
             return false;
         }
 
@@ -100,12 +106,13 @@ public class BlobStorage {
             //}
         } catch (IOException e) {
             //logger.error("DocWriteDOM.writetofile", e);
+            LOGGER.error("DocWriteDOM.writetofile", e);
         }
 
     }
 
     public void test() {
-        Document existingXml = convertXmlToDoc("229910219260.xml");
+        Document existingXml = convertXmlToDoc(TEST_FILE_NAME);
         writetofile(existingXml, URN);
     }
 

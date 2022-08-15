@@ -13,9 +13,9 @@ RUN mkdir /opt/app/tomcat/
 WORKDIR /opt/app/tomcat
 
 #Install Tomcat 8 (Version 8.5.81)
-RUN wget https://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.81/bin/apache-tomcat-8.5.81.tar.gz
+RUN wget https://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.82/bin/apache-tomcat-8.5.82.tar.gz
 RUN tar xvfz apache*.tar.gz
-RUN mv apache-tomcat-8.5.81/ /opt/tomcat/
+RUN mv apache-tomcat-8.5.82/ /opt/tomcat/
 
 # Verify Java version
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64

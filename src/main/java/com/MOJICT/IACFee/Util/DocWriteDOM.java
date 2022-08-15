@@ -20,7 +20,7 @@ import com.MOJICT.IACFee.Beans.*;
 
 /**
  * Make up and write an XML document, using DOM UPDATED FOR JAXP.
- * 
+ *
  * @author Ian Darwin, http://www.darwinsys.com/
  * @version $Id: DocWriteDOM.java,v 1.6 2004/03/01 03:42:57 ian Exp $
  */
@@ -39,7 +39,7 @@ public class DocWriteDOM {
 	protected Namespace nm2 = Namespace.getNamespace("xsi", "http://www.w3.org/2001/XMLSchema-instance");
 
 	/**
-	 * 
+	 *
 	 * @return
 	 */
 	public String getTitle() {
@@ -47,7 +47,7 @@ public class DocWriteDOM {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param title
 	 */
 	public void setTitle(String title) {
@@ -55,7 +55,7 @@ public class DocWriteDOM {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param doc
 	 * @param req
 	 * @param urn
@@ -67,8 +67,8 @@ public class DocWriteDOM {
 		try {
 			XMLOutputter outputter = new XMLOutputter();
 
-			//outputter.getFormat().setEncoding("UTF-8"); Version 1.13
-			outputter.setEncoding("UTF-8");
+			outputter.getFormat().setEncoding("UTF-8"); //Version 1.13
+			//outputter.setEncoding("UTF-8"); // Version 1.0
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
 			outputter.output(doc, baos);
 
@@ -90,7 +90,7 @@ public class DocWriteDOM {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param frm
 	 * @param req
 	 * @param URN
@@ -103,7 +103,7 @@ public class DocWriteDOM {
 		DocWriteDOM.writetofile(doc, req, frm.getSubmissionURN());
 		return "success";
 	}
-	
+
 	public static String getxmlnewappeal(IAFT5Bean frm, HttpServletRequest req, String URN) throws IOException {
 		DocWriteDOM dw = new DocWriteDOM();
 		Document doc = dw.makeDocNewAppeal(frm);
@@ -124,7 +124,7 @@ public class DocWriteDOM {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param frm
 	 * @param req
 	 * @param URN
@@ -140,7 +140,7 @@ public class DocWriteDOM {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param frm
 	 * @param req
 	 * @param URN
@@ -155,7 +155,7 @@ public class DocWriteDOM {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param frm
 	 * @param req
 	 * @return
@@ -174,7 +174,7 @@ public class DocWriteDOM {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param frm
 	 * @return
 	 */
@@ -340,7 +340,7 @@ public class DocWriteDOM {
 			 * if(frm.getS1f_addr4()!=" " || frm.getS1f_addr4()!=null) { Element
 			 * Line= getElementWithDefaultNamespace("Line");
 			 * Line.addContent(frm.getS1f_addr4()); Address.addContent(Line);
-			 * 
+			 *
 			 * }
 			 */
 			try {
@@ -355,8 +355,8 @@ public class DocWriteDOM {
 			Element PostCode = getElementWithDefaultNamespace("PostCode");
 			PostCode.addContent(frm.getS1f_postcode());
 			Address.addContent(PostCode);
-			
-			
+
+
 
 			if (!frm.getS1f_email().equals("") && frm.getS1f_email() != null) {
 			Element email = getElementWithDefaultNamespace("Email");
@@ -364,8 +364,8 @@ public class DocWriteDOM {
 			email.addContent(frm.getS1f_email());
 			AppellantDetails.addContent(email);
 			}
-			 
-			
+
+
 			Element DateOfBirth = getElementWithDefaultNamespace("DateOfBirth");
 			// logger.debug(">>.............."+sdf.format(sdf.parse(frm.getS1d_dob_year()+"-"+frm.getS1d_dob_month()+"-"+frm.getS1d_dob_day())));
 			DateOfBirth.addContent(sdf.format(sdf.parse(frm.getS1d_dob_year() + "-" + frm.getS1d_dob_month() + "-"
@@ -406,7 +406,7 @@ public class DocWriteDOM {
 			AAIC.addContent(HomeOfficeDecision);
 			if(frm.getS2a().length()>1)
             {
-			
+
 			Element HomeOfficeRefNo = getElementWithDefaultNamespace("HomeOfficeRefNo");
 			HomeOfficeRefNo.addContent(frm.getS2a());
 			HomeOfficeDecision.addContent(HomeOfficeRefNo);
@@ -416,7 +416,7 @@ public class DocWriteDOM {
 			HomeOfficeDecision.addContent(PortReferenceNo);
 			if(frm.getS2c().length()>1)
             {
-			
+
 			Element COHIDRefNo = getElementWithDefaultNamespace("COHIDRefNo");
 			COHIDRefNo.addContent(frm.getS2c());
 			HomeOfficeDecision.addContent(COHIDRefNo);
@@ -436,7 +436,7 @@ public class DocWriteDOM {
 			// LegalAid.addContent("No");
 			AAIC.addContent(Appeal);
 	//*********************************Late Appeal Removed.
-			
+
 			/*Element LateAppeal = getElementWithDefaultNamespace("LateAppeal");
 			if (frm.getS3a() != null) {
 				if (frm.getS3a().length() >= 2) {
@@ -494,7 +494,7 @@ public class DocWriteDOM {
 				Element Representative = getElementWithDefaultNamespace("Representative");
 				// LegalAid.addContent("No");
 				AAIC.addContent(Representative);
-				
+
 				if (frm.getS5b().equals("00")&&frm.getS5b_other()!=null &&!frm.getS5b_other().equals("")) {
 					Element RepresentativeName = getElementWithDefaultNamespace("RepresentativeName");
 					RepresentativeName.addContent(frm.getS5b_other());
@@ -507,11 +507,11 @@ public class DocWriteDOM {
 
 				}
 				else{
-					
+
 					Element RepresentativeName = getElementWithDefaultNamespace("RepresentativeName");
 					RepresentativeName.addContent(frm.getS5a());
 					Representative.addContent(RepresentativeName);
-				} 
+				}
 
 				Element RAddress = getElementWithDefaultNamespace("RepresentativeAddress");
 				// LegalAid.addContent("No");
@@ -603,7 +603,7 @@ public class DocWriteDOM {
 	}
 
 	/**IAFT6
-	 * 
+	 *
 	 * @param frm
 	 * @return
 	 */
@@ -771,15 +771,15 @@ public class DocWriteDOM {
 			PostCode.addContent(frm.getS1f_postcode());
 			Address.addContent(PostCode);
 
-			
+
 			if (!frm.getS1f_email().equals("") && frm.getS1f_email() != null) {
 			Element email = getElementWithDefaultNamespace("Email");
 			// LegalAid.addContent("No");
 			email.addContent(frm.getS1f_email());
 			AppellantDetails.addContent(email);
 			}
-			
-			
+
+
 			Element DateOfBirth = getElementWithDefaultNamespace("DateOfBirth");
 			DateOfBirth.addContent(sdf.format(sdf.parse(frm.getS1d_dob_year() + "-" + frm.getS1d_dob_month() + "-"
 					+ frm.getS1d_dob_day())));
@@ -820,7 +820,7 @@ public class DocWriteDOM {
 			Element PortReferenceNo = getElementWithDefaultNamespace("PostReferenceNo");
 			PortReferenceNo.addContent(frm.getS2b());
 			HomeOfficeDecision.addContent(PortReferenceNo);
-			
+
 			if(frm.getS2a().length()>1)
             {
 			Element HomeOfficeRefNo = getElementWithDefaultNamespace("HomeOfficeANRefNo");
@@ -847,7 +847,7 @@ public class DocWriteDOM {
 			// LegalAid.addContent("No");
 			AAIC.addContent(Appeal);
 	//*********************************Late Appeal Removed.
-			
+
 			/*Element LateAppeal = getElementWithDefaultNamespace("LateAppeal");
 			if (frm.getS3a() != null) {
 				if (frm.getS3a().length() >= 2) {
@@ -902,7 +902,7 @@ public class DocWriteDOM {
 				// LegalAid.addContent("No");
 				AAIC.addContent(Representative);
 
-				
+
 				if (frm.getS5b().equals("00")&&frm.getS5b_other()!=null &&!frm.getS5b_other().equals("")) {
 					Element RepresentativeName = getElementWithDefaultNamespace("RepresentativeName");
 					RepresentativeName.addContent(frm.getS5b_other());
@@ -915,7 +915,7 @@ public class DocWriteDOM {
 					Representative.addContent(RepresentativeName);
 				}
 				else {
-					
+
 					Element RepresentativeName = getElementWithDefaultNamespace("RepresentativeName");
 					RepresentativeName.addContent(frm.getS5a());
 					Representative.addContent(RepresentativeName);
@@ -1072,7 +1072,7 @@ public class DocWriteDOM {
 	}
 
 	/**IAFT2
-	 * 
+	 *
 	 * @param frm
 	 * @return
 	 */
@@ -1240,15 +1240,15 @@ public class DocWriteDOM {
 			PostCode.addContent(frm.getS1f_postcode());
 			Address.addContent(PostCode);
 
-			
+
 			if (!frm.getS1f_email().equals("") && frm.getS1f_email() != null) {
 			Element email = getElementWithDefaultNamespace("Email");
 			// LegalAid.addContent("No");
 			email.addContent(frm.getS1f_email());
 			AppellantDetails.addContent(email);
 			}
-			
-			
+
+
 			Element DateOfBirth = getElementWithDefaultNamespace("DateOfBirth");
 			DateOfBirth.addContent(sdf.format(sdf.parse(frm.getS1d_dob_year() + "-" + frm.getS1d_dob_month() + "-"
 					+ frm.getS1d_dob_day())));
@@ -1305,7 +1305,7 @@ public class DocWriteDOM {
 			// LegalAid.addContent("No");
 			AAIC.addContent(Appeal);
 	//*********************************Late Appeal Removed.
-			
+
 			/*Element LateAppeal = getElementWithDefaultNamespace("LateAppeal");
 			if (frm.getS3a() != null) {
 				if (frm.getS3a().length() >= 2) {
@@ -1360,7 +1360,7 @@ public class DocWriteDOM {
 				// LegalAid.addContent("No");
 				AAIC.addContent(Representative);
 
-				
+
 				if (frm.getS5b().equals("00")&&frm.getS5b_other()!=null &&!frm.getS5b_other().equals("")) {
 					Element RepresentativeName = getElementWithDefaultNamespace("RepresentativeName");
 					RepresentativeName.addContent(frm.getS5b_other());
@@ -1373,7 +1373,7 @@ public class DocWriteDOM {
 					Representative.addContent(RepresentativeName);
 				}
 				else {
-					
+
 					Element RepresentativeName = getElementWithDefaultNamespace("RepresentativeName");
 					RepresentativeName.addContent(frm.getS5a());
 					Representative.addContent(RepresentativeName);
@@ -1530,7 +1530,7 @@ public class DocWriteDOM {
 	}
 
 	/**IAFT5
-	 * 
+	 *
 	 * @param frm
 	 * @return
 	 */
@@ -1791,7 +1791,7 @@ public class DocWriteDOM {
 			 * if(frm.getS1f_addr4()!=" " || frm.getS1f_addr4()!=null) { Element
 			 * Line= getElementWithDefaultNamespace("Line");
 			 * Line.addContent(frm.getS1f_addr4()); Address.addContent(Line);
-			 * 
+			 *
 			 * }
 			 */
 			try {
@@ -1806,8 +1806,8 @@ public class DocWriteDOM {
 			Element PostCode = getElementWithDefaultNamespace("PostCode");
 			PostCode.addContent(frm.getS1f_postcode());
 			Address.addContent(PostCode);
-			
-			
+
+
 			if (!frm.getS1f_email().equals("") && frm.getS1f_email() != null) {
 			Element email = getElementWithDefaultNamespace("Email");
 			// LegalAid.addContent("No");
@@ -1815,7 +1815,7 @@ public class DocWriteDOM {
 			AppellantDetails.addContent(email);
 			}
 
-			
+
 			Element DateOfBirth = getElementWithDefaultNamespace("DateOfBirth");
 			// logger.debug(">>.............."+sdf.format(sdf.parse(frm.getS1d_dob_year()+"-"+frm.getS1d_dob_month()+"-"+frm.getS1d_dob_day())));
 			DateOfBirth.addContent(sdf.format(sdf.parse(frm.getS1d_dob_year() + "-" + frm.getS1d_dob_month() + "-"
@@ -1853,7 +1853,7 @@ public class DocWriteDOM {
 			 * <PointsBasedRefusal>no</PointsBasedRefusal>
 			 * <DateOfApplicationDecision>2006-12-20</DateOfApplicationDecision>
 			 * </HomeOfficeDecision>
-			 * 
+			 *
 			 * V22 Schemae
 			 * <xsd:element name="HomeOfficeANRefNo" type="HomeOfficeANReferenceType" minOccurs="0"/>
 			<xsd:element name="PortReferenceNo" type="PortReferenceType" minOccurs="0"/>
@@ -1879,14 +1879,14 @@ public class DocWriteDOM {
 			HomeOfficeRefNo.addContent(frm.getS2hoan());
 			HomeOfficeDecision.addContent(HomeOfficeRefNo);
             }
-            
+
 			Element PortReferenceNo = getElementWithDefaultNamespace("PortReferenceNo");
 			PortReferenceNo.addContent(frm.getS2b());
 			HomeOfficeDecision.addContent(PortReferenceNo);
 
 			if(frm.getS2c().length()>1)
             {
-			
+
 			Element COHIDRefNo = getElementWithDefaultNamespace("COHIDRefNo");
 			COHIDRefNo.addContent(frm.getS2c());
 			HomeOfficeDecision.addContent(COHIDRefNo);
@@ -1905,7 +1905,7 @@ public class DocWriteDOM {
 				dateapplicationlodged.addContent(sdf.format(sdf.parse(frm.getS2j_service_year() + "-"
 						+ frm.getS2j_service_month() + "-" + frm.getS2j_service_day())));
 				HomeOfficeDecision.addContent(dateapplicationlodged);
-	            
+
             }
 			if(frm.getQb_lsc().equals("homeofficewaiver"))
 			{
@@ -1918,9 +1918,9 @@ public class DocWriteDOM {
 			Element Appeal = getElementWithDefaultNamespace("Appeal");
 			// LegalAid.addContent("No");
 			AAIC.addContent(Appeal);
-			
+
 			//*********************************Late Appeal Removed.
-			
+
 			/*Element LateAppeal = getElementWithDefaultNamespace("LateAppeal");
 			if (frm.getS3a() != null) {
 				if (frm.getS3a().length() >= 2) {
@@ -1984,7 +1984,7 @@ public class DocWriteDOM {
 					RepresentativeName.addContent(frm.getS5b_other());
 					Representative.addContent(RepresentativeName);
 				}
-				
+
 				else if (!frm.getS5b().trim().equals("0")&&!frm.getS5b().trim().equals("00")) {
 					logger.debug("rep");
 					Element RepresentativeName = getElementWithDefaultNamespace("RepresentativeName");
@@ -1996,7 +1996,7 @@ public class DocWriteDOM {
 					Element RepresentativeName = getElementWithDefaultNamespace("RepresentativeName");
 					RepresentativeName.addContent(frm.getS5a());
 					Representative.addContent(RepresentativeName);
-				} 
+				}
 				Element RAddress = getElementWithDefaultNamespace("RepresentativeAddress");
 				// LegalAid.addContent("No");
 				Representative.addContent(RAddress);
@@ -2088,7 +2088,7 @@ public class DocWriteDOM {
 		return doc;
 	}
 	/**IAFT7
-	 * 
+	 *
 	 * @param frm
 	 * @return
 	 */
@@ -2323,7 +2323,7 @@ public class DocWriteDOM {
 			 * if(frm.getS1f_addr4()!=" " || frm.getS1f_addr4()!=null) { Element
 			 * Line= getElementWithDefaultNamespace("Line");
 			 * Line.addContent(frm.getS1f_addr4()); Address.addContent(Line);
-			 * 
+			 *
 			 * }
 			 */
 			try {
@@ -2338,8 +2338,8 @@ public class DocWriteDOM {
 			Element PostCode = getElementWithDefaultNamespace("PostCode");
 			PostCode.addContent(frm.getS1f_postcode());
 			Address.addContent(PostCode);
-			
-			
+
+
 			if (!frm.getS1f_email().equals("") && frm.getS1f_email() != null) {
 			Element email = getElementWithDefaultNamespace("Email");
 			// LegalAid.addContent("No");
@@ -2347,7 +2347,7 @@ public class DocWriteDOM {
 			AppellantDetails.addContent(email);
 			}
 
-			
+
 			Element DateOfBirth = getElementWithDefaultNamespace("DateOfBirth");
 			// logger.debug(">>.............."+sdf.format(sdf.parse(frm.getS1d_dob_year()+"-"+frm.getS1d_dob_month()+"-"+frm.getS1d_dob_day())));
 			DateOfBirth.addContent(sdf.format(sdf.parse(frm.getS1d_dob_year() + "-" + frm.getS1d_dob_month() + "-"
@@ -2385,7 +2385,7 @@ public class DocWriteDOM {
 			 * <PointsBasedRefusal>no</PointsBasedRefusal>
 			 * <DateOfApplicationDecision>2006-12-20</DateOfApplicationDecision>
 			 * </HomeOfficeDecision>
-			 * 
+			 *
 			 * V22 Schemae
 			 * <xsd:element name="HomeOfficeANRefNo" type="HomeOfficeANReferenceType" minOccurs="0"/>
 			<xsd:element name="PortReferenceNo" type="PortReferenceType" minOccurs="0"/>
@@ -2411,14 +2411,14 @@ public class DocWriteDOM {
 			HomeOfficeRefNo.addContent(frm.getS2hoan());
 			HomeOfficeDecision.addContent(HomeOfficeRefNo);
             }
-            
+
 			Element PortReferenceNo = getElementWithDefaultNamespace("PortReferenceNo");
 			PortReferenceNo.addContent(frm.getS2b());
 			HomeOfficeDecision.addContent(PortReferenceNo);
 
 			if(frm.getS2c().length()>1)
             {
-			
+
 			Element COHIDRefNo = getElementWithDefaultNamespace("COHIDRefNo");
 			COHIDRefNo.addContent(frm.getS2c());
 			HomeOfficeDecision.addContent(COHIDRefNo);
@@ -2437,7 +2437,7 @@ public class DocWriteDOM {
 				dateapplicationlodged.addContent(sdf.format(sdf.parse(frm.getS2j_service_year() + "-"
 						+ frm.getS2j_service_month() + "-" + frm.getS2j_service_day())));
 				HomeOfficeDecision.addContent(dateapplicationlodged);
-	            
+
             }
 			if(frm.getQb_lsc().equals("homeofficewaiver"))
 			{
@@ -2450,9 +2450,9 @@ public class DocWriteDOM {
 			Element Appeal = getElementWithDefaultNamespace("Appeal");
 			// LegalAid.addContent("No");
 			AAIC.addContent(Appeal);
-			
+
 			//*********************************Late Appeal Removed.
-			
+
 			/*Element LateAppeal = getElementWithDefaultNamespace("LateAppeal");
 			if (frm.getS3a() != null) {
 				if (frm.getS3a().length() >= 2) {
@@ -2516,7 +2516,7 @@ public class DocWriteDOM {
 					RepresentativeName.addContent(frm.getS5b_other());
 					Representative.addContent(RepresentativeName);
 				}
-				
+
 				else if (!frm.getS5b().trim().equals("0")&&!frm.getS5b().trim().equals("00")) {
 					logger.debug("rep");
 					Element RepresentativeName = getElementWithDefaultNamespace("RepresentativeName");
@@ -2528,7 +2528,7 @@ public class DocWriteDOM {
 					Element RepresentativeName = getElementWithDefaultNamespace("RepresentativeName");
 					RepresentativeName.addContent(frm.getS5a());
 					Representative.addContent(RepresentativeName);
-				} 
+				}
 				Element RAddress = getElementWithDefaultNamespace("RepresentativeAddress");
 				// LegalAid.addContent("No");
 				Representative.addContent(RAddress);
@@ -2620,7 +2620,7 @@ public class DocWriteDOM {
 		return doc;
 	}
 	/**IAFT1
-	 * 
+	 *
 	 * @param frm
 	 * @return
 	 */
@@ -2855,7 +2855,7 @@ public class DocWriteDOM {
 			 * if(frm.getS1f_addr4()!=" " || frm.getS1f_addr4()!=null) { Element
 			 * Line= getElementWithDefaultNamespace("Line");
 			 * Line.addContent(frm.getS1f_addr4()); Address.addContent(Line);
-			 * 
+			 *
 			 * }
 			 */
 			try {
@@ -2870,7 +2870,7 @@ public class DocWriteDOM {
 			Element PostCode = getElementWithDefaultNamespace("PostCode");
 			PostCode.addContent(frm.getS1f_postcode());
 			Address.addContent(PostCode);
-			
+
 			if(null!=frm.getS1f_email())
 			{
 			if (!frm.getS1f_email().equals("") && frm.getS1f_email() != null) {
@@ -2880,7 +2880,7 @@ public class DocWriteDOM {
 			AppellantDetails.addContent(email);
 			}
 			}
-			
+
 			Element DateOfBirth = getElementWithDefaultNamespace("DateOfBirth");
 			// logger.debug(">>.............."+sdf.format(sdf.parse(frm.getS1d_dob_year()+"-"+frm.getS1d_dob_month()+"-"+frm.getS1d_dob_day())));
 			DateOfBirth.addContent(sdf.format(sdf.parse(frm.getS1d_dob_year() + "-" + frm.getS1d_dob_month() + "-"
@@ -2935,7 +2935,7 @@ public class DocWriteDOM {
 
 			if(frm.getS2c().length()>1)
             {
-			
+
 			Element COHIDRefNo = getElementWithDefaultNamespace("COHIDRefNo");
 			COHIDRefNo.addContent(frm.getS2c());
 			HomeOfficeDecision.addContent(COHIDRefNo);
@@ -2954,9 +2954,9 @@ public class DocWriteDOM {
 			Element Appeal = getElementWithDefaultNamespace("Appeal");
 			// LegalAid.addContent("No");
 			AAIC.addContent(Appeal);
-			
+
 			//*********************************Late Appeal Removed.
-			
+
 			/*Element LateAppeal = getElementWithDefaultNamespace("LateAppeal");
 			if (frm.getS3a() != null) {
 				if (frm.getS3a().length() >= 2) {
@@ -3020,7 +3020,7 @@ public class DocWriteDOM {
 					RepresentativeName.addContent(frm.getS5b_other());
 					Representative.addContent(RepresentativeName);
 				}
-				
+
 				else if (!frm.getS5b().trim().equals("0")&&!frm.getS5b().trim().equals("00")) {
 					logger.debug("rep");
 					Element RepresentativeName = getElementWithDefaultNamespace("RepresentativeName");
@@ -3032,7 +3032,7 @@ public class DocWriteDOM {
 					Element RepresentativeName = getElementWithDefaultNamespace("RepresentativeName");
 					RepresentativeName.addContent(frm.getS5a());
 					Representative.addContent(RepresentativeName);
-				} 
+				}
 				Element RAddress = getElementWithDefaultNamespace("RepresentativeAddress");
 				// LegalAid.addContent("No");
 				Representative.addContent(RAddress);
@@ -3128,7 +3128,7 @@ public class DocWriteDOM {
 	 * Retreive a new element with the default namespace (avoids empty xlmns=""
 	 * references appearing) nm1 =
 	 * Namespace.getNamespace("http://www.justice.gov.uk/IACFEES");
-	 * 
+	 *
 	 * @param elementName
 	 * @return
 	 */
@@ -3140,7 +3140,7 @@ public class DocWriteDOM {
 	 * Retreive a new element with the secondary namespace (avoids empty
 	 * xlmns="" references appearing) nm2 = Namespace.getNamespace("xsi",
 	 * "http://www.w3.org/2001/XMLSchema-instance");
-	 * 
+	 *
 	 * @param elementName
 	 * @return
 	 */
@@ -3149,7 +3149,7 @@ public class DocWriteDOM {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param frm
 	 * @return
 	 */
@@ -3218,7 +3218,7 @@ public class DocWriteDOM {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param pos
 	 * @param frm
 	 * @return
@@ -3240,7 +3240,7 @@ public class DocWriteDOM {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param pos
 	 * @param frm
 	 * @return

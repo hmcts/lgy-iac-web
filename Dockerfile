@@ -1,7 +1,7 @@
 ARG APP_INSIGHTS_AGENT_VERSION=3.2.10
 ARG PLATFORM=""
-# Application image
 
+# Application image (use debug to get busybox shell temporarily)
 FROM hmctspublic.azurecr.io/base/java:openjdk-8-debug-distroless-1.4
 
 USER root
@@ -34,7 +34,6 @@ ENV EPDQ_URL="b"
 ENV EPDQ_SHAIN="c"
 ENV EPDQ_SHAOUT="d"
 
-
 RUN java -version
 
 EXPOSE 8080
@@ -49,9 +48,7 @@ RUN mkdir -p /opt/moj/IACFees.files/Backup/XML_Files/
 ADD deploy/IACFees.war /opt/tomcat/webapps
 ADD deploy/start_tomcat.sh /opt/tomcat/bin
 
-RUN chmod 777 /opt/tomcat/bin
-RUN chmod 777 /opt/tomcat/bin/start_tomcat.sh
-RUN chmod 777 /opt/tomcat/bin/catalina.sh
+RUN chown -R hmcts:hmcts /opt/tomcat
 
 # The default ENTRYPOINT is the equivalent of "java -jar" which gives an error about java specification
 # Make sure to call a valid entrypoint (even on the command line, e.g. '--entrypoint "/busybox/sh"')

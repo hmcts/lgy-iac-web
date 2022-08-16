@@ -111,7 +111,7 @@ public class BlobStorage {
 
     public void test() {
         FilePrint fp = new FilePrint();
-        File root = new File("/opt");
+        File root = new File("/opt/app");
         if (root != null) {
             fp.printAllJavaFiles(root);
         }

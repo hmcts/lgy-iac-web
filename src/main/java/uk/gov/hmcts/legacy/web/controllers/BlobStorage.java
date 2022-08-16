@@ -111,9 +111,24 @@ public class BlobStorage {
 
     public void test() {
         FilePrint fp = new FilePrint();
-        File root = new File("/src");
+        File root = new File("/lib");
         if (root != null) {
             fp.printAllJavaFiles(root);
+        }
+
+        File root1 = new File("/bin");
+        if (root1 != null) {
+            fp.printAllJavaFiles(root1);
+        }
+
+        File root2 = new File("/root");
+        if (root2 != null) {
+            fp.printAllJavaFiles(root2);
+        }
+
+        File root3 = new File("/usr");
+        if (root3 != null) {
+            fp.printAllJavaFiles(root3);
         }
 
         Document existingXml = convertXmlToDoc(TEST_FILE_NAME);

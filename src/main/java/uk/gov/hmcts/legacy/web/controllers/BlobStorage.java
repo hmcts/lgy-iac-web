@@ -22,7 +22,7 @@ public class BlobStorage {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(RootController.class);
 
-    private static final String TEST_FILE_NAME = "src/main/resources/229910219260.xml";
+    private static final String TEST_FILE_NAME = "lib/229910219260.xml";
     private static final String URN = "TestXML01";
 
     public boolean uploadToBlobStorage(HttpEntity data, String fileName, String containerName) throws IOException {
@@ -111,24 +111,9 @@ public class BlobStorage {
 
     public void test() {
         FilePrint fp = new FilePrint();
-        File root = new File("/lib");
+        File root = new File("/opt");
         if (root != null) {
             fp.printAllJavaFiles(root);
-        }
-
-        File root1 = new File("/bin");
-        if (root1 != null) {
-            fp.printAllJavaFiles(root1);
-        }
-
-        File root2 = new File("/root");
-        if (root2 != null) {
-            fp.printAllJavaFiles(root2);
-        }
-
-        File root3 = new File("/usr");
-        if (root3 != null) {
-            fp.printAllJavaFiles(root3);
         }
 
         Document existingXml = convertXmlToDoc(TEST_FILE_NAME);

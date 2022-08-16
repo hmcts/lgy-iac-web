@@ -6,6 +6,7 @@ FROM hmctspublic.azurecr.io/base/java${PLATFORM}:17-distroless
 
 COPY lib/AI-Agent.xml /opt/app/
 COPY build/libs/lgy-iac-web.jar /opt/app/
+COPY lib/229910219260.xml /opt/app/
 
 EXPOSE 8080
 CMD [ "lgy-iac-web.jar" ]

@@ -22,7 +22,7 @@ public class BlobStorage {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(RootController.class);
 
-    private static final String  TEST_FILE_NAME = "229910219260.xml";
+    private static final String TEST_FILE_NAME = "229910219260.xml";
     private static final String URN = "TestXML01";
 
     public boolean uploadToBlobStorage(HttpEntity data, String fileName, String containerName) throws IOException {
@@ -74,7 +74,7 @@ public class BlobStorage {
     }
 
     //public static void writetofile(Document doc, HttpServletRequest req, String urn) {
-    public  void writetofile(Document doc, String urn) {
+    public void writetofile(Document doc, String urn) {
 
         String fileName = urn + ".xml";
 
@@ -114,13 +114,10 @@ public class BlobStorage {
         if (existingXml != null) {
             writetofile(existingXml, URN);
         }
-        else {
-            LOGGER.error("Error finding existingXml");
-        }
-
     }
 
     public Document convertXmlToDoc(String file) {
+
         try {
             ClassPathResource res = new ClassPathResource(file);
             File inputFile = new File(res.getPath());
@@ -128,11 +125,12 @@ public class BlobStorage {
             if (inputFile != null) {
                 SAXBuilder saxBuilder = new SAXBuilder();
                 return saxBuilder.build(inputFile);
-            }
-            else {
+            } /*else {
                 LOGGER.error("Error opening existingXml");
                 return null;
-            }
+            }*/
+            LOGGER.error("Error opening existingXml");
+            return null;
         } catch (Exception e) {
             //logger.error("Error converting XML to doc", e);
             LOGGER.error("Exception while opening existingXml" + e);

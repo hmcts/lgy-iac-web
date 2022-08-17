@@ -142,17 +142,17 @@ dependencies {
     testImplementation group: 'org.dbunit', name: 'dbunit', version: '2.4.8'
     testImplementation group: 'strutstestcase', name: 'strutstestcase', version: '2.1.4-1.2-2.4'
 
-    runtimeOnly group: 'org.postgresql', name: 'postgresql', version: '42.4.1'
-    runtimeOnly group: 'commons-digester', name: 'commons-digester', version: '1.2'
-    runtimeOnly group: 'commons-collections', name: 'commons-collections', version: '2.1.1'
-    runtimeOnly group: 'commons-pool', name: 'commons-pool', version: '1.2'
-    runtimeOnly group: 'displaytag', name: 'displaytag', version: '1.1'
-    runtimeOnly group: 'ehcache', name: 'ehcache', version: '1.1'
-    runtimeOnly files(
-            'lib/jgs-quartz-0.2.1-dev.jar',
-            'lib/jgs-struts-0.3-dev.jar',
-            'lib/xml-apis.jar',
-    )
+//    runtimeOnly group: 'org.postgresql', name: 'postgresql', version: '42.4.1'
+//    runtimeOnly group: 'commons-digester', name: 'commons-digester', version: '1.2'
+//    runtimeOnly group: 'commons-collections', name: 'commons-collections', version: '2.1.1'
+//    runtimeOnly group: 'commons-pool', name: 'commons-pool', version: '1.2'
+//    runtimeOnly group: 'displaytag', name: 'displaytag', version: '1.1'
+//    runtimeOnly group: 'ehcache', name: 'ehcache', version: '1.1'
+//    runtimeOnly files(
+//            'lib/jgs-quartz-0.2.1-dev.jar',
+//            'lib/jgs-struts-0.3-dev.jar',
+//            'lib/xml-apis.jar',
+//    )
 
 }
 repositories {

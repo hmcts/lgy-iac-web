@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!-- tesing -->
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<!-- This is the Struts configuration file for the Login example application -->
+
+
+<struts-config>
+	<!-- ========== Form Bean Definitions =================================== -->
+	<form-beans>
+		<form-bean name="frmIAFT1" type="com.MOJICT.IACFee.Beans.IAFT1Bean" />
+		<form-bean name="frmIAFT2" type="com.MOJICT.IACFee.Beans.IAFT2Bean" />
+		<form-bean name="frmIAFT3" type="com.MOJICT.IACFee.Beans.IAFT3Bean" />
+		<form-bean name="frmIAFT5" type="com.MOJICT.IACFee.Beans.IAFT5Bean" />
+		<form-bean name="frmIAFT6" type="com.MOJICT.IACFee.Beans.IAFT6Bean" />
+		<form-bean name="frmIAFT7" type="com.MOJICT.IACFee.Beans.IAFT7Bean" />
+		<form-bean name="paymentfrm" type="com.MOJICT.IACFee.Beans.AggregatedBean" />
+
+
+		<form-bean name="DynaFeeForm" type="org.apache.struts.action.DynaActionForm">
+			<form-property name="exemption" type="java.lang.String" />
+			<form-property name="asylum" type="java.lang.String" />
+		</form-bean>
+		<form-bean name="DynaFormtypeForm" type="org.apache.struts.action.DynaActionForm">
+			<form-property name="formtype" type="java.lang.String" />
+			
+		</form-bean>
+
+	</form-beans>
+	<!-- ========== Action Mapping Definitions ============================== -->
+
+
+	<global-forwards>
+		<forward name="/getinfo" path="retrieval.definition"></forward>
+		<forward name="/successpayment" path="successpayment.definition"></forward>
+	</global-forwards>
+	<action-mappings>
+                     <action path="/report" type="org.apache.struts.actions.ForwardAction"
+			parameter="/tiles/runreport.jsp" scope="session" />
+		<!-- Screening questions -->
+		<action path="/aggregationoption" type="org.apache.struts.actions.ForwardAction"
+			parameter="aggregationoption.definition" scope="request" />
+		<action path="/formoptions" type="org.apache.struts.actions.ForwardAction"
+			parameter="formoptions.definition" scope="request" />
+		<action path="/options" type="org.apache.struts.actions.ForwardAction"
+			parameter="options.definition" scope="request" />
+		<action path="/asylum-refusal-iaft1" type="org.apache.struts.actions.ForwardAction"
+			parameter="asylum-refusal-iaft1.definition" scope="request" />
+		<action path="/asylum-refusal-iaft7" type="org.apache.struts.actions.ForwardAction"
+			parameter="asylum-refusal-iaft7.definition" scope="request" />
+		<action path="/asylum-refusal-iaft5" type="org.apache.struts.actions.ForwardAction"
+			parameter="asylum-refusal-iaft5.definition" scope="request" />
+		<action path="/asylum-refusal-iaft3" type="org.apache.struts.actions.ForwardAction"
+			parameter="asylum-refusal-iaft3.definition" scope="request" />
+		<action path="/eco-decision-appeal" type="org.apache.struts.actions.ForwardAction"
+			parameter="eco-decision-appeal.definition" scope="request" />
+		<action path="/eco-decision-appeal6" type="org.apache.struts.actions.ForwardAction"
+			parameter="eco-decision-appeal6.definition" scope="request" />
+		<action path="/visa-type-appeal6" type="org.apache.struts.actions.ForwardAction"
+			parameter="visa-type-appeal6.definition" scope="request" />
+		<action path="/external-appeal7" type="org.apache.struts.actions.ForwardAction"
+			parameter="external-appeal7.definition" scope="request" />
+		<action path="/external-appeal" type="org.apache.struts.actions.ForwardAction"
+			parameter="external-appeal.definition" scope="request" />
+		<action path="/new-lodgement" type="org.apache.struts.actions.ForwardAction"
+			parameter="new-lodgement.definition" scope="request" />
+		<action path="/new-lodgement1" type="org.apache.struts.actions.ForwardAction"
+			parameter="new-lodgement1.definition" scope="request" />
+		<action path="/newtypelodgement" type="org.apache.struts.actions.ForwardAction"
+			parameter="newtypelodgement.definition" scope="request" />
+		<action path="/repayment" type="org.apache.struts.actions.ForwardAction"
+			parameter="/tiles/IAFT1/confirm.jsp" scope="session" />
+		<action path="/thanks" type="org.apache.struts.actions.ForwardAction"
+			parameter="finaltop.definition" scope="session" />
+		<action path="/proceed" type="org.apache.struts.actions.ForwardAction"
+			parameter="basket.definition" scope="session" />
+
+		<action path="/paymentsubmission" scope="request"
+			type="com.MOJICT.IACFee.Actions.PaymentSubmissionAction" name="paymentfrm"
+			parameter="aggregated">
+			<forward name="success" path="/getamount1.do" />
+			<forward name="failure" path="getpayment.definition" />
+			<forward name="failureappeal" path="basket.definition" />
+		</action>
+
+		<action path="/submission" scope="request"
+			type="com.MOJICT.IACFee.Actions.SubmissionAction" name="frmIAFT1">
+			<forward name="page-1" path="IAFT1-1.definition" />
+			<forward name="page-2" path="IAFT1-2.definition" />
+			<forward name="page-3" path="IAFT1-3.definition" />
+			<forward name="page-4" path="IAFT1-4.definition" />
+			<forward name="page-5" path="IAFT1-5.definition" />
+			<forward name="page-6" path="IAFT1-6.definition" />
+			<forward name="page-7" path="IAFT1-7.definition" />
+			<forward name="page-8" path="IAFT1-8.definition" />
+			<forward name="page-9" path="IAFT1-9.definition" />
+			<forward name="page-10" path="IAFT1-10.definition" />
+			<forward name="success" path="/getamount.do" />
+			<forward name="fail" path="IAFT1-1.definition" />
+		</action>
+
+		<action path="/submission5" scope="request"
+			type="com.MOJICT.IACFee.Actions.Submission5Action" name="frmIAFT5">
+			<forward name="page-1" path="IAFT5-1.definition" />
+			<forward name="page-2" path="IAFT5-2.definition" />
+			<forward name="page-3" path="IAFT5-3.definition" />
+			<forward name="page-4" path="IAFT5-4.definition" />
+			<forward name="page-5" path="IAFT5-5.definition" />
+			<forward name="page-6" path="IAFT5-6.definition" />
+			<forward name="page-7" path="IAFT5-7.definition" />
+			<forward name="page-8" path="IAFT5-8.definition" />
+			<forward name="page-9" path="IAFT5-9.definition" />
+			<forward name="success" path="/getamount.do" />
+			<forward name="fail" path="IAFT5-1.definition" />
+		</action>
+
+		<action path="/previous5" scope="request"
+			type="com.MOJICT.IACFee.Actions.PrevAction5" name="frmIAFT5">
+
+			<forward name="page-1" path="IAFT5-1.definition" />
+			<forward name="page-2" path="IAFT5-2.definition" />
+			<forward name="page-3" path="IAFT5-3.definition" />
+			<forward name="page-4" path="IAFT5-4.definition" />
+			<forward name="page-5" path="IAFT5-5.definition" />
+			<forward name="page-6" path="IAFT5-6.definition" />
+			<forward name="page-7" path="IAFT5-7.definition" />
+			<forward name="page-8" path="IAFT5-8.definition" />
+			<forward name="page-9" path="IAFT5-9.definition" />
+			
+			<forward name="finish" path="IAFT5-9.definition" />
+			<forward name="fail" path="IAFT5-1.definition" />
+
+		</action>
+		<action path="/submission7" scope="request"
+			type="com.MOJICT.IACFee.Actions.Submission7Action" name="frmIAFT7">
+			<forward name="page-1" path="IAFT7-1.definition" />
+			<forward name="page-2" path="IAFT7-2.definition" />
+			<forward name="page-3" path="IAFT7-3.definition" />
+			<forward name="page-4" path="IAFT7-4.definition" />
+			<forward name="page-5" path="IAFT7-5.definition" />
+			<forward name="page-6" path="IAFT7-6.definition" />
+			<forward name="page-7" path="IAFT7-7.definition" />
+			<forward name="page-8" path="IAFT7-8.definition" />
+			<forward name="page-9" path="IAFT7-9.definition" />
+			<forward name="success" path="/getamount.do" />
+			<forward name="fail" path="IAFT7-1.definition" />
+		</action>
+
+		<action path="/previous7" scope="request"
+			type="com.MOJICT.IACFee.Actions.PrevAction7" name="frmIAFT7">
+
+			<forward name="page-1" path="IAFT7-1.definition" />
+			<forward name="page-2" path="IAFT7-2.definition" />
+			<forward name="page-3" path="IAFT7-3.definition" />
+			<forward name="page-4" path="IAFT7-4.definition" />
+			<forward name="page-5" path="IAFT7-5.definition" />
+			<forward name="page-6" path="IAFT7-6.definition" />
+			<forward name="page-7" path="IAFT7-7.definition" />
+			<forward name="page-8" path="IAFT7-8.definition" />
+			<forward name="page-9" path="IAFT7-9.definition" />
+			
+			<forward name="finish" path="IAFT7-9.definition" />
+			<forward name="fail" path="IAFT7-1.definition" />
+
+		</action>
+		<action path="/previous" scope="request"
+			type="com.MOJICT.IACFee.Actions.PrevAction" name="frmIAFT1">
+
+			<forward name="page-1" path="IAFT1-1.definition" />
+			<forward name="page-2" path="IAFT1-2.definition" />
+			<forward name="page-3" path="IAFT1-3.definition" />
+			<forward name="page-4" path="IAFT1-4.definition" />
+			<forward name="page-5" path="IAFT1-5.definition" />
+			<forward name="page-6" path="IAFT1-6.definition" />
+			<forward name="page-7" path="IAFT1-7.definition" />
+			<forward name="page-8" path="IAFT1-8.definition" />
+			<forward name="page-9" path="IAFT1-9.definition" />
+			<forward name="page-10" path="IAFT1-10.definition" />
+			<forward name="finish" path="IAFT1-9.definition" />
+			<forward name="fail" path="IAFT1-1.definition" />
+
+		</action>
+
+
+		<action path="/IsAsylumm" scope="request"
+			type="com.MOJICT.IACFee.Screening.IsAsylumAction">
+			<forward name="success" path="/IAFT3-ref.do" />
+		</action>
+
+		<action path="/downloadpdf" scope="request"
+			type="com.MOJICT.IACFee.Actions.DownloadPDFAction" name="frmIAFT1">
+			<forward name="success" path="finalone.definition" />
+		</action>
+
+		<action path="/printPDF" scope="request"
+			type="com.MOJICT.IACFee.Print.PrintPDFAction" name="frmIAFT1">
+			<forward name="success" path="finalone.definition" />
+		</action>
+
+
+		
+		<action path="/IsFeePayable" scope="request"
+			type="com.MOJICT.IACFee.Screening.IsFeePayableAction" name="DynaFeeForm">
+			<forward name="success-IAFT1" path="/IAFT1-ref.do" />
+			<forward name="success-IAFT5" path="/IAFT5-ref.do" />
+		</action>
+		<action path="/NewIsFeePayable" scope="request"
+			type="com.MOJICT.IACFee.Screening.NewIsFeePayableAction" name="DynaFeeForm">
+			<forward name="success-IAFT1" path="/IAFT1-ref.do" />
+			<forward name="success-IAFT5" path="/IAFT5-ref.do" />
+		</action>
+		<action path="/NewIsFeePayable7" scope="request"
+			type="com.MOJICT.IACFee.Screening.NewIsFeePayable7Action" name="DynaFeeForm">
+			<forward name="success-IAFT1" path="/IAFT1-ref.do" />
+			<forward name="success-IAFT7" path="/IAFT7-ref.do" />
+		</action>
+		
+		<action path="/IsFormtype" scope="request"
+			type="com.MOJICT.IACFee.Screening.IsFormtypeAction" name="DynaFormtypeForm">
+			<forward name="current" path="/Lodgement.do" />
+			<forward name="new" path="newtypelodgement.definition" />
+			<forward name="failure" path="/Lodgement.do" />
+		</action>
+		<action path="/IsFormtypeaggr" scope="request"
+			type="com.MOJICT.IACFee.Screening.IsFormtypeaggrAction" name="DynaFormtypeForm">
+			<forward name="current" path="/newlodgement.do?next=new" />
+			<forward name="new" path="/newlodgement1.do?next=new" />
+			
+			<forward name="failure" path="/aggregationoption.do" />
+		</action>
+
+		<action path="/IsFeePayableretrieve" scope="request"
+			type="com.MOJICT.IACFee.Screening.IsFeePayableAction1" name="DynaFeeForm">
+			<forward name="success" path="/previous.do?page=1" />
+		</action>
+		<action path="/NewIsFeePayableretrieve" scope="request"
+			type="com.MOJICT.IACFee.Screening.NewIsFeePayableAction1" name="DynaFeeForm">
+			<forward name="success" path="/previous5.do?page=1" />
+		</action>
+		<action path="/NewIsFeePayableretrieve7" scope="request"
+			type="com.MOJICT.IACFee.Screening.NewIsFeePayableAction71" name="DynaFeeForm">
+			<forward name="success" path="/previous7.do?page=1" />
+		</action>
+		
+		
+		<action path="/IsAsylum" scope="request"
+			type="com.MOJICT.IACFee.Screening.IsAsylumAction" name="DynaFeeForm">
+			<forward name="success-IAFT1" path="fee-payable.definition" />
+			<forward name="success-IAFT5" path="fee-payablenew.definition" />
+			<forward name="success-IAFT6" path="/IAFT6-ref.do" />
+			<forward name="success-IAFT7" path="fee-payablenew7.definition" />
+			<forward name="iaft1-failure" path="/asylum-refusal-iaft1.do" />
+			<forward name="iaft5-failure" path="/asylum-refusal-iaft5.do" />
+			<forward name="iaft6-failure" path="/visa-type-appeal6.do" />
+			<forward name="iaft7-failure" path="/asylum-refusal-iaft7.do" />
+			
+		</action>
+
+		<action path="/IsAsylum5" scope="request"
+			type="com.MOJICT.IACFee.Screening.IsAsylumAction5" name="DynaFeeForm">
+			<forward name="success-IAFT1" path="fee-payable.definition" />
+			<forward name="success-IAFT5" path="fee-payablenew.definition" />
+		</action>
+
+
+		<action path="/retrieve" scope="request"
+			type="com.MOJICT.IACFee.Actions.RetrieveAction" name="frmIAFT1">
+			<forward name="IAFT1" path="fee-payable1.definition" />
+			<forward name="IAFT2" path="IAFT2-1.definition" />
+			<forward name="IAFT3" path="IAFT3-1.definition" />
+			<forward name="IAFT5" path="newfee-payable1.definition" />
+			<forward name="IAFT6" path="IAFT6-1.definition" />
+			<forward name="IAFT7" path="newfee-payable71.definition" />
+			<forward name="failure" path="retrieval.definition" />
+		</action>
+
+		<action path="/delete" scope="request"
+			type="com.MOJICT.IACFee.Actions.DeleteAction" name="frmIAFT1">
+			<forward name="Success" path="/getamount.do" />
+			<forward name="failure" path="/getamount.do" />
+		</action>
+
+
+		<action path="/IAFT1-ref" type="com.MOJICT.IACFee.Actions.WelcomeAction"
+			parameter="IAFT1" scope="request">
+			<forward name="success" path="reference.definition" />
+		</action>
+		<action path="/IAFT6-ref" type="com.MOJICT.IACFee.Actions.WelcomeAction"
+			parameter="IAFT6" scope="request">
+			<forward name="success" path="reference.definition" />
+		</action>
+		<action path="/IAFT5-ref" type="com.MOJICT.IACFee.Actions.WelcomeAction"
+			parameter="IAFT5" scope="request">
+			<forward name="success" path="reference.definition" />
+		</action>
+		<action path="/IAFT7-ref" type="com.MOJICT.IACFee.Actions.WelcomeAction"
+			parameter="IAFT7" scope="request">
+			<forward name="success" path="reference.definition" />
+		</action>
+
+		<action path="/IAFT1" type="org.apache.struts.actions.ForwardAction"
+			parameter="IAFT1-1.definition" scope="request">
+		</action>
+		<action path="/IAFT5" type="org.apache.struts.actions.ForwardAction"
+			parameter="IAFT5-1.definition" scope="request">
+		</action>
+		<action path="/IAFT7" type="org.apache.struts.actions.ForwardAction"
+			parameter="IAFT7-1.definition" scope="request">
+		</action>
+
+		<action path="/getpayment"
+			type="com.MOJICT.IACFee.Actions.WelcomeActionInvalidate" scope="request">
+			<forward name="success" path="getpayment.definition" />
+		</action>
+
+		<action path="/getxml" type="com.MOJICT.IACFee.Actions.XMLAction"
+			scope="request">
+			<forward name="success" path="finalone.definition" />
+			<forward name="return" path="repaymentconfirm.definition" />
+			<forward name="return_topup" path="repaymenttopup.definition" />
+			<forward name="return_pdf" path="final_pdf.definition" />
+		</action>
+
+		<action path="/getreturnxml" type="com.MOJICT.IACFee.Actions.XMLReturnAction"
+			scope="request">
+			<forward name="success" path="finalone.definition" />
+			<forward name="return" path="repaymentconfirm.definition" />
+			<forward name="return_topup" path="repaymenttopup.definition" />
+			<forward name="return_pdf" path="final_pdf.definition" />
+			<forward name="return_topupfailure" path="final_topupfailure.definition" />
+			<forward name="Success_topup" path="final_topup.definition" />
+			<forward name="Statusunknown" path="Statusunknown.definition" />
+
+		</action>
+		<action path="/getreturnxmlfail" type="com.MOJICT.IACFee.Actions.XMLReturnAction"
+			scope="request">
+			<forward name="success" path="finalone.definition" />
+			<forward name="return" path="repaymentconfirm.definition" />
+			<forward name="return_topup" path="repaymenttopup.definition" />
+			<forward name="return_pdf" path="final_pdf.definition" />
+			<forward name="return_topupfailure" path="final_topupfailure.definition" />
+			<forward name="Success_topup" path="final_topup.definition" />
+			<forward name="Statusunknown" path="Statusunknown.definition" />
+
+		</action>
+
+		<action path="/pdfreturn" type="com.MOJICT.IACFee.Actions.PDFReturnAction"
+			scope="request">
+			<forward name="success" path="finalone.definition" />
+			<forward name="failure" path="options.definition" />
+
+		</action>
+
+		<action path="/welcomeback"
+			type="com.MOJICT.IACFee.Actions.WelcomeActionInvalidate" scope="request">
+			<forward name="success" path="retrieval.definition" />
+		</action>
+
+		<action path="/getamount" type="com.MOJICT.IACFee.Actions.AmountAction"
+			scope="request">
+			<forward name="success" path="basket.definition" />
+			<forward name="successpdf" path="basket.definition" />
+		</action>
+
+		<action path="/health/liveness" type="com.MOJICT.IACFee.Health.Liveness"
+				scope="request">
+		</action>
+
+		<action path="/health/dbliveness" type="com.MOJICT.IACFee.Health.DBLiveness"
+				scope="request">
+		</action>
+
+		<action path="/getamount1" type="com.MOJICT.IACFee.Actions.AmountfrwAction"
+			scope="request">
+			<forward name="success" path="/tiles/IAFT1/confirm.jsp" />
+			<forward name="successpdf" path="basket.definition" />
+		</action>
+
+
+		<action path="/finishsub" type="com.MOJICT.IACFee.Actions.WelcomeAction"
+			scope="request">
+			<forward name="success" path="retrieval1.definition" />
+		</action>
+
+		<action path="/aggregatedpaymentxml" scope="request"
+			type="com.MOJICT.IACFee.Actions.AggrXMLAction">
+			<forward name="success" path="final.definition" />
+		</action>
+
+		<action path="/downloadPDF" type="com.MOJICT.IACFee.Actions.DownloadPDFAction"
+			scope="request">
+			<forward name="success" path="final.definition" />
+		</action>
+
+
+		<action path="/basketfunction" type="com.MOJICT.IACFee.Actions.BasketFunctions"
+			scope="request">
+			<forward name="printPDF" path="/printPDF.do" />
+			<forward name="retrieve" path="/retrieve.do" />
+			<forward name="delete" path="/delete.do" />
+		</action>
+
+		<action path="/newlodgement" scope="request"
+			type="com.MOJICT.IACFee.Actions.SubmissionAction">
+			<forward name="success" path="/new-lodgement.do" />
+		</action>
+		<action path="/newlodgement1" scope="request"
+			type="com.MOJICT.IACFee.Actions.SubmissionAction">
+			<forward name="success" path="/new-lodgement1.do" />
+		</action>
+
+		<action path="/Lodgement"
+			type="com.MOJICT.IACFee.Actions.WelcomeActionInvalidate" scope="request">
+			<forward name="success" path="/new-lodgement.do" />
+		</action>
+
+		<action path="/IAFT2-ref" type="com.MOJICT.IACFee.Actions.WelcomeAction"
+			parameter="IAFT2" scope="request">
+			<forward name="success" path="reference.definition" />
+		</action>
+
+		<action path="/IAFT2" type="org.apache.struts.actions.ForwardAction"
+			parameter="IAFT2-1.definition" scope="request">
+		</action>
+		<action path="/IAFT6" type="org.apache.struts.actions.ForwardAction"
+			parameter="IAFT6-1.definition" scope="request">
+		</action>
+
+		<action path="/showSubmissions" type="com.MOJICT.IACFee.Actions.ShowLatestSubmissions"
+			scope="request">
+			<forward name="success" path="/tiles/showSubmissions.jsp" />
+		</action>
+
+
+		<action path="/submission2" scope="request"
+			type="com.MOJICT.IACFee.Actions.Submission2Action" name="frmIAFT2">
+			<forward name="page-1" path="IAFT2-1.definition" />
+			<forward name="page-2" path="IAFT2-2.definition" />
+			<forward name="page-3" path="IAFT2-3.definition" />
+			<forward name="page-4" path="IAFT2-4.definition" />
+			<forward name="page-5" path="IAFT2-5.definition" />
+			<forward name="page-6" path="IAFT2-6.definition" />
+			<forward name="page-7" path="IAFT2-7.definition" />
+			<forward name="page-8" path="IAFT2-8.definition" />
+			<forward name="success" path="/getamount.do" />
+			<forward name="fail" path="IAFT2-1.definition" />
+		</action>
+
+
+		<action path="/previous2" scope="request"
+			type="com.MOJICT.IACFee.Actions.Prev2Action" name="frmIAFT2">
+
+			<forward name="page-1" path="IAFT2-1.definition" />
+			<forward name="page-2" path="IAFT2-2.definition" />
+			<forward name="page-3" path="IAFT2-3.definition" />
+			<forward name="page-4" path="IAFT2-4.definition" />
+			<forward name="page-5" path="IAFT2-5.definition" />
+			<forward name="page-6" path="IAFT2-6.definition" />
+			<forward name="page-7" path="IAFT2-7.definition" />
+			<forward name="fail" path="IAFT2-1.definition" />
+
+		</action>
+		<action path="/submission6" scope="request"
+			type="com.MOJICT.IACFee.Actions.Submission6Action" name="frmIAFT6">
+			<forward name="page-1" path="IAFT6-1.definition" />
+			<forward name="page-2" path="IAFT6-2.definition" />
+			<forward name="page-3" path="IAFT6-3.definition" />
+			<forward name="page-4" path="IAFT6-4.definition" />
+			<forward name="page-5" path="IAFT6-5.definition" />
+			<forward name="page-6" path="IAFT6-6.definition" />
+			<forward name="page-7" path="IAFT6-7.definition" />
+			<forward name="page-8" path="IAFT6-8.definition" />
+			<forward name="success" path="/getamount.do" />
+			<forward name="fail" path="IAFT6-1.definition" />
+		</action>
+
+
+		<action path="/previous6" scope="request"
+			type="com.MOJICT.IACFee.Actions.Prev6Action" name="frmIAFT6">
+
+			<forward name="page-1" path="IAFT6-1.definition" />
+			<forward name="page-2" path="IAFT6-2.definition" />
+			<forward name="page-3" path="IAFT6-3.definition" />
+			<forward name="page-4" path="IAFT6-4.definition" />
+			<forward name="page-5" path="IAFT6-5.definition" />
+			<forward name="page-6" path="IAFT6-6.definition" />
+			<forward name="page-7" path="IAFT6-7.definition" />
+			<forward name="fail" path="IAFT6-1.definition" />
+
+		</action>
+
+
+		<action path="/IAFT3-ref" type="com.MOJICT.IACFee.Actions.WelcomeAction"
+			parameter="IAFT3" scope="request">
+			<forward name="success" path="reference.definition" />
+		</action>
+
+		<action path="/IAFT3" type="org.apache.struts.actions.ForwardAction"
+			parameter="IAFT3-1.definition" scope="request">
+		</action>
+
+		<action path="/submission3" scope="request"
+			type="com.MOJICT.IACFee.Actions.Submission3Action" name="frmIAFT3">
+			<forward name="page-1" path="IAFT3-1.definition" />
+			<forward name="page-2" path="IAFT3-2.definition" />
+			<forward name="page-3" path="IAFT3-3.definition" />
+			<forward name="page-4" path="IAFT3-4.definition" />
+			<forward name="page-5" path="IAFT3-5.definition" />
+			<forward name="page-6" path="IAFT3-6.definition" />
+			<forward name="page-7" path="IAFT3-7.definition" />
+			<forward name="page-8" path="IAFT3-8.definition" />
+			<forward name="page-9" path="IAFT3-9.definition" />
+			<forward name="page-10" path="IAFT3-10.definition" />
+			<forward name="success" path="/getamount.do" />
+			<forward name="fail" path="IAFT3-1.definition" />
+		</action>
+
+		<action path="/previous3" scope="request"
+			type="com.MOJICT.IACFee.Actions.Prev3Action" name="frmIAFT3">
+
+			<forward name="page-1" path="IAFT3-1.definition" />
+			<forward name="page-2" path="IAFT3-2.definition" />
+			<forward name="page-3" path="IAFT3-3.definition" />
+			<forward name="page-4" path="IAFT3-4.definition" />
+			<forward name="page-5" path="IAFT3-5.definition" />
+			<forward name="page-6" path="IAFT3-6.definition" />
+			<forward name="page-7" path="IAFT3-7.definition" />
+			<forward name="page-8" path="IAFT3-8.definition" />
+			<forward name="page-9" path="IAFT3-9.definition" />
+			<forward name="page-10" path="IAFT3-10.definition" />
+			<forward name="finish" path="IAFT3-9.definition" />
+			<forward name="fail" path="IAFT3-1.definition" />
+
+		</action>
+
+
+
+		<action path="/coversheet" type="com.MOJICT.IACFee.Actions.CoverSheetAction"
+			name="DynaFeeForm" scope="request">
+		</action>
+		<action path="/activate" type="com.MOJICT.IACFee.Util.ActivateUtil"/>
+		
+
+	</action-mappings>
+
+	<!-- ========== Plugins =========================== -->
+
+	<controller processorClass="org.apache.struts.tiles.TilesRequestProcessor" />
+	<message-resources null="false"
+		parameter="resources.ApplicationResources.properties" />
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-config" value="/WEB-INF/struts-tiles-defs.xml" />
+		<set-property property="definitions-debug" value="2" />
+		<set-property property="definitions-parser-details"
+			value="2" />
+		<set-property property="definitions-parser-validate"
+			value="true" />
+		<set-property property="moduleAware" value="true" />
+	</plug-in>
+
+
+	<plug-in className="com.jgsullivan.struts.plugins.QuartzPlugIn">
+		<set-property property="configPath" value="/WEB-INF/quartz-config.xml" />
+	</plug-in>
+
+
+</struts-config>

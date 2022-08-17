@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+"http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+<tiles-definitions>
+
+<!-- Base Tiles Definition--> 
+<definition name="default.definition" path="/tiles/defaultlayout.jsp">
+<put name="title" value="IACFees" />
+</definition> 
+
+
+<definition name="reference.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/reference.jsp"/>
+</definition> 
+
+
+	<!-- ==  Screening Question Page Definitions =========================== -->
+	<definition name="newform.definition" extends="default.definition">
+		<put name="title" value="IACFees" />
+		<put name="content" value="/tiles/Screening/newform.jsp"/>
+	</definition>
+	
+	<definition name="aggregationoption.definition" extends="default.definition">
+		<put name="title" value="IACFees" />
+		<put name="content" value="/tiles/Screening/aggregationoption.jsp"/>
+	</definition>
+	<definition name="formoptions.definition" extends="default.definition">
+		<put name="title" value="IACFees" />
+		<put name="content" value="/tiles/Screening/form-options.jsp"/>
+	</definition>
+	<definition name="asylum-refusal-iaft1.definition" extends="default.definition">
+		<put name="title" value="IACFees" />
+		<put name="content" value="/tiles/Screening/asylum-refusal-iaft1.jsp"/>
+	</definition>
+	<definition name="asylum-refusal-iaft7.definition" extends="default.definition">
+		<put name="title" value="IACFees" />
+		<put name="content" value="/tiles/Screening/asylum-refusal-iaft7.jsp"/>
+	</definition>
+	<definition name="asylum-refusal-iaft5.definition" extends="default.definition">
+		<put name="title" value="IACFees" />
+		<put name="content" value="/tiles/Screening/asylum-refusal-iaft5.jsp"/>
+	</definition>
+	<definition name="asylum-refusal-iaft3.definition" extends="default.definition">
+		<put name="title" value="IACFees" />
+		<put name="content" value="/tiles/Screening/asylum-refusal-iaft3.jsp"/>
+	</definition>
+	<definition name="eco-decision-appeal.definition" extends="default.definition">
+		<put name="title" value="IACFees" />
+		<put name="content" value="/tiles/Screening/eco-decision-appeal.jsp"/>
+	</definition>
+	<definition name="eco-decision-appeal6.definition" extends="default.definition">
+		<put name="title" value="IACFees" />
+		<put name="content" value="/tiles/Screening/eco-decision-appeal6.jsp"/>
+	</definition>
+	<definition name="visa-type-appeal6.definition" extends="default.definition">
+		<put name="title" value="IACFees" />
+		<put name="content" value="/tiles/Screening/visa-type-appeal6.jsp"/>
+	</definition>
+	
+	<definition name="external-appeal.definition" extends="default.definition">
+		<put name="title" value="IACFees" />
+		<put name="content" value="/tiles/Screening/external-appeal.jsp"/>
+	</definition>
+	<definition name="external-appeal7.definition" extends="default.definition">
+		<put name="title" value="IACFees" />
+		<put name="content" value="/tiles/Screening/external-appeal7.jsp"/>
+	</definition>
+	<definition name="fee-payable.definition" extends="default.definition">
+		<put name="title" value="IACFees" />
+		<put name="content" value="/tiles/Screening/fee-payable.jsp"/>
+	</definition>
+	<definition name="fee-payablenew.definition" extends="default.definition">
+		<put name="title" value="IACFees" />
+		<put name="content" value="/tiles/Screening/newfee-payable.jsp"/>
+	</definition>
+	<definition name="fee-payablenew7.definition" extends="default.definition">
+		<put name="title" value="IACFees" />
+		<put name="content" value="/tiles/Screening/newfee-payable7.jsp"/>
+	</definition>
+	<definition name="newfee-payable71.definition" extends="default.definition">
+		<put name="title" value="IACFees" />
+		<put name="content" value="/tiles/Screening/newfee-payable71.jsp"/>
+	</definition>
+	<definition name="fee-payable1.definition" extends="default.definition">
+		<put name="title" value="IACFees" />
+		<put name="content" value="/tiles/Screening/fee-payable1.jsp"/>
+	</definition>
+	<definition name="newfee-payable1.definition" extends="default.definition">
+		<put name="title" value="IACFees" />
+		<put name="content" value="/tiles/Screening/newfee-payable1.jsp"/>
+	</definition>
+	<definition name="new-lodgement.definition" extends="default.definition">
+		<put name="title" value="IACFees" />
+		<put name="content" value="/tiles/Screening/new-lodgement.jsp"/>
+	</definition>
+	<definition name="new-lodgement1.definition" extends="default.definition">
+		<put name="title" value="IACFees" />
+		<put name="content" value="/tiles/Screening/newtypelodgement.jsp"/>
+	</definition>
+	<definition name="newtypelodgement.definition" extends="default.definition">
+		<put name="title" value="IACFees" />
+		<put name="content" value="/tiles/Screening/newtypelodgement.jsp"/>
+	</definition>
+	<definition name="options.definition" extends="default.definition">
+		<put name="title" value="IACFees" />
+		<put name="content" value="/tiles/Screening/options.jsp"/>
+	</definition>
+	<!-- ===============IAFT 7 tiles ======================================= -->
+<definition name="IAFT7-1.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT7/page-1.jsp"/>
+</definition> 
+
+<definition name="IAFT7-2.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT7/page-2.jsp"/>
+</definition> 
+
+<definition name="IAFT7-3.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT7/page-3.jsp"/>
+</definition> 
+
+<definition name="IAFT7-4.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT7/page-4.jsp"/>
+</definition> 
+
+<definition name="IAFT7-5.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT7/page-5.jsp"/>
+</definition> 
+
+
+<definition name="IAFT7-6.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT7/page-6.jsp"/>
+</definition> 
+
+<definition name="IAFT7-7.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT7/page-7.jsp"/>
+</definition> 
+
+<definition name="IAFT7-8.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT7/page-8.jsp"/>
+</definition> 
+
+<definition name="IAFT7-9.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT7/page-9.jsp"/>
+</definition> 
+
+<definition name="IAFT7-10.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT7/page-10.jsp"/>
+</definition> 
+
+	<!-- == IAFT 5 tiles ========================================== -->
+
+
+<definition name="IAFT5-1.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT5/page-1.jsp"/>
+</definition> 
+
+<definition name="IAFT5-2.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT5/page-2.jsp"/>
+</definition> 
+
+<definition name="IAFT5-3.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT5/page-3.jsp"/>
+</definition> 
+
+<definition name="IAFT5-4.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT5/page-4.jsp"/>
+</definition> 
+
+<definition name="IAFT5-5.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT5/page-5.jsp"/>
+</definition> 
+
+
+<definition name="IAFT5-6.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT5/page-6.jsp"/>
+</definition> 
+
+<definition name="IAFT5-7.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT5/page-7.jsp"/>
+</definition> 
+
+<definition name="IAFT5-8.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT5/page-8.jsp"/>
+</definition> 
+
+<definition name="IAFT5-9.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT5/page-9.jsp"/>
+</definition> 
+
+<definition name="IAFT5-10.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT5/page-10.jsp"/>
+</definition> 
+
+<definition name="IAFT1-1.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT1/page-1.jsp"/>
+</definition>
+
+<definition name="successpayment.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT1/successpayment.jsp"/>
+</definition> 
+<definition name="final_topupfailure.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT1/finaltopup_failure.jsp"/>
+</definition> 
+<definition name="finishsub1.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT1/options.jsp"/>
+</definition> 
+
+
+<definition name="paymentconfirm.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT1/confirm.jsp"/>
+</definition> 
+
+<definition name="repaymentconfirm.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT1/confirm_repayment.jsp"/>
+</definition> 
+<definition name="repaymenttopup.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT1/topup_repayment.jsp"/>
+</definition> 
+
+<definition name="getpayment.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/topup.jsp"/>
+</definition> 
+<definition name="retrieval1.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT1/options.jsp"/>
+</definition> 
+<definition name="retrieval.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/retrieval.jsp"/>
+</definition> 
+
+<definition name="IAFT1-2.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT1/page-2.jsp"/>
+</definition> 
+
+<definition name="IAFT1-3.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT1/page-3.jsp"/>
+</definition> 
+
+<definition name="IAFT1-4.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT1/page-4.jsp"/>
+</definition> 
+
+<definition name="IAFT1-5.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT1/page-5.jsp"/>
+</definition> 
+
+
+<definition name="IAFT1-6.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT1/page-6.jsp"/>
+</definition> 
+
+<definition name="IAFT1-7.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT1/page-7.jsp"/>
+</definition> 
+
+<definition name="IAFT1-8.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT1/page-8.jsp"/>
+</definition> 
+
+<definition name="IAFT1-9.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT1/page-9.jsp"/>
+</definition> 
+
+<definition name="IAFT1-10.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT1/page-10.jsp"/>
+</definition> 
+<definition name="basket.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/basket.jsp"/>
+</definition> 
+<definition name="final.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT1/final.jsp"/>
+</definition> 
+<definition name="final_pdf.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT1/finalsubmission_failure.jsp"/>
+</definition> 
+<definition name="finalone.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT1/finalsubmission.jsp"/>
+</definition> 
+<definition name="finaltop.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT1/finaltopupsubmission.jsp"/>
+</definition> 
+<definition name="final_topup.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT1/finaltopupsubmission.jsp"/>
+</definition> 
+
+<definition name="Statusunknown.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/unknownstatus.jsp"/>
+</definition> 
+<!--  IAFT 2 tiles  -->
+
+<definition name="IAFT2-1.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT2/page-1.jsp"/>
+</definition> 
+
+<definition name="IAFT2-2.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT2/page-2.jsp"/>
+</definition> 
+
+<definition name="IAFT2-3.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT2/page-3.jsp"/>
+</definition> 
+
+<definition name="IAFT2-4.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT2/page-4.jsp"/>
+</definition> 
+
+<definition name="IAFT2-5.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT2/page-5.jsp"/>
+</definition> 
+
+
+<definition name="IAFT2-6.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT2/page-6.jsp"/>
+</definition> 
+
+<definition name="IAFT2-7.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT2/page-7.jsp"/>
+</definition> 
+
+<definition name="IAFT2-8.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT2/page-8.jsp"/>
+</definition> 
+
+
+<!--  IAFT 3 tiles  -->
+
+<definition name="IAFT3-1.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT3/page-1.jsp"/>
+</definition> 
+
+<definition name="IAFT3-2.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT3/page-2.jsp"/>
+</definition> 
+
+<definition name="IAFT3-3.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT3/page-3.jsp"/>
+</definition> 
+
+<definition name="IAFT3-4.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT3/page-4.jsp"/>
+</definition> 
+
+<definition name="IAFT3-5.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT3/page-5.jsp"/>
+</definition> 
+
+
+<definition name="IAFT3-6.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT3/page-6.jsp"/>
+</definition> 
+
+<definition name="IAFT3-7.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT3/page-7.jsp"/>
+</definition> 
+
+<definition name="IAFT3-8.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT3/page-8.jsp"/>
+</definition> 
+
+<definition name="IAFT3-9.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT3/page-9.jsp"/>
+</definition> 
+
+<definition name="IAFT3-10.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT3/page-10.jsp"/>
+</definition> 
+<!--  IAFT 6 tiles  -->
+
+<definition name="IAFT6-1.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT6/page-1.jsp"/>
+</definition> 
+
+<definition name="IAFT6-2.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT6/page-2.jsp"/>
+</definition> 
+
+<definition name="IAFT6-3.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT6/page-3.jsp"/>
+</definition> 
+
+<definition name="IAFT6-4.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT6/page-4.jsp"/>
+</definition> 
+
+<definition name="IAFT6-5.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT6/page-5.jsp"/>
+</definition> 
+
+
+<definition name="IAFT6-6.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT6/page-6.jsp"/>
+</definition> 
+
+<definition name="IAFT6-7.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT6/page-7.jsp"/>
+</definition> 
+
+<definition name="IAFT6-8.definition" extends="default.definition">
+<put name="title" value="IACFees" />
+<put name="content" value="/tiles/IAFT6/page-8.jsp"/>
+</definition> 
+
+
+</tiles-definitions>

@@ -1,0 +1,89 @@
+Version 1.9.05
+-Live war file for 20th March release.
+
+
+
+Version 1.9.04
+-Live war file with updated outage message for 20th March release.
+
+
+Version 1.9.03
+23rd Feb 2015
+System test release:Changes made as below
+1.IAFT5,6 and 7 XML issues resolved.
+
+Version 1.9.02
+19th Feb 2015
+System test release:Changes made as below
+1.Aggregation issue on IAFT7 resolved.
+2.On grounds of appeals page changes letters to capital.
+
+
+Version 1.9.01
+System test release:Changes made as below
+
+1.	Addition of IAFT5,6 & 7 forms.
+2.	Additional screening questions with screens for IAFT5,6 & 7 forms.
+3.	DB changes.New tables added for IAFT5,6 & 7.
+4. 	Addition of Email address field to current IAFT1,2 and 3 forms
+5. 	Renaming some fields on current forms
+6.	Fixing defect in audit report.
+
+Version 1.8
+02/03/2015
+
+
+Not yet released
+
+Version 1.7
+Date:22 Jan 2015
+IAFT5	
+
+IACFees Release:
+1. Additional wording on front screening for browser update for Barclaycard SSL to TLS switching.
+
+
+
+
+Version 1.6
+
+DB connection issue fix
+
+
+Version 1.5
+Date:20th Oct 2014
+
+IACFees release:
+1. Addition of new filter screen questions for new immigration rules
+2.Fix for too many connection issue
+3.Wording changes
+
+
+
+
+Version:1.4
+Date :15th Aug 2014
+
+IACFees  release:
+1.Changes to aggregated file names for remission cases.
+2.Audit report functionality is introduced.
+
+
+
+
+
+Version:1.3
+Date :30th Aug 2013
+
+IACFees  release:
+1.Addition of an email address field.
+2.Changes to support new barclays platform
+
+
+Version:1.2
+Date :14 Dec 2012
+
+release:
+1.Addition of Shopping Basket Functionalities
+2.Database validation and dual validation for PDF and XML issues
+3.Order id has been changed as per the requirements.

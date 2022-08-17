@@ -1,0 +1,5 @@
+/* v3.3 */
+@media screen,print {
+	body {font-size:80%;}
+	#progress {width:605px; height:33px;} 
+}

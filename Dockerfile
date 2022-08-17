@@ -21,18 +21,18 @@ RUN mv apache-tomcat-8.5.82/ /opt/tomcat/
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ENV CATALINA_OPTS="-Xmx512M -XX:MaxPermSize=1024m"
 
-ENV ENV_NAME="Local Dev PG"
-ENV DB_JDBC_DRIVER="org.postgresql.Driver"
-ENV DB_JDBC_URL="jdbc:postgresql"
-ENV DB_HOST="172.17.0.1"
-ENV DB_PORT="5432"
-ENV DB_USER="lgyiacadmin"
-ENV DB_PASSWORD="dummy"
-ENV DB_NAME="lgyiac"
-ENV EPDQ_PSPID="a"
-ENV EPDQ_URL="b"
-ENV EPDQ_SHAIN="c"
-ENV EPDQ_SHAOUT="d"
+# ENV ENV_NAME="Local Dev PG"
+# ENV DB_JDBC_DRIVER="org.postgresql.Driver"
+# ENV DB_JDBC_URL="jdbc:postgresql"
+# ENV DB_HOST="172.17.0.1"
+# ENV DB_PORT="5432"
+# ENV DB_USER="lgyiacadmin"
+# ENV DB_PASSWORD="dummy"
+# ENV DB_NAME="lgyiac"
+# ENV EPDQ_PSPID="a"
+# ENV EPDQ_URL="b"
+# ENV EPDQ_SHAIN="c"
+# ENV EPDQ_SHAOUT="d"
 
 RUN java -version
 

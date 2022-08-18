@@ -25,7 +25,7 @@
 		</form-bean>
 		<form-bean name="DynaFormtypeForm" type="org.apache.struts.action.DynaActionForm">
 			<form-property name="formtype" type="java.lang.String" />
-
+			
 		</form-bean>
 
 	</form-beans>
@@ -80,7 +80,7 @@
 		<action path="/paymentsubmission" scope="request"
 			type="com.MOJICT.IACFee.Actions.PaymentSubmissionAction" name="paymentfrm"
 			parameter="aggregated">
-			<forward name="success" path="/getamount1" />
+			<forward name="success" path="/getamount1.do" />
 			<forward name="failure" path="getpayment.definition" />
 			<forward name="failureappeal" path="basket.definition" />
 		</action>
@@ -97,7 +97,7 @@
 			<forward name="page-8" path="IAFT1-8.definition" />
 			<forward name="page-9" path="IAFT1-9.definition" />
 			<forward name="page-10" path="IAFT1-10.definition" />
-			<forward name="success" path="/getamount" />
+			<forward name="success" path="/getamount.do" />
 			<forward name="fail" path="IAFT1-1.definition" />
 		</action>
 
@@ -112,7 +112,7 @@
 			<forward name="page-7" path="IAFT5-7.definition" />
 			<forward name="page-8" path="IAFT5-8.definition" />
 			<forward name="page-9" path="IAFT5-9.definition" />
-			<forward name="success" path="/getamount" />
+			<forward name="success" path="/getamount.do" />
 			<forward name="fail" path="IAFT5-1.definition" />
 		</action>
 
@@ -128,7 +128,7 @@
 			<forward name="page-7" path="IAFT5-7.definition" />
 			<forward name="page-8" path="IAFT5-8.definition" />
 			<forward name="page-9" path="IAFT5-9.definition" />
-
+			
 			<forward name="finish" path="IAFT5-9.definition" />
 			<forward name="fail" path="IAFT5-1.definition" />
 
@@ -144,7 +144,7 @@
 			<forward name="page-7" path="IAFT7-7.definition" />
 			<forward name="page-8" path="IAFT7-8.definition" />
 			<forward name="page-9" path="IAFT7-9.definition" />
-			<forward name="success" path="/getamount" />
+			<forward name="success" path="/getamount.do" />
 			<forward name="fail" path="IAFT7-1.definition" />
 		</action>
 
@@ -160,7 +160,7 @@
 			<forward name="page-7" path="IAFT7-7.definition" />
 			<forward name="page-8" path="IAFT7-8.definition" />
 			<forward name="page-9" path="IAFT7-9.definition" />
-
+			
 			<forward name="finish" path="IAFT7-9.definition" />
 			<forward name="fail" path="IAFT7-1.definition" />
 
@@ -186,11 +186,11 @@
 
 		<action path="/IsAsylumm" scope="request"
 			type="com.MOJICT.IACFee.Screening.IsAsylumAction">
-			<forward name="success" path="/IAFT3-ref" />
+			<forward name="success" path="/IAFT3-ref.do" />
 		</action>
 
 		<action path="/downloadpdf" scope="request"
-			type="com.MOJICT.IACFee.ActionswnloadPDFAction" name="frmIAFT1">
+			type="com.MOJICT.IACFee.Actions.DownloadPDFAction" name="frmIAFT1">
 			<forward name="success" path="finalone.definition" />
 		</action>
 
@@ -200,62 +200,62 @@
 		</action>
 
 
-
+		
 		<action path="/IsFeePayable" scope="request"
 			type="com.MOJICT.IACFee.Screening.IsFeePayableAction" name="DynaFeeForm">
-			<forward name="success-IAFT1" path="/IAFT1-ref" />
-			<forward name="success-IAFT5" path="/IAFT5-ref" />
+			<forward name="success-IAFT1" path="/IAFT1-ref.do" />
+			<forward name="success-IAFT5" path="/IAFT5-ref.do" />
 		</action>
 		<action path="/NewIsFeePayable" scope="request"
 			type="com.MOJICT.IACFee.Screening.NewIsFeePayableAction" name="DynaFeeForm">
-			<forward name="success-IAFT1" path="/IAFT1-ref" />
-			<forward name="success-IAFT5" path="/IAFT5-ref" />
+			<forward name="success-IAFT1" path="/IAFT1-ref.do" />
+			<forward name="success-IAFT5" path="/IAFT5-ref.do" />
 		</action>
 		<action path="/NewIsFeePayable7" scope="request"
 			type="com.MOJICT.IACFee.Screening.NewIsFeePayable7Action" name="DynaFeeForm">
-			<forward name="success-IAFT1" path="/IAFT1-ref" />
-			<forward name="success-IAFT7" path="/IAFT7-ref" />
+			<forward name="success-IAFT1" path="/IAFT1-ref.do" />
+			<forward name="success-IAFT7" path="/IAFT7-ref.do" />
 		</action>
-
+		
 		<action path="/IsFormtype" scope="request"
 			type="com.MOJICT.IACFee.Screening.IsFormtypeAction" name="DynaFormtypeForm">
-			<forward name="current" path="/Lodgement" />
+			<forward name="current" path="/Lodgement.do" />
 			<forward name="new" path="newtypelodgement.definition" />
-			<forward name="failure" path="/Lodgement" />
+			<forward name="failure" path="/Lodgement.do" />
 		</action>
 		<action path="/IsFormtypeaggr" scope="request"
 			type="com.MOJICT.IACFee.Screening.IsFormtypeaggrAction" name="DynaFormtypeForm">
-			<forward name="current" path="/newlodgement?next=new" />
-			<forward name="new" path="/newlodgement1?next=new" />
-
-			<forward name="failure" path="/aggregationoption" />
+			<forward name="current" path="/newlodgement.do?next=new" />
+			<forward name="new" path="/newlodgement1.do?next=new" />
+			
+			<forward name="failure" path="/aggregationoption.do" />
 		</action>
 
 		<action path="/IsFeePayableretrieve" scope="request"
 			type="com.MOJICT.IACFee.Screening.IsFeePayableAction1" name="DynaFeeForm">
-			<forward name="success" path="/previous?page=1" />
+			<forward name="success" path="/previous.do?page=1" />
 		</action>
 		<action path="/NewIsFeePayableretrieve" scope="request"
 			type="com.MOJICT.IACFee.Screening.NewIsFeePayableAction1" name="DynaFeeForm">
-			<forward name="success" path="/previous5?page=1" />
+			<forward name="success" path="/previous5.do?page=1" />
 		</action>
 		<action path="/NewIsFeePayableretrieve7" scope="request"
 			type="com.MOJICT.IACFee.Screening.NewIsFeePayableAction71" name="DynaFeeForm">
-			<forward name="success" path="/previous7?page=1" />
+			<forward name="success" path="/previous7.do?page=1" />
 		</action>
-
-
+		
+		
 		<action path="/IsAsylum" scope="request"
 			type="com.MOJICT.IACFee.Screening.IsAsylumAction" name="DynaFeeForm">
 			<forward name="success-IAFT1" path="fee-payable.definition" />
 			<forward name="success-IAFT5" path="fee-payablenew.definition" />
-			<forward name="success-IAFT6" path="/IAFT6-ref" />
+			<forward name="success-IAFT6" path="/IAFT6-ref.do" />
 			<forward name="success-IAFT7" path="fee-payablenew7.definition" />
-			<forward name="iaft1-failure" path="/asylum-refusal-iaft1" />
-			<forward name="iaft5-failure" path="/asylum-refusal-iaft5" />
-			<forward name="iaft6-failure" path="/visa-type-appeal6" />
-			<forward name="iaft7-failure" path="/asylum-refusal-iaft7" />
-
+			<forward name="iaft1-failure" path="/asylum-refusal-iaft1.do" />
+			<forward name="iaft5-failure" path="/asylum-refusal-iaft5.do" />
+			<forward name="iaft6-failure" path="/visa-type-appeal6.do" />
+			<forward name="iaft7-failure" path="/asylum-refusal-iaft7.do" />
+			
 		</action>
 
 		<action path="/IsAsylum5" scope="request"
@@ -278,8 +278,8 @@
 
 		<action path="/delete" scope="request"
 			type="com.MOJICT.IACFee.Actions.DeleteAction" name="frmIAFT1">
-			<forward name="Success" path="/getamount" />
-			<forward name="failure" path="/getamount" />
+			<forward name="Success" path="/getamount.do" />
+			<forward name="failure" path="/getamount.do" />
 		</action>
 
 
@@ -389,7 +389,7 @@
 			<forward name="success" path="final.definition" />
 		</action>
 
-		<action path="/downloadPDF" type="com.MOJICT.IACFee.ActionswnloadPDFAction"
+		<action path="/downloadPDF" type="com.MOJICT.IACFee.Actions.DownloadPDFAction"
 			scope="request">
 			<forward name="success" path="final.definition" />
 		</action>
@@ -397,23 +397,23 @@
 
 		<action path="/basketfunction" type="com.MOJICT.IACFee.Actions.BasketFunctions"
 			scope="request">
-			<forward name="printPDF" path="/printPDF" />
-			<forward name="retrieve" path="/retrieve" />
-			<forward name="delete" path="/delete" />
+			<forward name="printPDF" path="/printPDF.do" />
+			<forward name="retrieve" path="/retrieve.do" />
+			<forward name="delete" path="/delete.do" />
 		</action>
 
 		<action path="/newlodgement" scope="request"
 			type="com.MOJICT.IACFee.Actions.SubmissionAction">
-			<forward name="success" path="/new-lodgement" />
+			<forward name="success" path="/new-lodgement.do" />
 		</action>
 		<action path="/newlodgement1" scope="request"
 			type="com.MOJICT.IACFee.Actions.SubmissionAction">
-			<forward name="success" path="/new-lodgement1" />
+			<forward name="success" path="/new-lodgement1.do" />
 		</action>
 
 		<action path="/Lodgement"
 			type="com.MOJICT.IACFee.Actions.WelcomeActionInvalidate" scope="request">
-			<forward name="success" path="/new-lodgement" />
+			<forward name="success" path="/new-lodgement.do" />
 		</action>
 
 		<action path="/IAFT2-ref" type="com.MOJICT.IACFee.Actions.WelcomeAction"
@@ -444,7 +444,7 @@
 			<forward name="page-6" path="IAFT2-6.definition" />
 			<forward name="page-7" path="IAFT2-7.definition" />
 			<forward name="page-8" path="IAFT2-8.definition" />
-			<forward name="success" path="/getamount" />
+			<forward name="success" path="/getamount.do" />
 			<forward name="fail" path="IAFT2-1.definition" />
 		</action>
 
@@ -472,7 +472,7 @@
 			<forward name="page-6" path="IAFT6-6.definition" />
 			<forward name="page-7" path="IAFT6-7.definition" />
 			<forward name="page-8" path="IAFT6-8.definition" />
-			<forward name="success" path="/getamount" />
+			<forward name="success" path="/getamount.do" />
 			<forward name="fail" path="IAFT6-1.definition" />
 		</action>
 
@@ -513,7 +513,7 @@
 			<forward name="page-8" path="IAFT3-8.definition" />
 			<forward name="page-9" path="IAFT3-9.definition" />
 			<forward name="page-10" path="IAFT3-10.definition" />
-			<forward name="success" path="/getamount" />
+			<forward name="success" path="/getamount.do" />
 			<forward name="fail" path="IAFT3-1.definition" />
 		</action>
 
@@ -541,7 +541,7 @@
 			name="DynaFeeForm" scope="request">
 		</action>
 		<action path="/activate" type="com.MOJICT.IACFee.Util.ActivateUtil"/>
-
+		
 
 	</action-mappings>
 

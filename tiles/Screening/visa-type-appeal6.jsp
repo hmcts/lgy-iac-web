@@ -16,13 +16,13 @@
 					</div>
 					</logic:present>
 				<div id="screening">
-					<html:form action="IsAsylum?xyz=iaft6">
+					<html:form action="IsAsylum.do?xyz=iaft6">
 					<p>Please select one of the following. Your appeal is <p>
 				<p> <html:radio property="asylum" value="humanrights6" styleId="yes" ><span>&nbsp;against a refusal your human rights claim.</span></html:radio></p>
 				<p> <html:radio property="asylum" value="eea6" styleId="yes" ><span>&nbsp;against a decision restricting your rights under the EEA right to free movement, EU Settlement Scheme, EEA family permit, </br>EUSS travel permit, Frontier Worker or Healthcare Visitor Permit.</span></html:radio></p>
-
-					<!-- <div class="button"><a href="IsAsylum?xy867=yes">Yes</a></div>&nbsp; -->
-					<!-- <div class="button"><a href="IsAsylum?xy867=no">No</a></div> -->
+					
+					<!-- <div class="button"><a href="IsAsylum.do?xy867=yes">Yes</a></div>&nbsp; -->
+					<!-- <div class="button"><a href="IsAsylum.do?xy867=no">No</a></div> -->
 				</div>
 				<div class="submitc">
 					<div class="function previous">

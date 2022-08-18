@@ -17,7 +17,7 @@ public class MailService {
 	/**
 	 * log4j logging solution
 	 */
-
+	
 
 	public static synchronized void sendMail(ByteArrayOutputStream pdf, String recipients, String filename)
 			throws Exception {
@@ -76,13 +76,13 @@ public class MailService {
 		props.put("mail.smtp.port", "25");
 
 		String bodyMessage = null;
-		String url = "http://intranet-applications.dca.gsi.gov.uk/MoJOrderForm/pages/security";
+		String url = "http://intranet-applications.dca.gsi.gov.uk/MoJOrderForm/pages/security.do";
 		// url=url+security;
 
 		bodyMessage = "<p>Dear Sir/Madam</p>" + "<p>Your security token is<strong> " + security + " </strong></p>"
 				+ "<p>Please click on following link copy and paste the security code provided above.</p>"
 				+ "<p> <a href=" + url
-				+ ">http://intranet-applications.dca.gsi.gov.uk/MoJOrderForm/pages/security</a></p>"
+				+ ">http://intranet-applications.dca.gsi.gov.uk/MoJOrderForm/pages/security.do</a></p>"
 				+ "<br> <p>Thank you<br></p>";
 
 		// Define message
@@ -194,13 +194,13 @@ public class MailService {
 
 		String bodyMessage = null;
 
-		String url = "http://intranet-applications.dca.gsi.gov.uk/MoJOrderForm/pages/security";
+		String url = "http://intranet-applications.dca.gsi.gov.uk/MoJOrderForm/pages/security.do";
 		// url=url+security;
 
 		bodyMessage = "<p>Dear Sir/Madam</p>" + "<p>Your security token is<strong> " + security + " </strong></p>"
 				+ "<p>Please click on following link copy and paste the security code provided above.</p>"
 				+ "<p> <a href=" + url
-				+ ">http://intranet-applications.dca.gsi.gov.uk/MoJOrderForm/pages/security</a></p>"
+				+ ">http://intranet-applications.dca.gsi.gov.uk/MoJOrderForm/pages/security.do</a></p>"
 				+ "<br> <p>Thank you<br></p>";
 
 		// Define message

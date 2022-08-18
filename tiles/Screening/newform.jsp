@@ -14,7 +14,7 @@
 			<div class="function previous">
 				<span class="tl"></span>
 				<span class="tr"><span></span></span>
-				<a href="formoptions">previous<span class="access">page</span></a>
+				<a href="formoptions.do">previous<span class="access">page</span></a>
 				<span class="bl"></span>
 				<span class="br"></span>
 			</div>

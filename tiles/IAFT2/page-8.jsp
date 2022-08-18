@@ -32,7 +32,7 @@
 						</logic:present>
 						<p class="question"><span class="note">Please note:</span> all questions marked <span class="required">*</span> are mandatory.</p>
 						<h3 id="s6_subtitle">Section 6 &ndash; Sponsor Details (refer to guidance notes)</h3>
-						<html:form action="submission2">
+						<html:form action="submission2.do">
 							<fieldset>
 								<div id="s6a" class="qBox">
 									<span class="lCellTl">A.&nbsp;Family Name or Surname <span class="required">*</span></span>
@@ -305,7 +305,7 @@
 								<div class="function previous">
 									<span class="tl"></span>
 									<span class="tr"><span></span></span>
-									<a href="previous2?page=7">Previous <span class="access">page</span></a>
+									<a href="previous2.do?page=7">Previous <span class="access">page</span></a>
 									<span class="bl"></span>
 									<span class="br"></span>
 								</div>

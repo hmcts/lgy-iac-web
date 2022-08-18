@@ -29,7 +29,7 @@
 				</logic:present>
 
 				<h3>Section 3 &ndash; Your Appeal</h3>
-				<html:form action="submission7">
+				<html:form action="submission7.do">
 					<fieldset>
 						<div class="qBox">
 							<p><Strong>Late Appeal</Strong></p>
@@ -37,7 +37,7 @@
 <ul>
 <li>The date of your departure from the United Kingdom when your right of appeal can only be exercised after you have left the United Kingdom; </li>
 <li>or in all other cases the date you received the notice of the decision from the Home Office.</li>
-</ul></p>
+</ul></p>	
 							<p class="question"><strong>A.</strong>&nbsp;If you know your appeal is late, or you are not sure if it will be received in time, you must apply for an extension of time. Explain why your appeal is late in the box below.</p>
 							<div class="tBox"><html:textarea property="s3a" styleId="s3a" cols="118" rows="15" /></div>
 							<p class="charCounter">Characters left:&nbsp;<span id="s3a_counter"></span>&nbsp;of 1000</p>
@@ -58,7 +58,7 @@
 							<script type="text/javascript">$('#s3c').CharsLeftCounter('s3c_counter', 1000);</script>
 						</div>
 					</fieldset>
-
+					
 					<div class="submitc">
 						<html:hidden property="next" value="page-5"/>
 						<html:hidden property="previous" value="page-3"/>
@@ -66,7 +66,7 @@
 						<div class="function previous">
 							<span class="tl"></span>
 							<span class="tr"><span></span></span>
-							<a href="previous7?page=3">Previous <span class="access">page</span></a>
+							<a href="previous7.do?page=3">Previous <span class="access">page</span></a>
 							<span class="bl"></span>
 							<span class="br"></span>
 						</div>

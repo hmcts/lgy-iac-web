@@ -30,7 +30,7 @@
 
 				<h3>Section 3 &ndash; Your Appeal</h3>
 
-				<html:form action="submission">
+				<html:form action="submission.do">
 					<fieldset>
 						<div class="qBox">
 							<p class="question"><strong>D. Grounds of your appeal</strong></p>
@@ -74,7 +74,7 @@
 						<div class="function previous">
 							<span class="tl"></span>
 							<span class="tr"><span></span></span>
-							<a href="previous?page=4">Previous <span class="access">page</span></a>
+							<a href="previous.do?page=4">Previous <span class="access">page</span></a>
 							<span class="bl"></span>
 							<span class="br"></span>
 						</div>

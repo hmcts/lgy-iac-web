@@ -9,10 +9,10 @@
 		<html:form action="IsFeePayable">
 			<div id="screening">
 				<p>Some appeals are exempt from paying a fee.</p>
-				<p>You should read the Notice of Decision you received when your application was refused to see if your appeal is one of these types.<br />If you are unsure then you should refer to the person who refused your application to check. Further information is contained in the<br />guidance notes section <a href=" http://hmctsformfinder.justice.gov.uk/HMCTS/GetLeaflet?court_leaflets_id=4525">"Immigration and Appeals Tribunal fees guidance"</a>.</p>
+				<p>You should read the Notice of Decision you received when your application was refused to see if your appeal is one of these types.<br />If you are unsure then you should refer to the person who refused your application to check. Further information is contained in the<br />guidance notes section <a href=" http://hmctsformfinder.justice.gov.uk/HMCTS/GetLeaflet.do?court_leaflets_id=4525">"Immigration and Appeals Tribunal fees guidance"</a>.</p>
 				<p><strong>Important: The tribunal will obtain a copy of your notice of decision and will be able to check whether your appeal is exempt. If you claim exemption where the list below does not apply to your appeal, then your appeal will be delayed whilst the tribunal writes to you requesting payment. If you do not pay, your appeal may not proceed.</strong></p>
 				<p>If your appeal is against a decision listed below then you should click the appropriate box:</p>
-
+			
 				<p><html:radio property="exemption" value="section2a" styleId="section2a" />&nbsp;Section 2A of the 1971 Act (deprivation of right of abode)</p>
 				<p><html:radio property="exemption" value="section5" styleId="section5" />&nbsp;Section 5(1) of the 1971 Act (a decision to make a deportation order)</p>
 				<p><html:radio property="exemption" value="schedule2" styleId="schedule2" />&nbsp;Paragraphs 8, 9,10, 10A or 12(2) of Schedule 2 to the 1971 Act (a decision that an illegal entrant, any family<br /> or seaman and aircrew is or are to be removed from the United Kingdom by way of directions)</p>
@@ -28,7 +28,7 @@
 				<div class="function previous">
 					<span class="tl"></span>
 					<span class="tr"><span></span></span>
-					<a href="asylum-refusal-iaft1">Previous <span class="access">page</span></a>
+					<a href="asylum-refusal-iaft1.do">Previous <span class="access">page</span></a>
 					<span class="bl"></span>
 					<span class="br"></span>
 				</div>

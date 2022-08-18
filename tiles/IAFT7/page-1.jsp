@@ -34,7 +34,7 @@
 				</logic:present>
 
 				<p class="question"><span class="note">Please note:</span> all questions marked <span class="required">*</span> are mandatory.</p>
-				<html:form action="submission7">
+				<html:form action="submission7.do">
 					<fieldset>
 						<div id="qa" class="qBox">
 							<div class="lCellTl">
@@ -67,7 +67,7 @@
 								No&nbsp;<html:radio property="qb_lsc" value="No" />
 								Legal Aid&nbsp;<html:radio property="qb_lsc" value="LSC" />
 								Home Office Waiver&nbsp;<html:radio property="qb_lsc" value="homeofficewaiver" />
-
+								
 							</span>
 							<p class="note">You should provide a reference and any supporting documents. If your fee was waived by the Home Office you should confirm that in writing. Failure to do so may result in a fee being required.</p>
 							<div id="laf-receipt">
@@ -130,7 +130,7 @@
 						<div class="function previous">
 							<span class="tl"></span>
 							<span class="tr"><span></span></span>
-							<a href="IsAsylum7">Previous <span class="access">page</span></a>
+							<a href="IsAsylum7.do">Previous <span class="access">page</span></a>
 							<span class="bl"></span>
 							<span class="br"></span>
 						</div>

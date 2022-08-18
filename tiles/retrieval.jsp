@@ -24,7 +24,7 @@
 					</div>
 				</logic:present>
 
-				<html:form action="retrieve">
+				<html:form action="retrieve.do">
 					<fieldset>
 						<div id="retrieve" class="qBox">
 							<span class="lCellTr">Your reference:</span>

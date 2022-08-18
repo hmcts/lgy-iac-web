@@ -17,16 +17,16 @@
 			<span class="tr"><span></span></span>
 			<h3>Appeal to the First&ndash;Tier Tribunal (Immigration and Asylum Chamber) against an in country [Asylum/Non asylum] decision</h3>
 
-			<logic:present name="errMsg" scope="request">
+			<logic:present name="errMsg" scope="request">		
 				<strong>Please correct following:</strong>
 				<font color="red"><Strong><bean:write name="errMsg" filter="false"/></Strong></font>
-			</logic:present>
+			</logic:present>	
 
 			<div class="formcon">
 				<div class="edit"></div>
 				</div>
 
-				<html:form action="paymentsubmission">
+				<html:form action="paymentsubmission.do">
 
 					<p>Please enter the payment reference number printed on the letter you have received.Please enter the payment reference number as it is written on the request we have sent you. If you are making a payment that covers more than one request you must enter each payment reference number separately in the boxes below.</p>
 					<div class="row">
@@ -34,7 +34,7 @@
 						<html:text property="prn1" styleId="qc-appeal-number0" size="40" maxlength="70" />
 					</div>
 
-
+				
 					<div id="topup1">
 						<div class="row">
 							<label for="qc-appeal-number1">2. Payment reference number</label>

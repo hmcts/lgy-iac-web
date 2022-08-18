@@ -16,16 +16,16 @@
 					</div>
 				</logic:present>
 				<div id="screening">
-					<html:form action="IsAsylum?xyz=iaft5" >
+					<html:form action="IsAsylum.do?xyz=iaft5" >
 					<p>Please select one of the following. Your appeal is <p>
 				<p>	<html:radio property="asylum" value="protection" styleId="yes" ><span>&nbsp;against a refusal to grant you protection.</span></html:radio></p>
 				<p>	<html:radio property="asylum" value="protectionrevoke" styleId="yes" ><span>&nbsp;against a decision to revoke your protection status.</span></html:radio></p>
 				<p> <html:radio property="asylum" value="humanrights" styleId="yes" ><span>&nbsp;against a refusal your human rights claim.</span></html:radio></p>
 				<p> <html:radio property="asylum" value="eea" styleId="yes" ><span>&nbsp;Against a decision restricting your rights under the EEA right to free movement, EU Settlement Scheme, EEA family permit,<br/> EUSS travel permit, Frontier Worker or Healthcare Visitor Permit.</span></html:radio></p>
 				<p> <html:radio property="asylum" value="citizenship" styleId="yes" ><span>&nbsp;against a decision depriving you of citizenship.</span></html:radio></p>
-
-					<!-- <div class="button"><a href="IsAsylum?xy867=yes">Yes</a></div>&nbsp; -->
-					<!-- <div class="button"><a href="IsAsylum?xy867=no">No</a></div> -->
+					
+					<!-- <div class="button"><a href="IsAsylum.do?xy867=yes">Yes</a></div>&nbsp; -->
+					<!-- <div class="button"><a href="IsAsylum.do?xy867=no">No</a></div> -->
 				</div>
 				<div class="submitc">
 					<div class="function previous">

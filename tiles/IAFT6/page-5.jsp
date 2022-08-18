@@ -32,14 +32,14 @@
 				<p class="question"><span class="note">Please note:</span> all questions marked <span class="required">*</span> are mandatory.</p>
 
 				<h3>Section 3 &ndash; Your Appeal</h3>
-				<html:form action="submission6">
+				<html:form action="submission6.do">
 					<fieldset>
 						<div id="s3d" class="qBox">
 							<p class="question"><strong>D.&nbsp;Grounds of your appeal <span class="required">*</span></strong></p>
 							<span class="note">You may appeal only if:</span>
-
-
-
+							
+								
+								
 <ul>
         <li>you have made a human rights claim and this has been refused,</li>
 
@@ -49,17 +49,17 @@
                     <li>
                     	your appeal relates to an EU Settlement Scheme decision,  EUSS family permit  and travel permit, a frontier worker decision or a healthcare visitor decision or if you believe the decision breaches the withdrawal agreement, EFTA separation agreement or Swiss citizens' rights agreement please explain why below. </li>
 
-
-
+        
+       
       </ul>
 
-        <span class="note">You must bring your appeal on the grounds that:</span>
-
-							    <ul>
+        <span class="note">You must bring your appeal on the grounds that:</span>  
+							
+							    <ul> 
 								<li>the decision against which you seek to appeal is unlawful under section 6 of the Human Right Act 1998 or </li>
 								<li> that the decision breaches your rights under the European Union treaties in respect of entry to or residence in the United Kingdom or if it breaches the EU withdrawal agreement, EFTA separation agreement or Swiss citizens' rights agreements</li>
-								<li>the decision against which you seek to appeal has stated that specific articles of the European Convention on Human Rights (ECHR) do not apply to your case, and you disagree, please explain why.</li>
-
+								<li>the decision against which you seek to appeal has stated that specific articles of the European Convention on Human Rights (ECHR) do not apply to your case, and you disagree, please explain why.</li>  
+								
 							</ul>
 							<logic:equal name="frmHeader" value="Human Rights">
 							<p class="question"><strong>Human Rights Decision</strong></p>
@@ -249,7 +249,7 @@ if you believe the decision breaches the withdrawal agreement, EFTA separation a
 								<span class="rCellTl">
 									Appeal number (if known)&nbsp;	<html:text  property="s3e_appealno2" styleId="s3e_appeal_ref2" size="30" maxlength="250" />
 								</span>
-
+	
 								<span class="lCellTr">
 									Date
 									<html:select property="s3e_date3_day">
@@ -341,7 +341,7 @@ if you believe the decision breaches the withdrawal agreement, EFTA separation a
 								No&nbsp;<html:radio styleId="s3f_no" property="s3f"  value="No" />
 								Yes&nbsp;<html:radio styleId="s3f_yes" property="s3f" value="Yes" />
 							</span>
-
+		
 							<div id="s3f_interpreter">
 								<p class="bold">Give details below:</p>
 								<span class="lCellTr">Who:</span>
@@ -366,7 +366,7 @@ if you believe the decision breaches the withdrawal agreement, EFTA separation a
 						<div class="function previous">
 							<span class="tl"></span>
 							<span class="tr"><span></span></span>
-							<a href="previous6?page=4">Previous <span class="access">page</span></a>
+							<a href="previous6.do?page=4">Previous <span class="access">page</span></a>
 							<span class="bl"></span>
 							<span class="br"></span>
 						</div>

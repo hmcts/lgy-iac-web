@@ -12,9 +12,9 @@
 			<p>2)Click <Strong>"No"</Strong> and  Print out a copy of your appeal and send to the Tribunal. The Tribunal will then write to you providing instructions about how to pay your fee.</p>
 			Do you want to make the payment with some other card &nbsp;
 
-			<div class="button"><a href="getamount">Yes</a></div>
-
-			<div class="button"><a href="getreturnxml?orderID=<%=request.getParameter("orderID") %>">No.Finish Submission</a></div>
+			<div class="button"><a href="getamount.do">Yes</a></div>
+			
+			<div class="button"><a href="getreturnxml.do?orderID=<%=request.getParameter("orderID") %>">No.Finish Submission</a></div>
 			&nbsp;
 		</div>
 		<img id="progress" style="margin-left:12%;  margin-bottom:2em;" src="images/progress/90-percent.gif" alt="*" />

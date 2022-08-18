@@ -37,7 +37,7 @@
 
 				<p class="question"><span class="note">Please note:</span> all questions marked <span class="required">*</span> are mandatory.</p>
 
-				<html:form action="submission2">
+				<html:form action="submission2.do">
 					<fieldset>
 						<div  id="qa" class="qBox">
 							<div class="lCellTl">
@@ -50,7 +50,7 @@
 								Papers&nbsp;<html:radio property="appeal_type" value="Paper" styleId="qa_paper" />
 							</span>
 						</div>
-
+						
 						<div  id="qb" class="qBox">
 							<span class="lCellTl">B.&nbsp;If you have chosen to have an oral hearing, please mark the box of anyone who will be attending your hearing to<br /><strong>give evidence</strong>. <span class="required">*</span></span>
 							<span class="rCellTl">
@@ -129,7 +129,7 @@
 						<div class="function previous">
 							<span class="tl"></span>
 							<span class="tr"><span></span></span>
-							<a href="eco-decision-appeal">Previous <span class="access">page</span></a>
+							<a href="eco-decision-appeal.do">Previous <span class="access">page</span></a>
 							<span class="bl"></span>
 							<span class="br"></span>
 						</div>
@@ -141,7 +141,7 @@
 							<span class="bl"></span>
 							<span class="br"></span>
 						</div>
-					</div>
+					</div>	
 				</html:form>
 				<span class="bl"></span>
 				<span class="br"></span>

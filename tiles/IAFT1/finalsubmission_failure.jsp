@@ -38,7 +38,7 @@
 
 							<p>
 								Please
-								<html:link href="downloadpdf" paramId="token"
+								<html:link href="downloadpdf.do" paramId="token"
 									paramName="bean" paramProperty="securitytoken" target="_blank">Click here</html:link>
 								to download the pdf file for your submission.
 							</p>
@@ -46,7 +46,7 @@
 					</logic:present>
 					</p>
 					<p>
-						You must now send your pdf appeal form submission along with your
+						You must now send your pdf appeal form submission along with your 
 						<strong>Notice of Decision and all other evidence</strong>, which
 						is available to you now, to the Tribunal without delay. Where you
 						have noted in your appeal that you have documents which are not
@@ -80,10 +80,10 @@
 					</p>
 					<p>Please click on the link below and take a few minutes to complete a short survey</p>
 
-					<p><a href="https://www.surveymonkey.com/s/IAC11">https://www.surveymonkey.com/s/IAC11</a></p>
+					<p><a href="https://www.surveymonkey.com/s/IAC11">https://www.surveymonkey.com/s/IAC11</a></p> 
 
 
-
+				
 
 				</div>
 

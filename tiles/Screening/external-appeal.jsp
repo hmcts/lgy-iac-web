@@ -8,15 +8,15 @@
 
 		<div id="screening">
 			Are you appealing a decision after you have left the UK?&nbsp;
-			<div class="button"><a href="asylum-refusal-iaft3">Yes</a></div>&nbsp;
-			<div class="button"><a href="IAFT2-ref">No</a></div>
+			<div class="button"><a href="asylum-refusal-iaft3.do">Yes</a></div>&nbsp;
+			<div class="button"><a href="IAFT2-ref.do">No</a></div>
 		</div>
 
 		<div class="submitc">
 			<div class="function previous">
 				<span class="tl"></span>
 				<span class="tr"><span></span></span>
-				<a href="eco-decision-appeal">previous<span class="access">page</span></a>
+				<a href="eco-decision-appeal.do">previous<span class="access">page</span></a>
 				<span class="bl"></span>
 				<span class="br"></span>
 			</div>

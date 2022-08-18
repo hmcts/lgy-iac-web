@@ -24,16 +24,16 @@
 					</div>
 				</logic:present>
 
-				<html:form action="paymentsubmission">
+				<html:form action="paymentsubmission.do">
 					<fieldset>
 						<div class="qBox">
 							<p>Please enter the payment reference number printed on the letter you have received.Please enter the payment reference number as it is written on the request we have sent you. If you are making a payment that covers more than one request you must enter each payment reference number separately in the boxes below.</p>
-
+			
 							<span class="lCellTr">1.Payment reference number</span>
 							<span class="rCellTl"><html:text property="prn1" styleId="qc-appeal-number0" size="40" maxlength="70" /></span>
 						</div>
 
-
+						
 
 						<div class="qBox" id="topup1">
 							<span class="lCellTr">2. Payment reference number</span>
@@ -55,7 +55,7 @@
 							<span class="rCellTl"><html:text property="prn5" styleId="qc-appeal-number4" size="40" maxlength="70" /></span>
 						</div>
 					</fieldset>
-
+					
 					<h3>Payment information</h3>
 					<fieldset>
 						<div class="qBox">
@@ -64,7 +64,7 @@
 							<span class="lCellTl-noBold">Please enter your email address </span>
 							<span class="rCellTl">
 									<html:text property="email"  styleId="email_id" size="50" maxlength="100" />
-
+								
 							</span>
 						</div>
 					</fieldset>

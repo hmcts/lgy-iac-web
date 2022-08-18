@@ -38,7 +38,7 @@
 
 							<p>
 								Please
-								<html:link href="downloadpdf" paramId="token"
+								<html:link href="downloadpdf.do" paramId="token"
 									paramName="bean" paramProperty="securitytoken" target="_blank">Click here</html:link>
 								to download the pdf file for your submission.
 							</p>
@@ -79,7 +79,7 @@
 						and on the guidance notes accompanying the appeal form.
 					</p>
 
-
+				
 
 				</div>
 

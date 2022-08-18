@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><!-- InstanceBegin template="/Templates/default.dwt" codeOutsideHTMLIsLocked="false" -->
-	<head>
+	<head>	
 		<!-- InstanceBeginEditable name="doctitle" -->
 		<title>IAFT-1 &ndash; Immigration &amp; Asylum Tribunal</title>
 		<!-- InstanceEndEditable -->
@@ -13,10 +13,10 @@
 		<meta name="Author" content="Immigration and Asylum Tribunal" />
 		<meta name="Keywords" content="Immigration, Asylum, Tribunal" />
 		<meta name="Description" content="" />
-
+		
 		<meta name="eGMS.accessibility" scheme="WCAG" content="Double-A" />
 		<meta name="eGMS.subject.category" scheme="GCL" content="Immigration, Asylum, Tribunal" />
-
+		
 		<meta name="DC.subject.keyword" content="Immigration, Asylum, Tribunal" />
 		<meta name="DC.description" content="" />
 		<meta name="DC.creator" content="" />
@@ -91,8 +91,8 @@
 
 									<div id="screening">
 										Which would you like to do?&nbsp;
-										<div class="button"><a href="Lodgement">Submit another appeal</a></div>&nbsp;
-										<div class="button"><a href="payment">Pay for the appeal(s) just completed</a></div>
+										<div class="button"><a href="Lodgement.do">Submit another appeal</a></div>&nbsp;
+										<div class="button"><a href="payment.do">Pay for the appeal(s) just completed</a></div>
 										<br />
 										<p><strong>Please note</strong> that you are printing a copy of your appeal for your own records - clicking this button will not submit your appeal. Your appeal will not be submitted until you have paid for it by clicking the 'Pay for the appeal(s) just completed button' above.  When your payment has been approved, you will received confirmation that your appeal has been submitted. If your payment is declined, you will be provided with further instructions on this website. If your appeal does not require a payment you can click the 'Finish submission' above to submit your appeal to the tribunal.</p>
 									</div>

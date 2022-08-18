@@ -15,7 +15,7 @@
 		<div class="formwrap">
 			<span class="tl"></span>
 			<span class="tr"><span></span></span>
-
+			
 			<h3>Appeal to the First&ndash;Tier Tribunal (Immigration and Asylum Chamber) against your Home Office <logic:present name="frmHeader" scope="session"><bean:write name="frmHeader" scope="session"/></logic:present> decision</h3>
 
 			<div class="formcon">
@@ -33,7 +33,7 @@
 				<p class="question"><span class="note">Please note:</span> all questions marked <span class="required">*</span> are mandatory.</p>
 
 				<h3>Section 3 &ndash; Your Appeal</h3>
-				<html:form action="submission3">
+				<html:form action="submission3.do">
 					<fieldset>
 						<div class="qBox">
 							<span class="lCellTl">E.&nbsp;Have you appealed against any other immigration decision in the United Kingdom or overseas? <span class="required">*</span></span>
@@ -124,7 +124,7 @@
 								</span>
 								<span class="rCellTl">
 									Appeal number (if known)&nbsp;		<html:text property="s3e_appealno1"  size="30" maxlength="250" ></html:text>
-
+								
 								</span>
 
 								<span class="lCellTr">
@@ -207,9 +207,9 @@
 								</span>
 								<span class="rCellTl">
 									Appeal number (if known)&nbsp;		<html:text property="s3e_appealno2"  size="30" maxlength="250" ></html:text>
-
+								
 								</span>
-
+	
 								<span class="lCellTr">
 									Date&nbsp;
 									<html:select property="s3e_date3_day">
@@ -291,9 +291,9 @@
 								</span>
 								<span class="rCellTl">
 									Appeal number (if known)&nbsp;
-
+									
 									<html:text property="s3e_appealno3"  size="30" maxlength="250" ></html:text>
-
+									
 								</span>
 							</div>
 						</div>
@@ -306,7 +306,7 @@
 						<div class="function previous">
 							<span class="tl"></span>
 							<span class="tr"><span></span></span>
-							<a href="previous3?page=7">Previous <span class="access">page</span></a>
+							<a href="previous3.do?page=7">Previous <span class="access">page</span></a>
 							<span class="bl"></span>
 							<span class="br"></span>
 						</div>

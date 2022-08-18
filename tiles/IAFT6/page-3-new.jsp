@@ -44,7 +44,7 @@
 
 				<h3>Section 2 &ndash; Your ECO Decision (refer to your Notice
 					of Decision)</h3>
-				<html:form action="submission2">
+				<html:form action="submission2.do">
 					<fieldset>
 						<div id="s2a" class="qBox">
 							<span class="lCellTl">A.&nbsp;Is your refusal a points
@@ -230,7 +230,7 @@
 								Fax/Personal Service&nbsp;<html:radio property="s2d" value="Fax" />
 								Courier&nbsp;<html:radio property="s2d" value="Courier" />
 								Other&nbsp;<html:radio property="s2d" styleId="s2d_other" value="Other" />
-							</span>
+							</span> 
 							<span class="lCellTr">Other (Please specify)</span>
 							<span class="rCellTl"><html:text property="s2d_other" size="50" maxlength="50" /></span>
 						</div>
@@ -272,7 +272,7 @@
 									<html:option value="30">30</html:option>
 									<html:option value="31">31</html:option>
 								</html:select>
-								 /
+								 / 
 								<html:select property="s2e_month">
 									<html:option value="0">Month</html:option>
 									<html:option value="1">01</html:option>
@@ -288,7 +288,7 @@
 									<html:option value="11">11</html:option>
 									<html:option value="12">12</html:option>
 								</html:select>
-								 /
+								 / 
 								<html:select property="s2e_year">
 									<html:optionsCollection name="CurrentAndTwoFormerYears"	value="yearvalue" label="yearlable" />
 								</html:select>
@@ -332,7 +332,7 @@
 									<html:option value="30">30</html:option>
 									<html:option value="31">31</html:option>
 								</html:select>
-								 /
+								 / 
 								<html:select property="s2e_month">
 									<html:option value="0">Month</html:option>
 									<html:option value="1">01</html:option>
@@ -348,7 +348,7 @@
 									<html:option value="11">11</html:option>
 									<html:option value="12">12</html:option>
 								</html:select>
-								 /
+								 / 
 								<html:select property="s2e_year">
 									<html:optionsCollection name="CurrentAndTwoFormerYears"	value="yearvalue" label="yearlable" />
 								</html:select>
@@ -376,7 +376,7 @@
 					<div class="submitc">
 						<div class="function previous">
 							<span class="tl"></span> <span class="tr"><span></span></span> <a
-								href="previous2?page=2">Previous <span class="access">page</span></a>
+								href="previous2.do?page=2">Previous <span class="access">page</span></a>
 							<span class="bl"></span> <span class="br"></span>
 						</div>
 						<div class="function next right">

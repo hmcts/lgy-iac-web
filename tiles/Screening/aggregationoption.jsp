@@ -9,14 +9,14 @@
 	<logic:present name="errMsg" scope="request">
 					<div id="error">
 						<div id="message">
-
-							<div id="fields"><bean:write name="errMsg" filter="false" /> </div>
+							
+							<div id="fields"><bean:write name="errMsg" filter="false" /> </div> 
 						</div>
 					</div>
 	</logic:present>
 		<html:form action="IsFormtypeaggr">
 			<div id="screening">
-
+			
 						<p>Please select from one of the following options</p>
 				<p><html:radio property="formtype" value="student1" styleId="section2a" />&nbsp;I have received a decision to refuse my asylum, protection or human rights claim</p>
 				<p><html:radio property="formtype" value="everythingelse" styleId="section5" />&nbsp;I am in the UK and I received a refusal decision on:<br/>
@@ -37,11 +37,11 @@
 				<div class="function previous">
 					<span class="tl"></span>
 					<span class="tr"><span></span></span>
-					<a href="getamount">Previous <span class="access">page</span></a>
+					<a href="getamount.do">Previous <span class="access">page</span></a>
 					<span class="bl"></span>
 					<span class="br"></span>
 				</div>
-
+				
 				<div class="function next right">
 					<span class="tl"></span>
 					<span class="tr"><span></span></span>

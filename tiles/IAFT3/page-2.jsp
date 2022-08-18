@@ -15,7 +15,7 @@
 		<div class="formwrap">
 			<span class="tl"></span>
 			<span class="tr"><span></span></span>
-
+			
 			<h3>Appeal to the First&ndash;Tier Tribunal (Immigration and Asylum Chamber) against your Home Office <logic:present name="frmHeader" scope="session"><bean:write name="frmHeader" scope="session"/></logic:present> decision</h3>
 
 			<div class="formcon">
@@ -32,14 +32,14 @@
 
 				<h3>Section 1 &ndash; Personal Information</h3>
 				<p><span class="note">Please note:</span> all questions marked <span class="required">*</span> are mandatory.</p>
-				<html:form action="submission3">
+				<html:form action="submission3.do">
 					<fieldset>
-
+					
 						<div id="s1a" class="qBox">
 							<span class="lCellTl">A.&nbsp;Family Name or Surname<span class="required">*</span><br />(For instance as shown on your passport)</span>
 							<span class="rCellTl"><html:text property="s1a" size="35" maxlength="35" /></span>
-						</div>
-
+						</div>	
+							
 						<div id="s1b" class="qBox">
 							<span class="lCellTl">B.&nbsp;Given or First Name(s)<span class="required">*</span><br />(For instance as shown on your passport)</span>
 							<span class="rCellTl"><html:text property="s1b" size="35" maxlength="35" /></span>
@@ -210,7 +210,7 @@
 								</html:select>
 							</span>
 						</div>
-
+						
 						<div id="s1e" class="qBox">
 							<span class="lCellTl">E.&nbsp;Gender <span class="required">*</span>&nbsp;</span>
 							<span class="rCellTl">
@@ -439,8 +439,8 @@
 									<html:text property="s1f_email" size="35" maxlength="254" />
 							</span>
 								<p><span class="note">If you change your address, you must notify the Tribunal immediately in writing.</span></p>
-
-
+							
+								
 						</div>
 
 						<div id="s1g" class="qBox">
@@ -689,7 +689,7 @@
 						<div class="function previous">
 							<span class="tl"></span>
 							<span class="tr"><span></span></span>
-							<a href="previous3?page=1">Previous <span class="access">page</span></a>
+							<a href="previous3.do?page=1">Previous <span class="access">page</span></a>
 							<span class="bl"></span>
 							<span class="br"></span>
 						</div>

@@ -20,10 +20,10 @@
 		<meta name="Author" content="Immigration and Asylum Tribunal" />
 		<meta name="Keywords" content="Immigration, Asylum, Tribunal" />
 		<meta name="Description" content="" />
-
+		
 		<meta name="eGMS.accessibility" scheme="WCAG" content="Double-A" />
 		<meta name="eGMS.subject.category" scheme="GCL" content="Immigration, Asylum, Tribunal" />
-
+		
 		<meta name="DC.subject.keyword" content="Immigration, Asylum, Tribunal" />
 		<meta name="DC.description" content="" />
 		<meta name="DC.creator" content="" />
@@ -85,18 +85,18 @@
 							<div id="Content">
 								<div class="holder">
 									<!-- InstanceBeginEditable name="main" -->
-
+									
 									<form method="post" action="https://secure2.epdq.co.uk/cgi-bin/CcxBarclaysEpdq.e" name="postform">
 										<%//= ePDQtag %>
-										<input type="hidden" name="returnurl" value="http://www.pubsbranch.co.uk/Courtfines/pages/thankyou"/>
+										<input type="hidden" name="returnurl" value="http://www.pubsbranch.co.uk/Courtfines/pages/thankyou.do"/>
 										<input type="hidden" name="merchantdisplayname" value="IAC Fees"/>
 										<input type="hidden" name="collectdeliveryaddress" value="0"/>
 										<input type="hidden" name="supportedcardtypes" value="109"/>
 
-									<div id="screening">
+									<div id="screening">																	
 										<p>The following amount is due in full or in part:&nbsp;&pound;<bean:write name="Cart" property="total" /></p>
 										<p>Please click on the Make payment button below where you will then be redirected to the Barclaycard website.</p>
-										<p>You will need your debit or credit card details.  The following cards are accepted.</p>
+										<p>You will need your debit or credit card details.  The following cards are accepted.</p>																				          
 										<img src="justice/images/cards.jpg" alt="Cards Accepted - Visa,Visa Electron,MasterCard,Maestro,Solo" />
 									</div>
 
@@ -110,7 +110,7 @@
 											<span class="br"></span>
 										</div>
 									</div>
-
+										
 									<!-- InstanceEndEditable -->
 								</div>
 							</div>

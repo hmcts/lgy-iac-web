@@ -36,7 +36,7 @@
 						</logic:present>
 						<h3>Section 1 &ndash; Personal Information</h3>
 						<p><span class="note">Please note:</span> all questions marked <span class="required">*</span> are mandatory.</p>
-						<html:form action="submission7">
+						<html:form action="submission7.do">
 							<fieldset>
 								<div id="s1a" class="qBox">
 									<span class="lCellTl">A.&nbsp;Family Name or Surname<span class="required">*</span><br />
@@ -931,7 +931,7 @@
 								<div class="function previous">
 									<span class="tl"></span>
 									<span class="tr"><span></span></span>
-									<a href="previous7?page=1">Previous <span class="access">page</span></a>
+									<a href="previous7.do?page=1">Previous <span class="access">page</span></a>
 									<span class="bl"></span>
 									<span class="br"></span>
 								</div>

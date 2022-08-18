@@ -238,6 +238,8 @@ dependencies {
   implementation group: 'org.flywaydb', name: 'flyway-core', version: '8.5.13'
   implementation group: 'org.postgresql', name: 'postgresql', version: '42.4.1'
   implementation group: 'org.jdom', name: 'jdom2', version: '2.0.6.1'
+  implementation group: 'com.azure', name: 'azure-storage-blob', version: '12.18.0'
+  implementation group: 'com.azure', name: 'azure-identity', version: '1.5.4'
 
   implementation 'junit:junit:4.13.2'
 

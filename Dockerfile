@@ -17,6 +17,9 @@ RUN wget https://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.82/bin/apache-tomca
 RUN tar xvfz apache*.tar.gz
 RUN mv apache-tomcat-8.5.82/ /opt/tomcat/
 
+# Remove the default ROOT folder (we will replace it)
+RUN rm -rf /opt/tomcat/webapps/ROOT
+
 # Verify Java version
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ENV CATALINA_OPTS="-Xmx512M -XX:MaxPermSize=1024m"
@@ -47,6 +50,9 @@ RUN mkdir -p /opt/moj/IACFees.files/Backup/XML_Files/
 
 ADD deploy/IACFees.war /opt/tomcat/webapps
 ADD deploy/start_tomcat.sh /opt/tomcat/bin
+
+ADD deploy/health.war /opt/tomcat/webapps
+
 
 RUN chown -R hmcts:hmcts /opt/tomcat
 

@@ -27,24 +27,35 @@ java:
           alias: POSTGRES_USER
         - name: web-POSTGRES-PASS
           alias: POSTGRES_PASSWORD
+        - name: web-POSTGRES-DATABASE
+          alias: DB_NAME
+        - name: web-POSTGRES-HOST
+          alias: DB_HOST
+        - name: web-POSTGRES-USER
+          alias: DB_USER
+        - name: web-POSTGRES-PASS
+          alias: DB_PASSWORD
+
   environment:
     POSTGRES_SSL_MODE: require
     FLYWAY_URL: jdbc:postgresql://${POSTGRES_HOST}:5432/${POSTGRES_DATABASE}?&sslmode=require
     FLYWAY_USER: ${POSTGRES_USER}
     FLYWAY_PASSWORD: ${POSTGRES_PASSWORD}
     RUN_DB_MIGRATION_ON_STARTUP: 'false'
-    ENV_NAME: "Azure Staging PG"
+    ENV_NAME: "Azure Dev PG"
     DB_JDBC_DRIVER: "org.postgresql.Driver"
     DB_JDBC_URL: "jdbc:postgresql"
-    DB_HOST: ${POSTGRES_HOST}
     DB_PORT: "5432"
-    DB_USER: ${POSTGRES_USER}
-    DB_PASSWORD: ${POSTGRES_PASSWORD}
-    DB_NAME: ${POSTGRES_DATABASE}
     EPDQ_PSPID: "a"
     EPDQ_URL: "b"
     EPDQ_SHAIN: "c"
     EPDQ_SHAOUT: "d"
     TEST_URL: ${SERVICE_FQDN}/IACFees/health/liveness.do
 
+  env:
+    - name: "MGB_TEST"
+      valueFrom:
+        secretKeyRef:
+          key: lgy-iac
+          name: web-POSTGRES-DATABASE
 

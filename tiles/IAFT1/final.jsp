@@ -8,7 +8,7 @@
 				<div class="steps">
 					<h2>Success</h2>
 					<div align="right">
-						
+
 					</div>
 				</div>
 				<div class="formwrap">
@@ -28,14 +28,14 @@
 
 						<div>
 							<p><strong>Submission successful</strong></p>
-							<form action="getxml.do">
-							<p><strong>Amount Payable : £</strong><bean:write name="aggramount" scope="session" /><br/></p>
+							<form action="getxml">
+							<p><strong>Amount Payable : ï¿½</strong><bean:write name="aggramount" scope="session" /><br/></p>
 							Payment successful.<input type="radio" value="Success" id="transactionstatus" name="transactionstatus"/>
 							Payment unsuccessful.<input type="radio"  value="failure" id="transactionstatus" name="transactionstatus"/>
 							<input type="submit" value="submit" onclick="this.form.submit()"/>
 							</form>
-							
-							
+
+
 						</div>
 
 						<span class="bl"></span>

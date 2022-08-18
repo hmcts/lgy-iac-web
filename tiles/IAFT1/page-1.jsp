@@ -34,7 +34,7 @@
 				</logic:present>
 
 				<p class="question"><span class="note">Please note:</span> all questions marked <span class="required">*</span> are mandatory.</p>
-				<html:form action="submission.do">
+				<html:form action="submission">
 					<fieldset>
 						<div id="qa" class="qBox">
 							<div class="lCellTl">
@@ -62,7 +62,7 @@
 						<div id="qc" class="qBox">
 							<span class="lCellTl">
 								C.&nbsp;Are you in receipt of legal aid funding, Asylum Support Funding or support under s.17 of the Children's act 1989? <span class="required">*</span>
-								
+
 							</span>
 							<span class="rCellTl">
 								No&nbsp;<html:radio property="qb_lsc" value="No" />
@@ -131,7 +131,7 @@
 						<div class="function previous">
 							<span class="tl"></span>
 							<span class="tr"><span></span></span>
-							<a href="IsAsylum.do">Previous <span class="access">page</span></a>
+							<a href="IsAsylum">Previous <span class="access">page</span></a>
 							<span class="bl"></span>
 							<span class="br"></span>
 						</div>

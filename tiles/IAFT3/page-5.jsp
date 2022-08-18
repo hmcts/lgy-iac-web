@@ -14,7 +14,7 @@
 		<div class="formwrap">
 			<span class="tl"></span>
 			<span class="tr"><span></span></span>
-			
+
 			<h3>Appeal to the First&ndash;Tier Tribunal (Immigration and Asylum Chamber) against your Home Office <logic:present name="frmHeader" scope="session"><bean:write name="frmHeader" scope="session"/></logic:present> decision</h3>
 
 			<div class="formcon">
@@ -31,7 +31,7 @@
 
 				<h3>Section 3 &ndash; Your Appeal</h3>
 
-				<html:form action="submission3.do">
+				<html:form action="submission3">
 					<fieldset>
 						<div class="qBox">
 							<p class="question">D. Grounds of your appeal</p>
@@ -75,7 +75,7 @@
 						<div class="function previous">
 							<span class="tl"></span>
 							<span class="tr"><span></span></span>
-							<a href="previous3.do?page=4">Previous <span class="access">page</span></a>
+							<a href="previous3?page=4">Previous <span class="access">page</span></a>
 							<span class="bl"></span>
 							<span class="br"></span>
 						</div>

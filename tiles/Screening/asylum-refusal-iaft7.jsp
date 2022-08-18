@@ -8,15 +8,15 @@
 		<div id="Content">
 			<div class="holder">
 				<div id="screening">
-					<html:form action="IsAsylum.do?xyz=iaft7">
+					<html:form action="IsAsylum?xyz=iaft7">
 					<p>Please select one of the following. Your appeal is <p>
 				<p>	<html:radio property="asylum" value="protection7" styleId="yes" ><span>&nbsp;against a refusal to grant you protection.</span></html:radio></p>
 				<p>	<html:radio property="asylum" value="protectionrevoke7" styleId="yes" ><span>&nbsp;against a decision to revoke your protection status.</span></html:radio></p>
 				<p> <html:radio property="asylum" value="humanrights7" styleId="yes" ><span>&nbsp;against a refusal your human rights claim.</span></html:radio></p>
 				<p> <html:radio property="asylum" value="eea7" styleId="yes" ><span>&nbsp;against a decision restricting your rights under the EEA right to free movement.</span></html:radio></p>
 				<p> <html:radio property="asylum" value="citizenship7" styleId="yes" ><span>&nbsp;against a decision depriving you of citizenship.</span></html:radio></p>
-					
-					
+
+
 				</div>
 				<div class="submitc">
 					<div class="function previous">

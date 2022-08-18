@@ -19,11 +19,11 @@
 
 					<h3>Appeal to the First&ndash;Tier Tribunal (Immigration and Asylum Chamber) against an in country
 					 <logic:present name="frmHeader" scope="session">
-					 <bean:write name="frmHeader" scope="session"/> 
+					 <bean:write name="frmHeader" scope="session"/>
 					 </logic:present>
 					 decision</h3>
-					
-					
+
+
 					<div class="formcon">
 						<div class="edit">
 							<div class="function right">
@@ -37,7 +37,7 @@
 						<div>
 							<p>Which of the following would you like to do?</p>
 							<div class="button"><a href="../options.jsp">Lodge another appeal</a></div><p>
-							<div class="button"><a href="http://localhost:8080/IACFees/welcome.do">Pay for the appeal(s) you have already lodged</a></div>
+							<div class="button"><a href="http://localhost:8080/IACFees/welcome">Pay for the appeal(s) you have already lodged</a></div>
 						</div>
 
 						<span class="bl"></span>

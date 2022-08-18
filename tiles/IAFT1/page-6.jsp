@@ -30,7 +30,7 @@
 
 				<h3>Section 3 &ndash; Your Appeal</h3>
 
-				<html:form action="submission.do">
+				<html:form action="submission">
 					<fieldset>
 						<div class="qBox">
 							<p class="question"><strong>4.</strong>&nbsp;If the Home Office has stated that you do not qualify as a refugee on grounds of race, religion, nationality, membership of a particular social group or political opinion (<span class="bold">under the criteria of the 1951 Geneva Convention</span>), and you disagree, please explain why in this box.</p>
@@ -67,7 +67,7 @@
 						<div class="function previous">
 							<span class="tl"></span>
 							<span class="tr"><span></span></span>
-							<a href="previous.do?page=5">Previous <span class="access">page</span></a>
+							<a href="previous?page=5">Previous <span class="access">page</span></a>
 							<span class="bl"></span>
 							<span class="br"></span>
 						</div>

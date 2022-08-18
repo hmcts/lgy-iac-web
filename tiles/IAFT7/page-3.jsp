@@ -31,18 +31,18 @@
 
 				<h3>Section 2 &ndash; Your Home Office Decision (refer to your Notice of Decision)</h3>
 				<p><span class="note">Please note:</span> all questions marked <span class="required">*</span> are mandatory.</p>
-				<html:form action="submission7.do">
+				<html:form action="submission7">
 					<fieldset>
 						<div id="s2a" class="qBox">
 							<span class="lCellTl">A.&nbsp;Home Office Reference Number</span>
 							<span class="rCellTl"><html:text property="s2a" styleId="s2a_homeoffice" size="16" maxlength="16" /></span>
 						</div>
-						
+
 						<div id="s2b" class="qBox">
 							<span class="lCellTl">B.&nbsp;Port Reference</span>
 							<span class="rCellTl"><html:text property="s2b" styleId="s2b_portref" size="15" maxlength="15" /></span>
 						</div>
-						
+
 						<div id="s2c" class="qBox">
 							<span class="lCellTl">C.&nbsp;COHID Reference</span>
 							<span class="rCellTl"><html:text property="s2c" styleId="s2c_cohid" size="20" maxlength="20" /></span>
@@ -88,7 +88,7 @@
 									<html:option value="30">30</html:option>
 									<html:option value="31">31</html:option>
 								</html:select>
-								 / 
+								 /
 								<html:select property="s2j_service_month">
 									<html:option value="0">Month</html:option>
 									<html:option value="1">01</html:option>
@@ -107,7 +107,7 @@
 								 /
 								 <html:select property="s2j_service_year" styleId="s1n_year">
 									<html:optionsCollection name="CurrentAndTwoFormerYears" value="yearvalue" label="yearlable" />
-								</html:select> 
+								</html:select>
 							</span>
 						</div>
 
@@ -122,7 +122,7 @@
 							<span class="lCellTr">(Please specify other)</span>
 							<span class="rCellTl"><html:text property="s2d_other" styleId="s2d_other" size="50" maxlength="50" /></span>
 						</div>
-						
+
 						<div id="s1h" class="qBox">
 							<span class="lCellTl">G.&nbsp;Date of Home Office Decision<span class="required">*</span><br />(the date of the decision against which you are appealing)</span>
 							<span class="rCellTl">
@@ -160,7 +160,7 @@
 									<html:option value="30">30</html:option>
 									<html:option value="31">31</html:option>
 								</html:select>
-								 / 
+								 /
 								<html:select property="s2e_service_month">
 									<html:option value="0">Month</html:option>
 									<html:option value="1">01</html:option>
@@ -179,7 +179,7 @@
 								 /
 								 <html:select property="s2e_service_year" styleId="s1n_year">
 									<html:optionsCollection name="CurrentAndTwoFormerYears" value="yearvalue" label="yearlable" />
-								</html:select> 
+								</html:select>
 							</span>
 						</div>
 						<div id="s1h" class="qBox">
@@ -219,7 +219,7 @@
 									<html:option value="30">30</html:option>
 									<html:option value="31">31</html:option>
 								</html:select>
-								 / 
+								 /
 								<html:select property="s2f_service_month">
 									<html:option value="0">Month</html:option>
 									<html:option value="1">01</html:option>
@@ -238,10 +238,10 @@
 								 /
 								 <html:select property="s2f_service_year" styleId="s1n_year">
 									<html:optionsCollection name="CurrentAndTwoFormerYears" value="yearvalue" label="yearlable" />
-								</html:select> 
+								</html:select>
 							</span>
 						</div>
-						
+
 
 						<div id="s1i" class="qBox">
 							<span class="lCellTl">I.&nbsp;Date you received your Notice of Decision<span class="required">*</span></span>
@@ -280,7 +280,7 @@
 									<html:option value="30">30</html:option>
 									<html:option value="31">31</html:option>
 								</html:select>
-								 / 
+								 /
 								<html:select property="s2i_service_month">
 									<html:option value="0">Month</html:option>
 									<html:option value="1">01</html:option>
@@ -299,7 +299,7 @@
 								 /
 								 <html:select property="s2i_service_year" styleId="s1n_year">
 									<html:optionsCollection name="CurrentAndTwoFormerYears" value="yearvalue" label="yearlable" />
-								</html:select> 
+								</html:select>
 							</span>
 						</div>
 						<div id="s2d" class="qBox">
@@ -307,7 +307,7 @@
 							<span class="rCellTl">
 								<html:radio property="s2k" styleId="s2d_post" value="Yes" >&nbsp;Yes</html:radio>
 								<html:radio property="s2k" styleId="s2d_post" value="No" >&nbsp;No </html:radio>
-								
+
 							</span>
 						</div>
 						<h4 id="subtitle_anonymity">Applying for Anonymity</h4>
@@ -329,7 +329,7 @@
 						<div class="function previous">
 							<span class="tl"></span>
 							<span class="tr"><span></span></span>
-							<a href="previous7.do?page=2">Previous <span class="access">page</span></a>
+							<a href="previous7?page=2">Previous <span class="access">page</span></a>
 							<span class="bl"></span>
 							<span class="br"></span>
 						</div>

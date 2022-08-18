@@ -28,7 +28,7 @@
 					</div>
 				</logic:present>
 
-				<html:form action="submission5.do">
+				<html:form action="submission5">
 					<fieldset>
 						<h3>Section 3 &ndash; Your Appeal</h3>
 						<h4>Non-Asylum Decision</h4>
@@ -45,7 +45,7 @@
 							<ul>
 								<li>you should be allowed to stay in the United Kingdom, including any reasons relating to the European Convention on Human Rights</li>
      							<li> you should not be required to leave.</li>
-							</ul> 
+							</ul>
 							<p>Do not repeat any grounds and reasons that you have already given in Section 3D.</p>
 							<div class="tBox"><html:textarea property="s3d_additional" styleId="s3d8_additional" cols="118" rows="17" /></div>
 							<p class="charCounter">Characters left: <span id="s3d8_additional_counter"></span>&nbsp;of 2000</p>
@@ -60,7 +60,7 @@
 						<div class="function previous">
 							<span class="tl"></span>
 							<span class="tr"><span></span></span>
-							<a href="previous5.do?page=6">Previous <span class="access">page</span></a>
+							<a href="previous5?page=6">Previous <span class="access">page</span></a>
 							<span class="bl"></span>
 							<span class="br"></span>
 						</div>

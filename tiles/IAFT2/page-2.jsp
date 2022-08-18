@@ -32,7 +32,7 @@
 						</logic:present>
 						<p class="question"><span class="note">Please note:</span> all questions marked <span class="required">*</span> are mandatory.</p>
 						<h3>Section 1 &ndash; Personal Information</h3>
-						<html:form action="submission2.do">
+						<html:form action="submission2">
 							<fieldset>
 								<div id="s1a" class="qBox">
 									<span class="lCellTl">A.&nbsp;Family Name or Surname<span class="required">*</span><br />
@@ -452,12 +452,12 @@
 									<span class="rCellTl">
 									<html:text property="s1f_postcode" styleId="s1f_pcode" size="9" maxlength="9" />
 									</span>
-									
+
 									<span class="lCellTr">Email Address:</span>
 									<span class="rCellTl">
 									<html:text property="s1f_email" size="35" maxlength="254" />
 									</span>
-									
+
 									<p><span class="note">If you change your address, you must notify the Tribunal immediately in writing.</span></p>
 								</div>
 								<div id="s1g" class="qBox">
@@ -671,7 +671,7 @@
 								<div class="function previous">
 									<span class="tl"></span>
 									<span class="tr"><span></span></span>
-									<a href="previous2.do?page=1">Previous <span class="access">page</span></a>
+									<a href="previous2?page=1">Previous <span class="access">page</span></a>
 									<span class="bl"></span>
 									<span class="br"></span>
 								</div>

@@ -33,7 +33,7 @@
 						</logic:present>
 						<h3 id="s5_subtitle">Section 5 &ndash; Representative Details (refer to guidance notes)</h3>
 						<p><span class="note">Please note:</span> all questions marked <span class="required">*</span> are mandatory.</p>
-						<html:form action="submission5.do">
+						<html:form action="submission5">
 							<fieldset>
 								<div id="representative_details">
 									<div class="qBox">
@@ -868,7 +868,7 @@
 								<div class="function previous">
 									<span class="tl"></span>
 									<span class="tr"><span></span></span>
-									<a href="previous5.do?page=8">Previous <span class="access">page</span></a>
+									<a href="previous5?page=8">Previous <span class="access">page</span></a>
 									<span class="bl"></span>
 									<span class="br"></span>
 								</div>

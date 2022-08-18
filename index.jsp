@@ -1,3 +1,3 @@
 <%@ page language="java" %>
 
-<jsp:forward page="options.do"></jsp:forward>
+<jsp:forward page="options"></jsp:forward>

@@ -34,7 +34,7 @@
 				</logic:present>
 
 				<p class="question"><span class="note">Please note:</span> all questions marked <span class="required">*</span> are mandatory.</p>
-				<html:form action="submission5.do">
+				<html:form action="submission5">
 					<fieldset>
 						<div id="qa" class="qBox">
 							<div class="lCellTl">
@@ -62,7 +62,7 @@
 						<div id="qc" class="qBox">
 							<span class="lCellTl">
 								C.&nbsp;Are you in receipt of legal aid funding, Asylum Support Funding or support under s.17 of the Children's act 1989? <span class="required">*</span>
-								
+
 							</span>
 							<span class="rCellTl">
 								No&nbsp;<html:radio property="qb_lsc" value="No" />
@@ -86,8 +86,8 @@
 							<span class="rCellTl"><html:radio property="qb_lsc" value="section17" styleId="qd_no" /></span>
 							<span class="lCellTl">Accommodation under section 20* of the Children's Act (a letter from your local council will confirm this)</span>
 							<span class="rCellTl"><html:radio property="qb_lsc" value="section20" styleId="qd_no" /></span>
-						</div>		
-							
+						</div>
+
 
 						<div id="qd" class="qBox">
 							<span class="lCellTl">D.&nbsp;Are you paying for the appeals of any member of your family or anyone planning to appeal against an immigration decision? <span class="required">*</span></span>
@@ -143,7 +143,7 @@
 						<div class="function previous">
 							<span class="tl"></span>
 							<span class="tr"><span></span></span>
-							<a href="IsAsylum5.do">Previous <span class="access">page</span></a>
+							<a href="IsAsylum5">Previous <span class="access">page</span></a>
 							<span class="bl"></span>
 							<span class="br"></span>
 						</div>

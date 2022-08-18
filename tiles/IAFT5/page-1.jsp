@@ -34,7 +34,7 @@
 				</logic:present>
 
 				<p class="question"><span class="note">Please note:</span> all questions marked <span class="required">*</span> are mandatory.</p>
-				<html:form action="submission5.do">
+				<html:form action="submission5">
 					<fieldset>
 						<div id="qa" class="qBox">
 							<div class="lCellTl">
@@ -59,7 +59,7 @@
 							</span>
 						</div>
 
-						
+
 						<div id="qc" class="qBox">
 						<p class="note">C.&nbsp;Some appeals do not have to pay a fee. Please tell us if you currently get: </p>
 							<span class="lCellTr"><html:radio property="qb_lsc" value="LSC" styleId="qd_no" /></span>
@@ -69,27 +69,27 @@
 							<span class="lCellTr"><html:radio property="qb_lsc" value="Section17" styleId="qd_no" /></span>
 							<span class="rCellTl">Support or services under section 17* of the Children's Act (a letter from your local council will confirm this)<span style="color: #ff0000;"><sup>1</sup></span></span>
 							<span class="lCellTr"><html:radio property="qb_lsc" value="Section20" styleId="qd_no" /></span>
-							
+
 							<span class="rCellTl">Accommodation under section 20* of the Children's Act (a letter from your local council will confirm this)<span style="color: #ff0000;"><sup>1</sup></span></span>
 							<span class="lCellTr"><p>OR</p></span>
 							<span class="rCellTl"></span>
 							<span class="lCellTr"><html:radio property="qb_lsc" value="humanrights" styleId="qd_no" /></span>
 							<span class="rCellTl">You did not have to pay a fee to the Home Office when you made your Human Rights application as you were exempt under exceptions 4.5 or 9.4 of the 2016 Fee Regulations</span>
 							 <span class="lCellTr"><html:radio property="qb_lsc" value="helpwithfees" styleId="qd_no" /></span>
-							
+
 							 <span class="rCellTl">You have applied for and received a full remission under Help with Fees</span>
 							<span class="lCellTr"><html:radio property="qb_lsc" value="No" styleId="qd_no" /></span>
 							<span class="rCellTl">If you DO NOT receive any of the above please click here </span>
-							
+
 							<p class="note"><span style="color: #ff0000;"><sup>1</sup></span>You need to provide a reference number (if you have one) and send the tribunal (by email or post) any supporting documents to show that you do not have to pay. If you do not provide these, you may have to pay the fee.</p>
 							<div id="laf-receipt">
 								<span class="lCellTr">Reference Number(if you have one)</span>
 								<span class="rCellTl"><html:text property="qb_LAR" styleId="qc_legalAidRef" size="30" maxlength="30" /></span>
 							</div>
 							<p> * or equivalent in Scotland, Northern Ireland or Wales </p>
-								
-						</div>		
-							
+
+						</div>
+
 
 						<div id="qd" class="qBox">
 							<span class="lCellTl">D.&nbsp;Are you paying for the appeals of any member of your family or anyone planning to appeal against an immigration decision? <span class="required">*</span></span>
@@ -145,7 +145,7 @@
 						<div class="function previous">
 							<span class="tl"></span>
 							<span class="tr"><span></span></span>
-							<a href="IsAsylum5.do">Previous <span class="access">page</span></a>
+							<a href="IsAsylum5">Previous <span class="access">page</span></a>
 							<span class="bl"></span>
 							<span class="br"></span>
 						</div>

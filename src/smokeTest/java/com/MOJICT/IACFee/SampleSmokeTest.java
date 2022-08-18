@@ -20,7 +20,7 @@ public class SampleSmokeTest {
     public void smokeTestLivenessSuccess() {
 
 
-        String requestUri = "http://localhost:80/IACFees/health/liveness.do"; // get from system env
+        String requestUri = "http://localhost:80/IACFees/health/liveness"; // get from system env
 
         HttpClient httpClient = HttpClientBuilder.create().build();
         HttpGet getRequest = new HttpGet(requestUri);
@@ -37,7 +37,7 @@ public class SampleSmokeTest {
    @Test
     public void smokeTestDBLivenessSuccess() {
 
-    String requestUri = "http://localhost:80/IACFees/health/dbliveness.do"; // get from system env
+    String requestUri = "http://localhost:80/IACFees/health/dbliveness"; // get from system env
 
     HttpClient httpClient = HttpClientBuilder.create().build();
     HttpGet getRequest = new HttpGet(requestUri);

@@ -30,7 +30,7 @@
 
 				<h3>Section 3 &ndash; Your Appeal</h3>
 
-				<html:form action="submission5.do">
+				<html:form action="submission5">
 					<fieldset>
 						<div class="qBox">
 							<p><span class="bold">Revocation of Protection Status Decision</span></p>
@@ -74,7 +74,7 @@
 						<div class="function previous">
 							<span class="tl"></span>
 							<span class="tr"><span></span></span>
-							<a href="previous5.do?page=5">Previous <span class="access">page</span></a>
+							<a href="previous5?page=5">Previous <span class="access">page</span></a>
 							<span class="bl"></span>
 							<span class="br"></span>
 						</div>

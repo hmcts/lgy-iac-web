@@ -26,13 +26,13 @@
 						</div>
 					</div>
 			</logic:present>
-			
+
 			<div class="formcon">
 				<div class="edit"></div>
 
 				<h3>Section 3 &ndash; Your Appeal</h3>
 				<p><span class="note">Please note:</span> all questions marked <span class="required">*</span> are mandatory.</p>
-				<html:form action="submission5.do">
+				<html:form action="submission5">
 					<fieldset>
 						<div class="qBox">
 						    <p><span class="bold">E. New Matters</span></p>
@@ -50,13 +50,13 @@
 							<span class="lCellTl">F.&nbsp;Have you appealed against any other immigration decision in the United Kingdom or overseas? <span class="required">*</span></span>
 							<span class="rCellTl">
 								No&nbsp;<html:radio property="s3e" styleId="s3e_no" value="No" />
-								Yes&nbsp;<html:radio property="s3e" styleId="s3e_yes" value="Yes" />							
+								Yes&nbsp;<html:radio property="s3e" styleId="s3e_yes" value="Yes" />
 							</span>
 
 							<div id="your_other_appeal">
 								<p class="note">give details below: <span class="required">*</span></p>
 								<span id="s3e-prevappeal0" class="lCellTr">
-									Date 
+									Date
 									<html:select property="s3e_date1_day" styleId="s3e_day1">
 										<html:option value="0" >Day</html:option>
 										<html:option value="1">01</html:option>
@@ -133,14 +133,14 @@
 										<html:option value ="2020">2020</html:option>
 									</html:select>
 								</span>
-	
+
 								<span class="rCellTl">
 									Appeal number (if known)
 									<html:text property="s3e_appealno1" styleId="s3e_appealNo1" size="30" maxlength="250" />
 								</span>
-	
+
 								<span id="s3e_prevappeal1" class="lCellTr">
-									Date 
+									Date
 									<html:select property="s3e_date2_day" styleId="s3e_day2">
 										<html:option value="0" >Day</html:option>
 										<html:option value="1">01</html:option>
@@ -217,14 +217,14 @@
 										<html:option value ="2020">2020</html:option>
 									</html:select>
 								</span>
-	
+
 								<span class="rCellTl">
 									Appeal number (if known)
 									<html:text property="s3e_appealno2" styleId="s3e_appealNo2" size="30" maxlength="250" />
 								</span>
-	
+
 								<span id="s3e_prevappeal2" class="lCellTr">
-									Date 
+									Date
 									<html:select property="s3e_date3_day" styleId="s3e_day3">
 										<html:option value="0" >Day</html:option>
 										<html:option value="1">01</html:option>
@@ -301,7 +301,7 @@
 										<html:option value ="2020">2020</html:option>
 									</html:select>
 								</span>
-	
+
 								<span class="rCellTl">
 									Appeal number (if known)
 									<html:text property="s3e_appealno3" styleId="s3e_appealNo3" size="30" maxlength="250" />
@@ -317,7 +317,7 @@
 						<div class="function previous">
 							<span class="tl"></span>
 							<span class="tr"><span></span></span>
-							<a href="previous5.do?page=6">Previous <span class="access">page</span></a>
+							<a href="previous5?page=6">Previous <span class="access">page</span></a>
 							<span class="bl"></span>
 							<span class="br"></span>
 						</div>

@@ -15,7 +15,7 @@
 		<div class="formwrap">
 			<span class="tl"></span>
 			<span class="tr"><span></span></span>
-			
+
 			<h3>Appeal to the First&ndash;Tier Tribunal (Immigration and Asylum Chamber) against your Home Office <logic:present name="frmHeader" scope="session"><bean:write name="frmHeader" scope="session"/></logic:present> decision</h3>
 
 			<div class="formcon">
@@ -32,7 +32,7 @@
 
 				<p class="question"><span class="note">Please note:</span> all questions marked <span class="required">*</span> are mandatory.</p>
 
-				<html:form action="submission3.do">
+				<html:form action="submission3">
 					<fieldset>
 						<div  id="qa" class="qBox">
 							<div class="lCellTl">
@@ -45,7 +45,7 @@
 								Papers&nbsp;<html:radio property="appeal_type" value="Paper" styleId="qa_paper"></html:radio>
 							</span>
 						</div>
-						
+
 						<div  id="qb" class="qBox">
 							<span class="lCellTl">B.&nbsp;If you have chosen to have an oral hearing, please mark the box of anyone who will be attending your hearing to <strong>give evidence</strong>. <span class="required">*</span></span>
 							<span class="rCellTl">
@@ -115,7 +115,7 @@
 						<div class="function previous">
 							<span class="tl"></span>
 							<span class="tr"><span></span></span>
-							<a href="asylum-refusal-iaft3.do">Previous <span class="access">page</span></a>
+							<a href="asylum-refusal-iaft3">Previous <span class="access">page</span></a>
 							<span class="bl"></span>
 							<span class="br"></span>
 						</div>
@@ -127,7 +127,7 @@
 							<span class="bl"></span>
 							<span class="br"></span>
 						</div>
-					</div>	
+					</div>
 				</html:form>
 				<span class="bl"></span>
 				<span class="br"></span>

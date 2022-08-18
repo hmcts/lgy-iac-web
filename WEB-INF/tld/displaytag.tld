@@ -248,7 +248,7 @@
     </attribute>
     <example>
       <![CDATA[
-<display:table name="someList" export="true" id="row" requestURI="MyAction.do">
+<display:table name="someList" export="true" id="row" requestURI="MyAction">
   <display:column sortable="true" title="ID"> <c:out value="${row.id}"/> </display:column>
   <display:column property="email" autolink="true"/>
   <display:column property="description" title="Comments"/>

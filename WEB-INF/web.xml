@@ -13,7 +13,7 @@
 	</listener>
 	<!-- Standard Action Servlet Configuration (with debugging) -->
 
-	
+
 	<servlet>
 
 		<servlet-name>action</servlet-name>
@@ -43,7 +43,7 @@
 
 	<servlet-mapping>
 		<servlet-name>action</servlet-name>
-		<url-pattern>*.do</url-pattern>
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
 

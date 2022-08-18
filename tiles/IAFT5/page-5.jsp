@@ -30,7 +30,7 @@
 
 				<h3>Section 3 &ndash; Your Appeal</h3>
 
-				<html:form action="submission5.do">
+				<html:form action="submission5">
 					<fieldset>
 						<div class="qBox">
 							<p class="question"><strong>D. Grounds of your appeal</strong></p>
@@ -47,7 +47,7 @@ Office agrees to the Tribunal considering those new grounds.</li><br/>
 <li>If your appeal relates in whole or in part to an <strong>EEA Decision</strong>, complete <strong>box 6</strong>.</li>
 <li>if your appeal relates to an EU settlement scheme decision, EUSS family permit and travel permit, a frontier worker decision or a healthcare visitor decision or if you believe the decision breaches the withdrawal agreement, EFTA separation agreement or Swiss citizens' rights agreement complete box 6</li>
 
-<li>If you are not sure which boxes apply to you or if your appeal is against the 
+<li>If you are not sure which boxes apply to you or if your appeal is against the
 <strong>Deprivation of Citizenship</strong> write your grounds in <strong>box 7</strong>.</li>
 						</div>
 
@@ -82,7 +82,7 @@ Office agrees to the Tribunal considering those new grounds.</li><br/>
 						<div class="function previous">
 							<span class="tl"></span>
 							<span class="tr"><span></span></span>
-							<a href="previous5.do?page=4">Previous <span class="access">page</span></a>
+							<a href="previous5?page=4">Previous <span class="access">page</span></a>
 							<span class="bl"></span>
 							<span class="br"></span>
 						</div>

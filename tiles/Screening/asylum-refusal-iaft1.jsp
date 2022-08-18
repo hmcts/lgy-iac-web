@@ -12,8 +12,8 @@
 					Is your appeal against a refusal to grant you asylum?&nbsp;
 					<html:radio property="asylum" value="yes" styleId="yes" ><span class="bigger">Yes</span></html:radio>
 					<html:radio property="asylum" value="no" styleId="no" ><span class="bigger">No</span></html:radio>
-					<!-- <div class="button"><a href="IsAsylum.do?xy867=yes">Yes</a></div>&nbsp; -->
-					<!-- <div class="button"><a href="IsAsylum.do?xy867=no">No</a></div> -->
+					<!-- <div class="button"><a href="IsAsylum?xy867=yes">Yes</a></div>&nbsp; -->
+					<!-- <div class="button"><a href="IsAsylum?xy867=no">No</a></div> -->
 				</div>
 				<div class="submitc">
 					<div class="function previous">

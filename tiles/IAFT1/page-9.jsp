@@ -36,7 +36,7 @@
 					</div>
 				</logic:present>
 
-				<html:form action="submission.do">
+				<html:form action="submission">
 					<fieldset>
 						<div class="qBox">
 							<span class="lCellTl-noBold">Do you have a representative ?<span class="required">*</span></span>
@@ -46,9 +46,9 @@
 							</span>
 						</div>
 					</fieldset>
-					
-					
-					
+
+
+
 					<h3>Section 4 &ndash; Your declaration</h3>
 					<fieldset>
 						<div id="s4" class="qBox">
@@ -65,7 +65,7 @@
 							<span class="lCellTl-noBold">Please enter your email address </span>
 							<span class="rCellTl">
 									<html:text property="email"  styleId="email_id" size="50" maxlength="100" />
-								
+
 							</span>
 						</div>
 					</fieldset>
@@ -76,7 +76,7 @@
 						<div class="function previous">
 							<span class="tl"></span>
 							<span class="tr"><span></span></span>
-							<a href="previous.do?page=8">Previous <span class="access">page</span></a>
+							<a href="previous?page=8">Previous <span class="access">page</span></a>
 							<span class="bl"></span>
 							<span class="br"></span>
 						</div>

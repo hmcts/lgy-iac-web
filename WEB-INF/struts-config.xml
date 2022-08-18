@@ -25,7 +25,7 @@
 		</form-bean>
 		<form-bean name="DynaFormtypeForm" type="org.apache.struts.action.DynaActionForm">
 			<form-property name="formtype" type="java.lang.String" />
-			
+
 		</form-bean>
 
 	</form-beans>
@@ -128,7 +128,7 @@
 			<forward name="page-7" path="IAFT5-7.definition" />
 			<forward name="page-8" path="IAFT5-8.definition" />
 			<forward name="page-9" path="IAFT5-9.definition" />
-			
+
 			<forward name="finish" path="IAFT5-9.definition" />
 			<forward name="fail" path="IAFT5-1.definition" />
 
@@ -160,7 +160,7 @@
 			<forward name="page-7" path="IAFT7-7.definition" />
 			<forward name="page-8" path="IAFT7-8.definition" />
 			<forward name="page-9" path="IAFT7-9.definition" />
-			
+
 			<forward name="finish" path="IAFT7-9.definition" />
 			<forward name="fail" path="IAFT7-1.definition" />
 
@@ -200,7 +200,7 @@
 		</action>
 
 
-		
+
 		<action path="/IsFeePayable" scope="request"
 			type="com.MOJICT.IACFee.Screening.IsFeePayableAction" name="DynaFeeForm">
 			<forward name="success-IAFT1" path="/IAFT1-ref.do" />
@@ -216,7 +216,7 @@
 			<forward name="success-IAFT1" path="/IAFT1-ref.do" />
 			<forward name="success-IAFT7" path="/IAFT7-ref.do" />
 		</action>
-		
+
 		<action path="/IsFormtype" scope="request"
 			type="com.MOJICT.IACFee.Screening.IsFormtypeAction" name="DynaFormtypeForm">
 			<forward name="current" path="/Lodgement.do" />
@@ -227,7 +227,7 @@
 			type="com.MOJICT.IACFee.Screening.IsFormtypeaggrAction" name="DynaFormtypeForm">
 			<forward name="current" path="/newlodgement.do?next=new" />
 			<forward name="new" path="/newlodgement1.do?next=new" />
-			
+
 			<forward name="failure" path="/aggregationoption.do" />
 		</action>
 
@@ -243,8 +243,8 @@
 			type="com.MOJICT.IACFee.Screening.NewIsFeePayableAction71" name="DynaFeeForm">
 			<forward name="success" path="/previous7.do?page=1" />
 		</action>
-		
-		
+
+
 		<action path="/IsAsylum" scope="request"
 			type="com.MOJICT.IACFee.Screening.IsAsylumAction" name="DynaFeeForm">
 			<forward name="success-IAFT1" path="fee-payable.definition" />
@@ -255,7 +255,7 @@
 			<forward name="iaft5-failure" path="/asylum-refusal-iaft5.do" />
 			<forward name="iaft6-failure" path="/visa-type-appeal6.do" />
 			<forward name="iaft7-failure" path="/asylum-refusal-iaft7.do" />
-			
+
 		</action>
 
 		<action path="/IsAsylum5" scope="request"
@@ -364,7 +364,11 @@
 			<forward name="successpdf" path="basket.definition" />
 		</action>
 
-		<action path="/health/liveness" type="com.MOJICT.IACFee.Health.Liveness"
+    <action path="/health" type="com.MOJICT.IACFee.Health.Liveness"
+            scope="request">
+    </action>
+
+    <action path="/health/liveness" type="com.MOJICT.IACFee.Health.Liveness"
 				scope="request">
 		</action>
 
@@ -541,7 +545,7 @@
 			name="DynaFeeForm" scope="request">
 		</action>
 		<action path="/activate" type="com.MOJICT.IACFee.Util.ActivateUtil"/>
-		
+
 
 	</action-mappings>
 

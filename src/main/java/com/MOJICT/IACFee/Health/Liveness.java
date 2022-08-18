@@ -16,6 +16,7 @@ public class Liveness extends Action {
 
     public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
                                  HttpServletResponse response) throws IOException, ServletException, Exception {
+        logger.info("In Liveness....");
         response.setStatus(200);
         return null;
     }

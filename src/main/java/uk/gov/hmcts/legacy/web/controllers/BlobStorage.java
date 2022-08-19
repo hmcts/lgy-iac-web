@@ -80,7 +80,9 @@ public class BlobStorage {
             //String endpoint = "https://fksa.blob.core.windows.net";
             BlobServiceClient blobServiceClient = new BlobServiceClientBuilder()
                 .endpoint(endpoint)
-                .credential(new DefaultAzureCredentialBuilder().build())
+                .credential(new DefaultAzureCredentialBuilder()
+                                .managedIdentityClientId("74dacd4f-a248-45bb-a2f0-af700dc4cf68")
+                                .build())
                 .buildClient();
 
             LOGGER.info("Successfully setup client using the Azure Identity, please check the service version: "

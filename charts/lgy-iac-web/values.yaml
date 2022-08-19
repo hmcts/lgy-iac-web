@@ -20,24 +20,23 @@ java:
       resourceGroup: lgy-iac-{{ .Values.global.environment }}
       secrets:
         - name: web-POSTGRES-DATABASE
-          alias: DB_NAME
+          alias: POSTGRES_DATABASE
         - name: web-POSTGRES-HOST
-          alias: DB_HOST
+          alias: POSTGRES_HOST
         - name: web-POSTGRES-USER
-          alias: DB_USER
+          alias: POSTGRES_USER
         - name: web-POSTGRES-PASS
-          alias: DB_PASSWORD
-
+          alias: POSTGRES_PASSWORD
   environment:
     POSTGRES_SSL_MODE: require
+    POSTGRES_PORT: "5432"
+    ENV_NAME: "Azure Dev PG"
+    DB_JDBC_DRIVER: "org.postgresql.Driver"
+    DB_JDBC_URL: "jdbc:postgresql"
     FLYWAY_URL: jdbc:postgresql://${POSTGRES_HOST}:5432/${POSTGRES_DATABASE}?&sslmode=require
     FLYWAY_USER: ${POSTGRES_USER}
     FLYWAY_PASSWORD: ${POSTGRES_PASSWORD}
     RUN_DB_MIGRATION_ON_STARTUP: 'false'
-    ENV_NAME: "Azure Dev PG"
-    DB_JDBC_DRIVER: "org.postgresql.Driver"
-    DB_JDBC_URL: "jdbc:postgresql"
-    DB_PORT: "5432"
     EPDQ_PSPID: "a"
     EPDQ_URL: "b"
     EPDQ_SHAIN: "c"

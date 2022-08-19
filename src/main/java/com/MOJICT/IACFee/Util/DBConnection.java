@@ -20,18 +20,18 @@ public class DBConnection {
 		try {
 
             logger.info("in getConnection with:");
-			String dbHost = System.getenv("DB_HOST");
-			String dbPort = System.getenv("DB_PORT");
-			String dbUser = System.getenv("DB_USER");
-			String dbPass = System.getenv("DB_PASSWORD");
-			String dbName = System.getenv("DB_NAME");
+			String dbHost = System.getenv("POSTGRES_HOST");
+			String dbPort = System.getenv("POSTGRES_PORT");
+			String dbUser = System.getenv("POSTGRES_USER");
+			String dbPass = System.getenv("POSTGRES_PASSWORD");
+			String dbName = System.getenv("POSTGRES_DATABASE");
 			String dbUrl = String.format("%s://%s:%s/%s?sslmode=require",
 					getJdbcUrl(), dbHost, dbPort, dbName);
 
-            logger.info("DB_HOST: " + dbHost);
-            logger.info("DB_PORT: " + dbPort);
-            logger.info("DB_USER: " + dbUser);
-            logger.info("DB_PASSWORD: " + dbPass);
+            logger.info("POSTGRES_HOST: " + dbHost);
+            logger.info("POSTGRES_PORT: " + dbPort);
+            logger.info("POSTGRES_USER: " + dbUser);
+            logger.info("POSTGRES_PASSWORD: " + dbPass);
             logger.info("dbUrl: " + dbUrl);
 
             Class.forName(getJdbcDriver());
@@ -48,11 +48,11 @@ public class DBConnection {
 		Connection conn = null;
 
 		try {
-			String dbhost = System.getenv("DB_HOST");
-			String dbPort = System.getenv("DB_PORT");
-			String dbUser = System.getenv("DB_USER");
-			String dbPass = System.getenv("DB_PASSWORD");
-			String dbName = System.getenv("DB_NAME");
+			String dbhost = System.getenv("POSTGRES_HOST");
+			String dbPort = System.getenv("POSTGRES_PORT");
+			String dbUser = System.getenv("POSTGRES_USER");
+			String dbPass = System.getenv("POSTGRES_PASSWORD");
+			String dbName = System.getenv("POSTGRES_DATABASE");
 			String dbUrl = String.format("%s://%s:%s/%s?sslmode=require",
 					getJdbcUrl(), dbhost, dbPort, dbName);
 

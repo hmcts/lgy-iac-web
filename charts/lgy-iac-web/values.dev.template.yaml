@@ -5,7 +5,7 @@ java:
   disableKeyVaults: true
   environment:
     FAVOURITE_FRUIT: IAC Fees Dev
-    RUN_DB_MIGRATION_ON_STARTUP: 'true'
+    RUN_DB_MIGRATION_ON_STARTUP: 'false'
     RUN_DB_REPAIR_ON_STARTUP: 'true'
     FLYWAY_USER: ${FLYWAY_USER}
     FLYWAY_PASSWORD: ${FLYWAY_PASSWORD}

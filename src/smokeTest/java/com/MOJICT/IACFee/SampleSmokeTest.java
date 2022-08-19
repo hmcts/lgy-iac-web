@@ -21,6 +21,9 @@ public class SampleSmokeTest {
     @BeforeClass
     public void setup() {
         testUrl = System.getenv("TEST_URL");
+        if (testUrl == null) {
+            testUrl = "localhost";
+        }
     }
 
     @Test

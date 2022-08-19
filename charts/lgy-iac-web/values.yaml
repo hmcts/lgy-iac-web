@@ -13,20 +13,12 @@ java:
   livenessDelay: 0
   smoketests:
     environment:
-      TEST_URL: ${SERVICE_FQDN}/IACFees/health/liveness
+      TEST_URL: ${SERVICE_FQDN}/IACFees
 
   keyVaults:
     lgy-iac:
       resourceGroup: lgy-iac-{{ .Values.global.environment }}
       secrets:
-        - name: web-POSTGRES-DATABASE
-          alias: POSTGRES_DATABASE
-        - name: web-POSTGRES-HOST
-          alias: POSTGRES_HOST
-        - name: web-POSTGRES-USER
-          alias: POSTGRES_USER
-        - name: web-POSTGRES-PASS
-          alias: POSTGRES_PASSWORD
         - name: web-POSTGRES-DATABASE
           alias: DB_NAME
         - name: web-POSTGRES-HOST
@@ -50,12 +42,6 @@ java:
     EPDQ_URL: "b"
     EPDQ_SHAIN: "c"
     EPDQ_SHAOUT: "d"
-    TEST_URL: ${SERVICE_FQDN}/IACFees/health/liveness.do
+    TEST_URL: ${SERVICE_FQDN}/IACFees
 
-  env:
-    - name: "MGB_TEST"
-      valueFrom:
-        secretKeyRef:
-          key: lgy-iac
-          name: web-POSTGRES-DATABASE
 

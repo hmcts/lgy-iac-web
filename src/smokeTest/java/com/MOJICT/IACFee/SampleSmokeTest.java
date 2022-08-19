@@ -6,6 +6,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.log4j.Logger;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -15,12 +16,17 @@ import static org.junit.Assert.assertEquals;
 public class SampleSmokeTest {
 
     static Logger logger = Logger.getLogger(SampleSmokeTest.class);
+    private String testUrl = null;
+
+    @BeforeClass
+    public void setup() {
+        testUrl = System.getenv("TEST_URL");
+    }
 
     @Test
     public void smokeTestLivenessSuccess() {
 
-
-        String requestUri = "http://localhost:80/IACFees/health/liveness.do"; // get from system env
+        String requestUri = testUrl + "/health/liveness.do";
 
         HttpClient httpClient = HttpClientBuilder.create().build();
         HttpGet getRequest = new HttpGet(requestUri);
@@ -37,7 +43,7 @@ public class SampleSmokeTest {
    @Test
     public void smokeTestDBLivenessSuccess() {
 
-    String requestUri = "http://localhost:80/IACFees/health/dbliveness.do"; // get from system env
+    String requestUri = testUrl + "/health/dbliveness.do";
 
     HttpClient httpClient = HttpClientBuilder.create().build();
     HttpGet getRequest = new HttpGet(requestUri);

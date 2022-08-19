@@ -42,5 +42,6 @@ java:
     EPDQ_SHAIN: "c"
     EPDQ_SHAOUT: "d"
     TEST_URL: ${SERVICE_FQDN}/IACFees
+    DB_HOST: ${DB_HOST}
 
 

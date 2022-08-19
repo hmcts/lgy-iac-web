@@ -1,6 +1,8 @@
 package uk.gov.hmcts.legacy.web.controllers;
 
 import com.azure.identity.DefaultAzureCredentialBuilder;
+import com.azure.identity.ManagedIdentityCredential;
+import com.azure.identity.ManagedIdentityCredentialBuilder;
 import com.azure.storage.blob.BlobClient;
 import com.azure.storage.blob.BlobContainerClient;
 import com.azure.storage.blob.BlobServiceClient;
@@ -76,13 +78,22 @@ public class BlobStorage {
 
         try {
 
+            ManagedIdentityCredential managedIdentityCredential =
+                new ManagedIdentityCredentialBuilder()
+                    .clientId("74dacd4f-a248-45bb-a2f0-af700dc4cf68")
+                    .build();
+
             String endpoint = "https://lgyiacwebstg.blob.core.windows.net";
             //String endpoint = "https://fksa.blob.core.windows.net";
-            BlobServiceClient blobServiceClient = new BlobServiceClientBuilder()
+            /*BlobServiceClient blobServiceClient = new BlobServiceClientBuilder()
                 .endpoint(endpoint)
                 .credential(new DefaultAzureCredentialBuilder()
                                 .managedIdentityClientId("74dacd4f-a248-45bb-a2f0-af700dc4cf68")
                                 .build())
+                .buildClient();*/
+            BlobServiceClient blobServiceClient = new BlobServiceClientBuilder()
+                .endpoint(endpoint)
+                .credential(managedIdentityCredential)
                 .buildClient();
 
             LOGGER.info("Successfully setup client using the Azure Identity, please check the service version: "
@@ -90,7 +101,7 @@ public class BlobStorage {
 
             BlobContainerClient blobContainerClient = blobServiceClient.getBlobContainerClient(containerName);
 
-            BlobClient blobClient = blobContainerClient.getBlobClient("testblob");
+            BlobClient blobClient = blobContainerClient.getBlobClient(fileName);
             LOGGER.info("\nUploading to Blob storage as blob:\n\t" + blobClient.getBlobUrl());
             // Upload the blob
             try (InputStream dataToUpload = data.getContent()) {

@@ -18,16 +18,25 @@ public class DBConnection {
 		Connection conn = null;
 
 		try {
-			String dbhost = System.getenv("DB_HOST");
+
+            logger.info("in getConnection with:");
+			String dbHost = System.getenv("DB_HOST");
 			String dbPort = System.getenv("DB_PORT");
 			String dbUser = System.getenv("DB_USER");
 			String dbPass = System.getenv("DB_PASSWORD");
 			String dbName = System.getenv("DB_NAME");
 			String dbUrl = String.format("%s://%s:%s/%s?sslmode=require",
-					getJdbcUrl(), dbhost, dbPort, dbName);
+					getJdbcUrl(), dbHost, dbPort, dbName);
 
-			Class.forName(getJdbcDriver());
+            logger.info("DB_HOST: " + dbHost);
+            logger.info("DB_PORT: " + dbPort);
+            logger.info("DB_USER: " + dbUser);
+            logger.info("DB_PASSWORD: " + dbPass);
+            logger.info("dbUrl: " + dbUrl);
+
+            Class.forName(getJdbcDriver());
 			conn = getConnection(dbUrl, dbUser, dbPass);
+            logger.info("Connected " + conn.toString());
 
 		} catch (SQLException e) {
 			logger.error("DBConnection.getConnection - ", e);
@@ -77,6 +86,7 @@ public class DBConnection {
 
 	private String getJdbcDriver() {
 		String jdbcDriver = System.getenv("DB_JDBC_DRIVER");
+        logger.info("jdbcDriver: " + jdbcDriver);
 		if (jdbcDriver == null) {
 			jdbcDriver = "com.microsoft.jdbc.sqlserver.SQLServerDriver";
 		}

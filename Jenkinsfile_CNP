@@ -13,12 +13,12 @@ def vaultOverrides = [
 
 def vaultSecrets = [
   'lgy-iac-stg': [
-    secret('web-POSTGRES-HOST', 'POSTGRES_HOST'),
-    secret('web-POSTGRES-DATABASE', 'POSTGRES_DATABASE'),
+    secret('web-POSTGRES-HOST', 'DB_HOST'),
+    secret('web-POSTGRES-DATABASE', 'DB_DATABASE'),
     secret('web-POSTGRES-USER', 'FLYWAY_USER'),
     secret('web-POSTGRES-PASS', 'FLYWAY_PASSWORD'),
-    secret('web-POSTGRES-USER', 'POSTGRES_USER'),
-    secret('web-POSTGRES-PASS', 'POSTGRES_PASSWORD'),
+    secret('web-POSTGRES-USER', 'DB_USER'),
+    secret('web-POSTGRES-PASS', 'DB_PASSWORD'),
   ]
 ]
 

@@ -26,6 +26,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.time.Duration;
 
 public class BlobStorage {
 
@@ -81,6 +82,7 @@ public class BlobStorage {
             ManagedIdentityCredential managedIdentityCredential =
                 new ManagedIdentityCredentialBuilder()
                     .clientId("74dacd4f-a248-45bb-a2f0-af700dc4cf68")
+                    .retryTimeout(duration -> Duration.ofSeconds(1))
                     .build();
 
             String endpoint = "https://lgyiacwebstg.blob.core.windows.net";

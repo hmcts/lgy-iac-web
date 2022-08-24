@@ -47,6 +47,10 @@ task smoke(type: Test) {
     failFast = true
 }
 
+tasks.withType(Copy) {
+  duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
 configurations {
     smokeTestImplementation.extendsFrom testImplementation
     smokeTestRuntimeOnly.extendsFrom runtimeOnly
@@ -140,6 +144,13 @@ dependencies {
     testImplementation group: 'org.apache.poi', name: 'poi', version: '3.9'
     testImplementation group: 'org.dbunit', name: 'dbunit', version: '2.4.8'
     testImplementation group: 'strutstestcase', name: 'strutstestcase', version: '2.1.4-1.2-2.4'
+
+    //smokeTestImplementation sourceSets.main.runtimeClasspath
+    //smokeTestImplementation sourceSets.test.runtimeClasspath
+    smokeTestImplementation group: 'io.rest-assured', name: 'rest-assured', version: '4.1.1'
+    smokeTestImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.8.0'
+    smokeTestImplementation group: 'org.springframework', name: 'spring-beans', version: '5.3.20'
+    smokeTestImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.7.0'
 
   //  This is the start of identifyiing the runtime dependency libraries
   //  Use the ones from the ant build which are stored in WEB-INF lib and classes/lib

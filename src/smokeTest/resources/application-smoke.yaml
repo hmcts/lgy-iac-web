@@ -1,1 +1,1 @@
-test-url: ${TEST_URL:http://localhost:8080/IACFees}
+test-url: ${TEST_URL:http://localhost:8080}

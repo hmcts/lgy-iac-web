@@ -1,0 +1,3 @@
+PDFs=/opt/moj/IACFees.files/IAC_Submissions/PDF_Files/
+XMLs=/opt/moj/IACFees.files/IAC_Submissions/XML_Files/
+Status=/opt/moj/IACFees.files/IAC_Submissions/Status_Files/

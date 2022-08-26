@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<quartz-config>
+<trigger-group>
+    <trigger name="myTrigger" className="org.quartz.CronTrigger">
+      <set-property 
+        property="cronExpression"
+        value="0 0/10 * * * ?"/>
+    </trigger>
+  </trigger-group>
+  
+<trigger-group>
+    <trigger name="myTrigger2" className="org.quartz.CronTrigger">
+      <set-property 
+        property="cronExpression"
+        value="0 0 0 * * ?"/>
+    </trigger>
+  </trigger-group>
+  <trigger-group>
+    <trigger name="myTrigger3" className="org.quartz.CronTrigger">
+      <set-property 
+        property="cronExpression"
+        value="0 0 0/1 * * ?"/>
+    </trigger>
+  </trigger-group>
+
+<!-- Create a Job -->
+  <job-group>
+    <job
+      name="myJob"
+      className="com.spy.network.test"/>
+  </job-group>
+  
+   <job-group>
+    <job
+      name="myJob2"
+      className="com.spy.network.test2"/>
+  </job-group>
+  
+
+<!-- Schedule the Job/Trigger -->
+  <schedule job="myJob2" trigger="myTrigger2"/>
+<schedule job="myJob" trigger="myTrigger"/>  
+  
+</quartz-config>

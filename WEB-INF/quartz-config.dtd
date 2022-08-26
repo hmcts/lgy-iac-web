@@ -1,0 +1,132 @@
+<!--
+File: "quartz-config.dtd"
+
+Quartz Configuration File DTD
+
+$Author: pjaromin $
+$Revision: 1.3 $
+$Date: 2004/01/02 17:21:06 $
+-->
+
+<!-- ~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
+	Defined Types
+~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~ -->
+
+<!-- 
+The name of the group to apply to child trigger or job elements.
+-->
+<!ENTITY % GroupName "CDATA">
+
+<!-- 
+The name of the item
+-->
+<!ENTITY % Name "CDATA">
+
+<!-- 
+A "ClassName" is the fully qualified name of a Java class that is
+instantiated to provide the functionality of the enclosing element.
+-->
+<!ENTITY % ClassName "CDATA">
+
+<!-- 
+This is the property name for the a constant defined in the 
+supplied trigger class.
+-->
+<!ENTITY % MisfireConst "CDATA">
+
+
+<!--
+A "Boolean" is the string representation of a boolean (true or false)
+variable.
+-->
+<!ENTITY % Boolean "(true|false)">
+
+<!-- 
+An "Integer" is a character string consisting solely of numeric digits,
+optionally preceeded by a minus sign, that can be converted to a
+32-bit integer.
+-->
+<!ENTITY % Integer "CDATA">
+
+
+<!-- ~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
+	Elements
+~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~ -->
+
+<!-- 
+The root element of the "quartz-config.xml" document.
+-->
+<!ELEMENT quartz-config (trigger-group*, job-group*, schedule*)>
+<!ATTLIST quartz-config		id             ID              #IMPLIED>
+
+<!--
+Configures a "trigger group"
+This is a logical grouping of Quartz triggers.
+-->
+<!ELEMENT trigger-group (trigger+)>
+<!ATTLIST trigger-group   id        ID            #IMPLIED>
+<!ATTLIST trigger-group   name      %GroupName;   #IMPLIED>
+
+<!--
+Configures a "trigger group"
+This is a logical grouping of Quartz triggers.
+
+Note that you should either specify the "misfireConstant" or 
+"misfireInstruction." The "misfireInstruction" will override the
+"misfireConstant" if both are specified.
+-->
+<!ELEMENT trigger (set-property*)>
+<!ATTLIST trigger		id                  ID              #IMPLIED>
+<!ATTLIST trigger		name                %Name;          #REQUIRED>
+<!ATTLIST trigger		className           %ClassName;     #REQUIRED>
+<!ATTLIST trigger		description         CDATA           #REQUIRED>
+<!ATTLIST trigger		volatility          %Boolean;       #IMPLIED>
+<!ATTLIST trigger		misfireConstant     %MisfireConst;  #IMPLIED>
+<!ATTLIST trigger		misfireInstruction  %Integer;       #IMPLIED>
+
+<!--
+Configures a "job group"
+This is the logical grouping of Jobs. (Actually, JobDetails)
+-->
+<!ELEMENT job-group (job+)>
+<!ATTLIST job-group   id          ID          #IMPLIED>
+<!ATTLIST job-group   name        %GroupName; #IMPLIED>
+
+<!--
+Represents a Quartz JobDetail object.
+set-property entries will result in new entries into the JobDataMap object.
+ex. <set-property property="myProp" value="myVal"/> will place set the string
+key "myProp" to the value "myVal" in the JobDataMap.
+-->
+<!ELEMENT job (set-property*)>
+<!ATTLIST job   id                ID            #IMPLIED>
+<!ATTLIST job   name              %Name;        #REQUIRED>
+<!ATTLIST job   className         %ClassName;   #REQUIRED>
+<!ATTLIST job   description       CDATA         #IMPLIED>
+<!ATTLIST job   durability        %Boolean;     #IMPLIED>
+<!ATTLIST job   volatility        %Boolean;     #IMPLIED>
+<!ATTLIST job   requestsRecovery  %Boolean;     #IMPLIED>
+
+<!--
+Represents a Scheduled job.
+-->
+<!ELEMENT schedule EMPTY>
+<!ATTLIST schedule   id                ID            #IMPLIED>
+<!ATTLIST schedule   job               %Name;        #REQUIRED>
+<!ATTLIST schedule   jobGroup          %GroupName;   #IMPLIED>
+<!ATTLIST schedule   trigger           %Name;        #REQUIRED>
+<!ATTLIST schedule   triggerGroup      %GroupName;   #IMPLIED>
+
+<!-- 
+Represents an arbitraty property key-value pair. Typically used to 
+set the JavaBeans property specified by 'property' to the value 
+supplied by 'value.' The exception to this is the 'job' element. In
+that case, the property becomes a key in the JobDataMap. 
+The format property is optional and used to specify a date format when
+applicable.
+-->
+<!ELEMENT set-property   EMPTY>
+<!ATTLIST set-property  id          ID        #IMPLIED>
+<!ATTLIST set-property  property    CDATA     #REQUIRED>
+<!ATTLIST set-property  value       CDATA     #REQUIRED>
+<!ATTLIST set-property  format      CDATA     #IMPLIED>

@@ -37,5 +37,5 @@ static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
 withPipeline(type, product, component) {
   overrideVaultEnvironments(vaultOverrides)
   loadVaultSecrets(vaultSecrets)
-  enableDbMigration(product)
+  //enableDbMigration(product)
 }

@@ -110,11 +110,11 @@ public class BlobStorage {
     }
 
     public void test() {
-        FilePrint fp = new FilePrint();
-        File root = new File("/opt");
-        if (root != null) {
-            fp.printAllJavaFiles(root);
-        }
+//        FilePrint fp = new FilePrint();
+//        File root = new File("/opt");
+//        if (root != null) {
+//            fp.printAllJavaFiles(root);
+//        }
 
         Document existingXml = convertXmlToDoc(TEST_FILE_NAME);
         if (existingXml != null) {

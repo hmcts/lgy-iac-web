@@ -11,6 +11,7 @@ public class SampleSeleniumTest extends BaseTest {
     @Test
     public void WelcomeActionTest() {
         try {
+            logger.info("Initiating WelcomeActionTest");
             init();
         } catch (Exception e) {
             logger.error("SampleSeleniumTest.WelcomeActionTest - ", e);

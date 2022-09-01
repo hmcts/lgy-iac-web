@@ -53,6 +53,14 @@ task functional(type: Test) {
     group = "Verification"
     testClassesDirs = sourceSets.functionalTest.output.classesDirs
     classpath = sourceSets.functionalTest.runtimeClasspath
+    failFast = true
+    outputs.upToDateWhen { false }
+    rootProject.tasks.named("processFunctionalTestResources") {
+      duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    }
+    testLogging {
+      events "passed", "skipped", "failed"
+    }
 }
 
 task smoke(type: Test) {

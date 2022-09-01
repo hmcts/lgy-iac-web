@@ -14,6 +14,7 @@ import static org.hamcrest.core.Is.is;
 
 @RunWith(SpringRunner.class)
 public class SampleFunctionalTest {
+
     protected static final String CONTENT_TYPE_VALUE = "application/json";
 
     @Value("${TEST_URL:http://localhost:8080}")

@@ -3,6 +3,7 @@ package uk.gov.hmcts.legacy.web;
 import org.junit.Test;
 import org.apache.log4j.Logger;
 import uk.gov.hmcts.legacy.web.selenium.BaseTest;
+import uk.gov.hmcts.legacy.web.selenium.WelcomeActions_Scenarios;
 
 public class SampleSeleniumTest extends BaseTest {
 
@@ -13,6 +14,7 @@ public class SampleSeleniumTest extends BaseTest {
         try {
             logger.info("Initiating WelcomeActionTest");
             init();
+            WelcomeActions_Scenarios.runTest_WelcomeAction();
         } catch (Exception e) {
             logger.error("SampleSeleniumTest.WelcomeActionTest - ", e);
         }

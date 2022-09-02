@@ -17,7 +17,7 @@ public class BaseTest implements IAFTGeneric {
         try {
             System.setProperty("webdriver.chrome.driver", "./src/functionalTest/resources/chromedriver-Darwin-103");
             driver = new ChromeDriver();
-            String localHostURL = "https://lgy-iac-web-pr-82.dev.platform.hmcts.net/IACFees/";
+            String localHostURL = "https://lgy-iac-web-pr-85.dev.platform.hmcts.net/IACFees/";
             redirect(localHostURL);
         } catch (Exception e) {
             logger.error("BaseTest.init - ", e);

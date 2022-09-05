@@ -16,7 +16,6 @@ public class WelcomeActions_Scenarios extends BaseTest  implements IAFT1_Flows, 
         page1.initialise(welcomeActionsSubmitAppeal);
     }
 
-    @Test
     public static void runTest_WelcomeAction() {
         page1.execute();
     }

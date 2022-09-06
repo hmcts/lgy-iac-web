@@ -15,10 +15,10 @@ public class BaseTest implements IAFTGeneric {
 
     protected static void init() {
         try {
-            System.setProperty("webdriver.chrome.driver", "./src/functionalTest/resources/chromedriver-Darwin-103");
+            System.setProperty("webdriver.chrome.driver", "./src/functionalTest/resources/chromedriver-Darwin-105");
             driver = new ChromeDriver();
-            String localHostURL = "https://lgy-iac-web-pr-85.dev.platform.hmcts.net/IACFees/";
-            redirect(localHostURL);
+            String testURL = "https://lgy-iac-web-pr-86.dev.platform.hmcts.net/IACFees";
+            redirect(testURL);
         } catch (Exception e) {
             logger.error("BaseTest.init - ", e);
         }

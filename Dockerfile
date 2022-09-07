@@ -55,6 +55,8 @@ ADD deploy/health.war /opt/tomcat/webapps
 
 # Try to debug using a statically linked curl deployed to the container
 ADD deploy/curl-amd64 /opt
+RUN chown hmcts:hmcts /opt/curl-amd64
+RUN chmod +x /opt/curl-amd64
 
 RUN chown -R hmcts:hmcts /opt/tomcat
 

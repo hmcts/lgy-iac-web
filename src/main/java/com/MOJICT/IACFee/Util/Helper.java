@@ -34,7 +34,7 @@ public class Helper {
 
 	/**
 	 * Checks that the String is not null or zero length when trimmed
-	 * 
+	 *
 	 * @param data
 	 *            the String to be checked
 	 * @return true if data is not null or empty
@@ -54,7 +54,7 @@ public class Helper {
 	/**
 	 * Checks that the String is not null and is longer than 1 character in
 	 * length when trimmed.
-	 * 
+	 *
 	 * @param data
 	 *            the String to be checked
 	 * @return true if the data is not null and is longer than 1 character
@@ -72,7 +72,7 @@ public class Helper {
 	/**
 	 * Checks that the String is not null or greater than the max parameter or
 	 * shorter than the min parameter when trimmed.
-	 * 
+	 *
 	 * @param data
 	 *            String to be checked for length and state
 	 * @param min
@@ -94,7 +94,7 @@ public class Helper {
 	/**
 	 * Checks that the incoming String can be formatted as a date. See the
 	 * StringToDate function for specifics on the formatting required.
-	 * 
+	 *
 	 * @param str
 	 *            the String to be formatted as a date
 	 * @return true if the date can be formatted
@@ -109,7 +109,7 @@ public class Helper {
 	/**
 	 * Formats the incoming String using the format dd/MM/yyyy and returns it or
 	 * in when unsuccessful returns null
-	 * 
+	 *
 	 * @param str
 	 *            the String to be formatted
 	 * @return The formatted String or null if the String cannot be formatted.
@@ -127,7 +127,7 @@ public class Helper {
 
 	/**
 	 * Checks that the postcode is shorter than 9 characters and greater than 2
-	 * 
+	 *
 	 * @param postcode
 	 *            String to be checked for length
 	 * @return true if the postcode is a valid length
@@ -151,7 +151,7 @@ public class Helper {
 
 	/**
 	 * Checks that the postcode is shorter than 9 characters and greater than 2
-	 * 
+	 *
 	 * @param postcode
 	 *            String to be checked for length
 	 * @return true if the postcode is a valid length
@@ -167,7 +167,7 @@ public class Helper {
 
 	/**
 	 * Checks that the postcode is shorter than 9 characters and greater than 2
-	 * 
+	 *
 	 * @param postcode
 	 *            String to be checked for length
 	 * @return true if the postcode is a valid length
@@ -184,7 +184,7 @@ public class Helper {
 
 	/**
 	 * Checks that the postcode is shorter than 9 characters and greater than 2
-	 * 
+	 *
 	 * @param postcode
 	 *            String to be checked for length
 	 * @return true if the postcode is a valid length
@@ -201,7 +201,7 @@ public class Helper {
 	/**
 	 * Checks that the String meets the phone / fax validation criteria: Must be
 	 * numeric , may contain +- must contain up to 20 characetrs
-	 * 
+	 *
 	 * @param str
 	 * @return
 	 */
@@ -215,7 +215,7 @@ public class Helper {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param email
 	 * @return
 	 */
@@ -228,7 +228,7 @@ public class Helper {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param hours
 	 * @param minutes
 	 * @return
@@ -241,7 +241,7 @@ public class Helper {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param ref
 	 * @return
 	 */
@@ -254,7 +254,7 @@ public class Helper {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param data
 	 * @param max
 	 * @return
@@ -266,7 +266,7 @@ public class Helper {
 		return false;
 	}
 
-	
+
 	public static boolean isValidMinLen(String data, int min) {
         if(null!=data)
         {
@@ -280,7 +280,7 @@ public class Helper {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param data
 	 * @param max
 	 * @param min
@@ -294,7 +294,7 @@ public class Helper {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param data
 	 * @return
 	 */
@@ -307,7 +307,7 @@ public class Helper {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param data
 	 * @return
 	 */
@@ -320,7 +320,7 @@ public class Helper {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param date
 	 * @return
 	 */
@@ -335,8 +335,8 @@ public class Helper {
 			conn = dbconnection.getConnection();
 
 			//stmt1 = conn.prepareStatement("SELECT * FROM Fees WHERE (startdate < CAST('" + date + "' AS DATETIME))");
-			stmt1 = conn.prepareStatement("SELECT * FROM Fees WHERE (startdate < to_timestamp('"
-							+ date + "'YYYY-MM-DD HH24:mi:ss'))");
+            stmt1 = conn.prepareStatement("SELECT * FROM Fees WHERE (startdate < to_timestamp('"
+                                              + date + "', 'YYYY-MM-DD HH24:mi:ss'))");
 			// stmt1.setString(1, date);
 			rs = stmt1.executeQuery();
 			while (rs.next()) {
@@ -359,7 +359,7 @@ public class Helper {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param date
 	 * @return
 	 */
@@ -373,7 +373,9 @@ public class Helper {
 			DBConnection dbconnection = new DBConnection();
 			conn = dbconnection.getConnection();
 
-			stmt1 = conn.prepareStatement("SELECT * FROM Fees WHERE (startdate < CAST('" + date + "' AS DATETIME))");
+//			stmt1 = conn.prepareStatement("SELECT * FROM Fees WHERE (startdate < CAST('" + date + "' AS DATETIME))");
+            stmt1 = conn.prepareStatement("SELECT * FROM Fees WHERE (startdate < to_timestamp('"
+                                              + date + "', 'YYYY-MM-DD HH24:mi:ss'))");
 			// stmt1.setString(1, date);
 			rs = stmt1.executeQuery();
 			while (rs.next()) {
@@ -396,7 +398,7 @@ public class Helper {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param baos
 	 * @param URN
 	 * @param paymentURN
@@ -431,7 +433,7 @@ public class Helper {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param baos
 	 * @param URN
 	 * @param path
@@ -484,28 +486,28 @@ public class Helper {
 	/**
 	 * Utility method to provide three years in an ArrayList , current year and the two former years.
 	 * years
-	 * 
+	 *
 	 * @return
 	 */
 	public static ArrayList getCurrentAndTwoFormerYears() {
 		ArrayList  arr = new ArrayList ();
 		int year = Calendar.getInstance().get(Calendar.YEAR);
 		Years yrs = new Years();
-		
+
 		yrs.setYearlable("Year");
 		yrs.setYearvalue("0");
 		arr.add(yrs);
-		
+
 		yrs = new Years();
 		yrs.setYearlable(String.valueOf(year - 2));
 		yrs.setYearvalue(String.valueOf(year - 2));
 		arr.add(yrs);
-		
+
 		yrs = new Years();
 		yrs.setYearlable(String.valueOf(year - 1));
 		yrs.setYearvalue(String.valueOf(year - 1));
 		arr.add(yrs);
-		
+
 		yrs = new Years();
 		yrs.setYearlable(String.valueOf(year));
 		yrs.setYearvalue(String.valueOf(year));
@@ -521,15 +523,15 @@ public class Helper {
 		Calendar cal = Calendar.getInstance();
 		int year = cal.get(Calendar.YEAR);
 
-		
-		
+
+
 		yrs.setYearlable("Year");
 		yrs.setYearvalue("0");
 		arr.add(yrs);
 
-		
+
 	for(int ctr=0;ctr<=backYears;ctr++)
-		
+
 	{
 		yrs = new Years();
 		yrs.setYearlable(String.valueOf(year - ctr));
@@ -541,9 +543,9 @@ public class Helper {
 
 		return arr;
 	}
-	
-	
-	
+
+
+
 	public static ArrayList getTwoYearsPlusMinus() {
 
 		ArrayList arr = new ArrayList();
@@ -589,7 +591,7 @@ public class Helper {
 		return arr;
 	}
 
-	
+
 	public static boolean isValidPastDate(String str) {
 
 		if (Helper.StringToDate(str) != null)

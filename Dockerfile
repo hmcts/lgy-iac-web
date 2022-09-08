@@ -19,6 +19,9 @@ RUN mv apache-tomcat-8.5.82/ /opt/tomcat/
 
 # Remove the default ROOT folder (we will replace it)
 RUN rm -rf /opt/tomcat/webapps/ROOT
+RUN rm -rf /opt/tomcat/webapps/docs
+RUN rm -rf /opt/tomcat/webapps/examples
+
 
 # Verify Java version
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64

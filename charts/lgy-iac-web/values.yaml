@@ -6,14 +6,14 @@ java:
   readinessPath: '/IACFees/health/liveness.do/'
   livenessPath: '/health/'
   startupPath: '/health/'
-  startupDelay: 360
+  startupDelay: 20
   startupTimeout: 3
   startupPeriod: 120
-  startupFailureThreshold: 5
-  livenessDelay: 360
+  startupFailureThreshold: 10
+  livenessDelay: 180
   livenessTimeout: 3
   livenessPeriod: 120
-  livenessFailureThreshold: 5
+  livenessFailureThreshold: 10
   smoketests:
     environment:
       TEST_URL: ${SERVICE_FQDN}/IACFees

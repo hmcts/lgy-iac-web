@@ -3,16 +3,19 @@ java:
   image: 'sdshmctspublic.azurecr.io/lgy-iac/web:latest'
   ingressHost: lgy-iac-web.{{ .Values.global.environment }}.platform.hmcts.net
   aadIdentityName: lgy-iac
-  readinessPath: '/IACFees/health/liveness.do/'
-  livenessPath: '/health/'
+  readinessPath: '/health/'
+  readinessDelay: 0
+  readinessTimeout: 3
+  readinessPeriod: 15
   startupPath: '/health/'
   startupDelay: 20
   startupTimeout: 3
-  startupPeriod: 120
-  startupFailureThreshold: 10
-  livenessDelay: 180
+  startupPeriod: 60
+  startupFailureThreshold: 20
+  livenessPath: '/health/'
+  livenessDelay: 0
   livenessTimeout: 3
-  livenessPeriod: 120
+  livenessPeriod: 60
   livenessFailureThreshold: 10
   smoketests:
     environment:

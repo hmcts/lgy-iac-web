@@ -1,3 +1,29 @@
-<welcome-file-list>
-  <welcome-file>index.jsp</welcome-file>
-</welcome-file-list>
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app
+  PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN"
+  "http://java.sun.com/j2ee/dtds/web-app_2_2.dtd">
+
+<web-app>
+
+  <servlet>
+    <servlet-name>health</servlet-name>
+    <jsp-file>/health.html</jsp-file>
+  </servlet>
+
+  <servlet>
+    <servlet-name>liveness</servlet-name>
+    <jsp-file>/liveness/liveness.html</jsp-file>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>liveness</servlet-name>
+    <url-pattern>/liveness</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>health</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+
+</web-app>

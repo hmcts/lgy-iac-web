@@ -199,16 +199,20 @@ repositories {
 
 // Create second war file which will act as the "/health" path
 // which is invoked as part of the Common Pipeline as part of the Deploy Dev stage
-// The war file only contains a default index.jsp which responds with a 200 status code
+// The war file only contains a default health.html which responds with a 200 status code
 task createHealthWar(type: War) {
   destinationDirectory = file('deploy')
   archiveFileName = 'health.war'
   from('health') {
-    include('index.jsp')
+    include('health.html')
   }
   from('health') {
     include('web.xml')
     into('WEB-INF')
+  }
+  from('health') {
+    include('liveness.html')
+    into('liveness')
   }
 }
 
@@ -257,7 +261,7 @@ war {
     from('.') {
         include('awsps.sh')
         include('error.jsp')
-        include('index.jsp')
+        include('health.html')
         include('version.txt')
     }
 }

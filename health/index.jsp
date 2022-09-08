@@ -1,3 +1,5 @@
-<%
- response.sendError(200, "IACFees Tomcat" );
-%>
+<html>
+<body>
+IAC Health is UP
+</body>
+</html>

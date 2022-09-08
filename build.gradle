@@ -210,6 +210,10 @@ task createHealthWar(type: War) {
     include('web.xml')
     into('WEB-INF')
   }
+  from('health') {
+    include('html.html')
+    into('liveness')
+  }
 }
 
 war.dependsOn(copyMissingLibs, createHealthWar)

@@ -1,17 +1,24 @@
 package uk.gov.hmcts.legacy.web;
 
+import com.MOJICT.IACFee.Util.Helper;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.log4j.Logger;
+import org.junit.Assert;
 import org.junit.Test;
+
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
 
@@ -21,7 +28,6 @@ public class LivenessSmokeTest {
 
     static Logger logger = Logger.getLogger(LivenessSmokeTest.class);
 
-//    @Value("${TEST_URL:http://localhost:80/IACFees/health/liveness.do}")
 //    private String requestUri;
     @Value("${test-url}")
     private String testUrl;
@@ -38,7 +44,12 @@ public class LivenessSmokeTest {
         } catch (IOException ex) {
             logger.error("smokeTestHealth exception", ex);
         }
-        assertEquals(200, getResponse.getStatusLine().getStatusCode());
+        try {
+            assertEquals(200, getResponse.getStatusLine().getStatusCode());
+        } catch (AssertionError e) {
+            logger.error("The Status code is not 200");
+        }
+        logger.info("The Status code is 200");
     }
 
     @Test
@@ -54,5 +65,14 @@ public class LivenessSmokeTest {
             logger.error("smokeTestHealth exception", ex);
         }
         assertEquals(200, getResponse.getStatusLine().getStatusCode());
+    }
+
+    @Test
+    public void testReturnAmountString_OralSuccessful() {
+
+        String date =  LocalDate.now().toString();
+        System.out.println(date);
+        int amount = Helper.returnStringAmount_paper(date);
+        assertEquals(140 ,amount);
     }
 }

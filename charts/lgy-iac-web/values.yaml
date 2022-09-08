@@ -5,11 +5,11 @@ java:
   aadIdentityName: lgy-iac
   readinessPath: 'IACFees/health/liveness.do'
   livenessPath: 'IACFees/health/liveness.do'
-  startupPath: '/health'
+  startupPath: '/health/'
   startupDelay: 20
   startupTimeout: 3
   startupPeriod: 180
-  startupFailureThreshold: 5
+  startupFailureThreshold: 20
   livenessDelay: 0
   smoketests:
     environment:

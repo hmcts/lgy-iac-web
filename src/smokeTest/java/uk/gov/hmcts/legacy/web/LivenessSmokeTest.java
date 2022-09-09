@@ -72,7 +72,7 @@ public class LivenessSmokeTest {
         } catch (AssertionError e) {
             logger.error("The Status code is not 200");
         }
-        System.out.println("The Status code is 200");
+        logger.info("The Status code is 200");
     }
 
     @Test
@@ -94,7 +94,7 @@ public class LivenessSmokeTest {
     public void testReturnAmountString_OralSuccessful() {
 
         String date =  LocalDate.now().toString();
-        System.out.println(date);
+        logger.info(date);
         int amount = Helper.returnStringAmount_paper(date);
         assertEquals(140 ,amount);
     }
@@ -106,20 +106,20 @@ public class LivenessSmokeTest {
         connectionInfo.setProperty("password", dbPass);
 
         String dbUrl = String.format("jdbc:postgresql://%s:%s/%s?ssl_mode=require", dbHost, dbPort, dbName);
-        System.out.println("testing connection to database.... with url <" + dbUrl + "> user <" + dbUser + ">");
+        logger.info("testing connection to database.... with url <" + dbUrl + "> user <" + dbUser + ">");
 
         try (Connection conn = DriverManager.getConnection(dbUrl, connectionInfo)) {
-            System.out.println("connection OK - select from fees table");
+            logger.info("connection OK - select from fees table");
             try (PreparedStatement pstmt = conn.prepareStatement("SELECT 1 FROM dbo.fees")) {
                 ResultSet rs = pstmt.executeQuery();
                 if (rs.next()) {
-                    System.out.println("retrieved record from table");
+                    logger.info("retrieved record from table");
                 } else {
-                    System.out.println("Error: no data retrieved");
+                    logger.info("Error: no data retrieved");
                 }
             }
         } catch (SQLException e) {
-            System.out.println("jdbc failure: " + e.getMessage() + ":" + e.getSQLState());
+            logger.error("jdbc failure: " + e.getMessage() + ":" + e.getSQLState());
         }
     }
 

@@ -1,7 +1,7 @@
 ARG APP_INSIGHTS_AGENT_VERSION=3.2.10
 ARG PLATFORM=""
 
-# Application image (use debug to get busybox shell temporarily)
+# Application image - (use debug to get busybox shell temporarily)
 FROM hmctspublic.azurecr.io/base/java:openjdk-8-debug-distroless-1.4
 
 USER root

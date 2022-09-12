@@ -36,7 +36,7 @@ import static org.junit.Assert.assertEquals;
 @TestPropertySource("classpath:application-smoke.yaml")
 public class LivenessSmokeTest {
 
-    static Logger logger = Logger.getLogger(LivenessSmokeTest.class);
+    static Logger logger = Logger.getLogger(org.springframework.test.context.junit4.SpringJUnit4ClassRunner.class);
 
 //    private String requestUri;
     @Value("${test-url}")
@@ -61,11 +61,13 @@ public class LivenessSmokeTest {
     @Test
     public void smokeTestLivenessSuccess() {
 
+/*
         ConsoleAppender console = new ConsoleAppender(); //create appender
         console.setThreshold(Level.INFO);
         console.activateOptions();
         Logger logger2 = Logger.getLogger(LivenessSmokeTest.class);
         logger2.addAppender(console);
+*/
 
         HttpClient httpClient = HttpClientBuilder.create().build();
         HttpGet getRequest = new HttpGet(testUrl + "/IACFees/health/liveness.do");
@@ -74,14 +76,14 @@ public class LivenessSmokeTest {
         try {
             getResponse = httpClient.execute(getRequest);
         } catch (IOException ex) {
-            logger2.error("smokeTestHealth exception", ex);
+            logger.error("smokeTestHealth exception", ex);
         }
         try {
             assertEquals(200, getResponse.getStatusLine().getStatusCode());
         } catch (AssertionError e) {
-            logger2.error("The Status code is not 200");
+            logger.error("The Status code is not 200");
         }
-        logger2.info("The Status code is 200");
+        logger.info("The Status code is 200");
     }
 
     @Test

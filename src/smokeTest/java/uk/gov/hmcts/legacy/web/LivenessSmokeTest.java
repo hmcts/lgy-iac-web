@@ -1,18 +1,13 @@
 package uk.gov.hmcts.legacy.web;
 
-import com.MOJICT.IACFee.Util.DBConnection;
 import com.MOJICT.IACFee.Util.Helper;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.log4j.ConsoleAppender;
-import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
-
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.context.TestPropertySource;
@@ -24,10 +19,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Properties;
 
 import static org.junit.Assert.assertEquals;

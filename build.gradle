@@ -261,7 +261,7 @@ war {
     from('.') {
         include('awsps.sh')
         include('error.jsp')
-        include('health.html')
+        include('index.jsp')
         include('version.txt')
     }
 }

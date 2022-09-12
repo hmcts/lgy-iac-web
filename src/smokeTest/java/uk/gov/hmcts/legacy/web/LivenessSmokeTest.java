@@ -33,7 +33,7 @@ import static org.junit.Assert.assertEquals;
 @TestPropertySource("classpath:application-smoke.yaml")
 public class LivenessSmokeTest {
 
-    static Logger logger = Logger.getLogger(LivenessSmokeTest.class);
+    static Logger logger = Logger.getRootLogger();
 
 //    private String requestUri;
     @Value("${test-url}")

@@ -87,7 +87,7 @@ public class DBConnection {
     public boolean checkDBConnection(Connection conn, String dbTableName)  {
         PreparedStatement testQuery = null;
         try {
-            testQuery = conn.prepareStatement("SELECT * FROM "+ dbTableName +" FETCH FIRST 1 ROW ONLY" );
+            testQuery = conn.prepareStatement("SELECT EXISTS ( SELECT FROM information_schema.tables WHERE table_schema = 'dbo' AND table_name = " + dbTableName);
             ResultSet rs = testQuery.executeQuery();
 
             Boolean valid = rs.next();

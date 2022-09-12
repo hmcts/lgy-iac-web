@@ -23,6 +23,7 @@ RUN rm -rf /opt/tomcat/webapps/docs
 RUN rm -rf /opt/tomcat/webapps/examples
 
 
+
 # Verify Java version
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ENV CATALINA_OPTS="-Xmx512M -XX:MaxPermSize=1024m"
@@ -51,7 +52,7 @@ RUN mkdir -p /opt/moj/IACFees.files/IAC_Submissions/Status_Files/
 RUN mkdir -p /opt/moj/IACFees.files/Backup/PDF_Files/
 RUN mkdir -p /opt/moj/IACFees.files/Backup/XML_Files/
 
-ADD deploy/IACFees.war /opt/tomcat/webapps
+#ADD deploy/IACFees.war /opt/tomcat/webapps
 ADD deploy/start_tomcat.sh /opt/tomcat/bin
 
 ADD deploy/health.war /opt/tomcat/webapps

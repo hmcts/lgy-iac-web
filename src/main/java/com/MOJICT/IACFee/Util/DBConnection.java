@@ -65,24 +65,43 @@ public class DBConnection {
 		return conn;
 	}
 
-	public boolean checkDBConnection(Connection conn, String dbTableName)  {
-		PreparedStatement testQuery = null;
-		try {
-			testQuery = conn.prepareStatement("SELECT 1 FROM " + dbTableName);
-			ResultSet rs = testQuery.executeQuery();
+//	public boolean checkDBConnection(Connection conn, String dbTableName)  {
+//		PreparedStatement testQuery = null;
+//		try {
+//			testQuery = conn.prepareStatement("SELECT 1 FROM " + dbTableName);
+//			ResultSet rs = testQuery.executeQuery();
+//
+//			Boolean valid = rs.next();
+//
+//			testQuery.close();
+//			rs.close();
+//			conn.close();
+//
+//			return valid;
+//		} catch (SQLException e) {
+//			logger.error("DBConnection.checkDBConnection", e);
+//			return false;
+//		}
+//	}
 
-			Boolean valid = rs.next();
+    public boolean checkDBConnection(Connection conn, String dbTableName)  {
+        PreparedStatement testQuery = null;
+        try {
+            testQuery = conn.prepareStatement("SELECT * FROM "+ dbTableName +" FETCH FIRST 1 ROW ONLY" );
+            ResultSet rs = testQuery.executeQuery();
 
-			testQuery.close();
-			rs.close();
-			conn.close();
+            Boolean valid = rs.next();
 
-			return valid;
-		} catch (SQLException e) {
-			logger.error("DBConnection.checkDBConnection", e);
-			return false;
-		}
-	}
+            testQuery.close();
+            rs.close();
+            conn.close();
+
+            return valid;
+        } catch (SQLException e) {
+            logger.error("DBConnection.checkDBConnection", e);
+            return false;
+        }
+    }
 
 	private String getJdbcDriver() {
 		String jdbcDriver = System.getenv("DB_JDBC_DRIVER");

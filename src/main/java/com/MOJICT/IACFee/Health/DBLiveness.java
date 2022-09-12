@@ -21,7 +21,7 @@ public class DBLiveness extends Action {
         Boolean result = false;
 
         try {
-            result = dbConnection.checkDBConnection(dbConnection.getConnection(), "IAFT5");
+            result = dbConnection.checkDBConnection(dbConnection.getConnection(), "Fees");
         } catch (Exception e) {
             logger.error("DBLiveness.execute", e);
         }

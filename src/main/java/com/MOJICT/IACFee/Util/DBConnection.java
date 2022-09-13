@@ -87,7 +87,7 @@ public class DBConnection {
     public boolean checkDBConnection(Connection conn, String dbTableName)  {
         PreparedStatement testQuery = null;
         try {
-            testQuery = conn.prepareStatement("SELECT EXISTS( SELECT * FROM information_schema.tables WHERE table_name = " + dbTableName);
+            testQuery = conn.prepareStatement("SELECT * FROM " + dbTableName + " LIMIT 1");
             ResultSet rs = testQuery.executeQuery();
 
             Boolean valid = rs.next();

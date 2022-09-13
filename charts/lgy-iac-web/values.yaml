@@ -43,4 +43,6 @@ java:
     TEST_URL: ${SERVICE_FQDN}/IACFees
     STORAGE_METHOD: "file"
     POSTGRES_HOST: ${POSTGRES_HOST}
+    REST_API_URL: "https://j7ouh6nm42.execute-api.eu-west-2.amazonaws.com/Test/"
+    BUCKET_NAME: "upload-pdf-test"
 

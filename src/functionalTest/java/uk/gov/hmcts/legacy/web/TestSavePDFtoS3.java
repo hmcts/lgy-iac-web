@@ -5,7 +5,7 @@ import com.MOJICT.IACFee.Util.Helper;
 import org.apache.log4j.Logger;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.Ignore;
 import org.mockito.Mock;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
@@ -41,7 +41,7 @@ public class TestSavePDFtoS3 {
         helper.close();
     }
 
-    @Test
+    @Ignore
     public void testSingleSavePDFToS3() {
         bean.when(CPIBean::getSTORAGE_METHOD).thenReturn("S3");
         bean.when(CPIBean::getBUCKET_NAME).thenReturn(bucketName);

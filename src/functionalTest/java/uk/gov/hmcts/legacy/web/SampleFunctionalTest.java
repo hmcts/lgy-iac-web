@@ -29,7 +29,7 @@ public class SampleFunctionalTest {
         given()
             .accept(ContentType.HTML)
             .when()
-            .get(testUrl + "/IACFees")
+            .get(testUrl + "/health/")
             .then()
             .statusCode(200);
     }

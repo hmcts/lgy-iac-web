@@ -99,7 +99,7 @@ public class RootController {
             blobStorage.test();
         }
 
-        return ok("Welcome to lgy-iac-web dts-legacy application. My favourite legacy app is "
+        return ok("Welcome to lgy-iac-web dts-legacy application. My favourite legacy app is (Testing changes 01...) "
                       + System.getenv("FAVOURITE_FRUIT"));
     }
 }

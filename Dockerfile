@@ -1,7 +1,7 @@
 ARG APP_INSIGHTS_AGENT_VERSION=3.2.10
 ARG PLATFORM=""
 
-# Application image (use debug to get busybox shell temporarily)
+# Application image - (use debug to get busybox shell temporarily)
 FROM hmctspublic.azurecr.io/base/java:openjdk-8-debug-distroless-1.4
 
 USER root
@@ -19,6 +19,10 @@ RUN mv apache-tomcat-8.5.82/ /opt/tomcat/
 
 # Remove the default ROOT folder (we will replace it)
 RUN rm -rf /opt/tomcat/webapps/ROOT
+RUN rm -rf /opt/tomcat/webapps/docs
+RUN rm -rf /opt/tomcat/webapps/examples
+
+
 
 # Verify Java version
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
@@ -53,6 +57,10 @@ ADD deploy/start_tomcat.sh /opt/tomcat/bin
 
 ADD deploy/health.war /opt/tomcat/webapps
 
+# Try to debug using a statically linked curl deployed to the container
+ADD deploy/curl-amd64 /opt
+RUN chown hmcts:hmcts /opt/curl-amd64
+RUN chmod +x /opt/curl-amd64
 
 RUN chown -R hmcts:hmcts /opt/tomcat
 

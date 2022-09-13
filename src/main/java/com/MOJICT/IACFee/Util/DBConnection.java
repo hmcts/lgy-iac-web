@@ -3,6 +3,7 @@
 package com.MOJICT.IACFee.Util;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
@@ -86,11 +87,15 @@ public class DBConnection {
 
     public boolean checkDBConnection(Connection conn, String dbTableName)  {
         PreparedStatement testQuery = null;
+        String date =  LocalDate.now().toString();
         try {
-            testQuery = conn.prepareStatement("SELECT fees_oral FROM " + dbTableName + " LIMIT 1");
+//            testQuery = conn.prepareStatement("SELECT fees_oral FROM " + dbTableName + " LIMIT 1");
+            testQuery = conn.prepareStatement("SELECT * FROM" + dbTableName + " WHERE (startdate < to_timestamp('"+ date +"', 'YYYY-MM-DD HH24:MI:SS'))");
             ResultSet rs = testQuery.executeQuery();
 
             Boolean valid = rs.next();
+            logger.info("fees_oral is: " + rs.getString("fees_oral"));
+
 
             testQuery.close();
             rs.close();

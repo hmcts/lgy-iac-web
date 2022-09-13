@@ -87,7 +87,7 @@ public class DBConnection {
     public boolean checkDBConnection(Connection conn, String dbTableName)  {
         PreparedStatement testQuery = null;
         try {
-            testQuery = conn.prepareStatement("SELECT * FROM " + dbTableName + " LIMIT 1");
+            testQuery = conn.prepareStatement("SELECT fees_oral FROM " + dbTableName + " LIMIT 1");
             ResultSet rs = testQuery.executeQuery();
 
             Boolean valid = rs.next();

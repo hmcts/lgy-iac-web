@@ -32,8 +32,6 @@ java:
           alias: POSTGRES_USER
         - name: web-POSTGRES-PASS
           alias: POSTGRES_PASSWORD
-        - name: web-POSTGRES-PORT
-          alias: POSTGRES_PORT
   environment:
     ENV_NAME: "Azure Dev PG"
     RUN_DB_MIGRATION_ON_STARTUP: 'false'

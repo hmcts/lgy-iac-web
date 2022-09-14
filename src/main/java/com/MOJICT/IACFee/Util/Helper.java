@@ -453,6 +453,8 @@ public class Helper {
 			}
 		} else {
 			try {
+                // TODO - Mark 14/9/22
+                // String path = this.servlet.getServletContext().getRealPath("/"); - need this in calling method
 				LocalFileStorage LocalFileStorage = new LocalFileStorage();
 				LocalFileStorage.savePDFToLocalStorage(baos, path, fileName);
 				return true;

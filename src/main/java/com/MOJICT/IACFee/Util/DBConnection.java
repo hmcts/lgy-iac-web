@@ -94,7 +94,6 @@ public class DBConnection {
             ResultSet rs = testQuery.executeQuery();
 
             Boolean valid = rs.next();
-            logger.info("fees_oral is: " + rs.getString("fees_oral"));
 
 
             testQuery.close();

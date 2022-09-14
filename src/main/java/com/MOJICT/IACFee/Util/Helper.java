@@ -377,8 +377,11 @@ public class Helper {
             stmt1 = conn.prepareStatement("SELECT * FROM Fees WHERE (startdate < to_timestamp('"
                                               + date + "', 'YYYY-MM-DD HH24:mi:ss'))");
 			// stmt1.setString(1, date);
-			rs = stmt1.executeQuery();
+            logger.info("the date is: " + date);
+            rs = stmt1.executeQuery();
 			while (rs.next()) {
+                logger.info("stardate is : " + rs.getString("stardate"));
+                logger.info("fees_oral is: " + rs.getString("fees_oral"));
 				amount = rs.getString("fees_oral");
 			}
 			return Integer.parseInt(amount);

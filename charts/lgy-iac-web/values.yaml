@@ -22,7 +22,7 @@ java:
       TEST_URL: ${SERVICE_FQDN}/IACFees
 
   keyVaults:
-    lgy-iac-stg:
+    lgy-iac:
       secrets:
         - name: web-POSTGRES-DATABASE
           alias: POSTGRES_DATABASE

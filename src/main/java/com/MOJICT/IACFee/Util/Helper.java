@@ -374,8 +374,9 @@ public class Helper {
 			conn = dbconnection.getConnection();
 
 //			stmt1 = conn.prepareStatement("SELECT * FROM Fees WHERE (startdate < CAST('" + date + "' AS DATETIME))");
-            stmt1 = conn.prepareStatement("SELECT * FROM Fees WHERE (startdate < to_timestamp('"
-                                              + date + "', 'YYYY-MM-DD HH24:mi:ss'))");
+//            stmt1 = conn.prepareStatement("SELECT * FROM Fees WHERE (startdate < to_timestamp('"
+//                                              + date + "', 'YYYY-MM-DD HH24:mi:ss'))");
+            stmt1 = conn.prepareStatement("SELECT * FROM Fees WHERE (startdate < to_timestamp('2011-06-02 10:30:20', 'YYYY-MM-DD HH24:MI:SS'))");
 			// stmt1.setString(1, date);
             logger.info("the date is: " + date);
             rs = stmt1.executeQuery();

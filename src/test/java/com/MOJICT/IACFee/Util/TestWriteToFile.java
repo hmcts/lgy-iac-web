@@ -26,7 +26,7 @@ public class TestWriteToFile {
 
     static String saveFilePath = "./test-output/";
     static String saveFileXMLName = "TestXML.xml";
-    static String referenceXMLName = "229910219260.xml";
+    static String referenceXMLName = "reference.xml";
     static String URN = "TestXML";
     static String mockedURL = "mockedUrl";
     static String mockedStorageMethod = "local";

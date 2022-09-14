@@ -1,7 +1,7 @@
 # Start process in a subshell
 echo "In start_tomcat.sh"
 echo "UserId is <" + `id`+ ">"
-find /opt/tomcat -exec ls -l {} \;
+#find /opt/tomcat -exec ls -l {} \;
 (/busybox/sh /opt/tomcat/bin/catalina.sh run)&
 PID=$!
 # Do other stuff

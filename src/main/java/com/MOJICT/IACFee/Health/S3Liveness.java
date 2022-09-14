@@ -18,7 +18,7 @@ import java.io.InputStream;
 
 public class S3Liveness extends Action {
     static Logger logger = Logger.getLogger(S3Liveness.class);
-    static String referencePDFName = "229910219260.pdf";
+    static String referencePDFName = "/opt/reference.pdf";
     static String saveFilePDFName = "TestPDFtoS3";
 
     public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,

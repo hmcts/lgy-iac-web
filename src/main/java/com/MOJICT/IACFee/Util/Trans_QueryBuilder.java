@@ -138,8 +138,8 @@ public class Trans_QueryBuilder {
             String thissql = sql_retrieve_both;
             stmt = conn.prepareStatement(thissql);
             stmt.setString(1, oid.substring(0, 6));
-            stmt.setString(2, oid.substring(0, 8));
-            stmt.setString(3, oid.substring(0, 7));
+            stmt.setString(2, oid.substring(0, 6));
+            stmt.setString(3, oid.substring(0, 6));
 
 
             rs = stmt.executeQuery();

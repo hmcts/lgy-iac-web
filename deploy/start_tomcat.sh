@@ -1,9 +1,9 @@
 # Start process in a subshell
 echo "In start_tomcat.sh"
 echo "UserId is <" + `id`+ ">"
-echo "ls started <" + date + ">"
+echo "ls started <" + `date` + ">"
 find /opt/tomcat -exec ls -l {} \;
-echo "ls finished <" + date + ">"
+echo "ls finished <" + `date` + ">"
 
 # Test exporting the mounted secrets
 export SECRET_PATH=/mnt/secrets/lgy-iac/

@@ -23,7 +23,7 @@ RUN rm -rf /opt/tomcat/webapps/docs
 RUN rm -rf /opt/tomcat/webapps/examples
 
 # Add debug logging to the scanjars to optimise startup times
-RUN echo "org.apache.jasper.servlet.TldScanner.scanJars=FINE" >> /opt/tomcat/conf/logging.properties
+RUN echo "org.apache.jasper.servlet.TldScanner.level=FINE" >> /opt/tomcat/conf/logging.properties
 
 # Verify Java version
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64

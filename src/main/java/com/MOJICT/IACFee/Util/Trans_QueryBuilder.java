@@ -134,12 +134,14 @@ public class Trans_QueryBuilder {
 
             DBConnection dbconnection = new DBConnection();
             conn = dbconnection.getConnection();
+            logger.info("the oid String is : " + oid);
+            logger.info("the oid String length is : " + oid.length());
 
             String thissql = sql_retrieve_both;
             stmt = conn.prepareStatement(thissql);
-            stmt.setString(1, oid.substring(0, 6));
-            stmt.setString(2, oid.substring(0, 6));
-            stmt.setString(3, oid.substring(0, 6));
+            stmt.setString(1, oid.substring(0, 7));
+            stmt.setString(2, oid.substring(0, 7));
+            stmt.setString(3, oid.substring(0, 7));
 
 
             rs = stmt.executeQuery();

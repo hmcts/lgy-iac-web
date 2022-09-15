@@ -21,13 +21,15 @@ RUN mv apache-tomcat-8.5.82/ /opt/tomcat/
 RUN rm -rf /opt/tomcat/webapps/ROOT
 RUN rm -rf /opt/tomcat/webapps/docs
 RUN rm -rf /opt/tomcat/webapps/examples
+#RUN rm -rf /opt/tomcat/webapps/manager
+#RUN rm -rf /opt/tomcat/webapps/host-manager
 
 # Add debug logging to the scanjars to optimise startup times
 RUN echo "org.apache.jasper.servlet.TldScanner.level=FINE" >> /opt/tomcat/conf/logging.properties
 
 # Verify Java version
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-ENV CATALINA_OPTS="-Xmx512M -XX:MaxPermSize=1024m"
+ENV CATALINA_OPTS="-Xmx512M -XX:MaxPermSize=1024m -Djava.security.egd=file:/dev/./urandom"
 RUN java -version
 
 # Expose port 8080 in the container

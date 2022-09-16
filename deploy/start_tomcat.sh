@@ -6,7 +6,7 @@ export_mounted_keyvault_values () {
   do
     var `basename $file`
     export var=`cat $file`
-    echo "${var}": "${!var}"
+    echo var: $var
   done
 }
 

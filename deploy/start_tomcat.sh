@@ -10,6 +10,10 @@ export_mounted_keyvault_values () {
   done
 }
 
+#logging some environment variable
+echo "EPDQ_PSPID:"  $EPDQ_PSPID
+echo "STORAGE_METHOD:"  $STORAGE_METHOD
+
 # Exporting the Azure Keyvault secrets mounted by the java chart before invoking tomcat
 if [ -d $SECRETS_PATH ]
 then
@@ -17,10 +21,6 @@ then
 else
   echo "Key Vault Secrets not mounted"
 fi
-
-#logging some environment variable
-echo "EPDQ_PSPID:"  $EPDQ_PSPID
-echo "STORAGE_METHOD:"  $STORAGE_METHOD
 
 (/busybox/sh /opt/tomcat/bin/catalina.sh run)&
 PID=$!

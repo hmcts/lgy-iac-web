@@ -11,8 +11,8 @@ export_mounted_keyvault_values () {
 }
 
 #logging some environment variable
-echo "EPDQ_PSPID:"  $EPDQ_PSPID
-echo "STORAGE_METHOD:"  $STORAGE_METHOD
+echo "${EPDQ_PSPID}": "${!EPDQ_PSPID}"
+echo "${STORAGE_METHOD}": "${!STORAGE_METHOD}"
 
 # Exporting the Azure Keyvault secrets mounted by the java chart before invoking tomcat
 if [ -d $SECRETS_PATH ]

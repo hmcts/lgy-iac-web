@@ -4,12 +4,23 @@ export SECRETS_PATH=/mnt/secrets/lgy-iac/
 export_mounted_keyvault_values () {
   for file in $SECRETS_PATH/*
   do
-    export `basename $file`=`cat $file`
+    var `basename $file`
+    export var=`cat $file`
+    echo "${var}": "${!var}"
   done
 }
 
 # Exporting the Azure Keyvault secrets mounted by the java chart before invoking tomcat
-export_mounted_keyvault_values
+if [ -d $SECRETS_PATH ]
+then
+  export_mounted_keyvault_values
+else
+  echo "Key Vault Secrets not mounted"
+fi
+
+#logging some environment variable
+echo "EPDQ_PSPID:"  $EPDQ_PSPID
+echo "STORAGE_METHOD:"  $STORAGE_METHOD
 
 (/busybox/sh /opt/tomcat/bin/catalina.sh run)&
 PID=$!

@@ -380,7 +380,7 @@ public class Helper {
             logger.info("the date is: " + date);
             rs = stmt1.executeQuery();
 			while (rs.next()) {
-                logger.info("stardate is : " + rs.getString("stardate"));
+                logger.info("startdate is : " + rs.getString("startdate"));
                 logger.info("fees_oral is: " + rs.getString("fees_oral"));
 				amount = rs.getString("fees_oral");
 			}

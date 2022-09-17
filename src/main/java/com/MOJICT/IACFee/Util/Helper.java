@@ -365,6 +365,8 @@ public class Helper {
 	 */
 	public static int returnStringAmount_oral(String date) {
 
+        logger.info("Entering method returnStringAmount_oral");
+
 		Connection conn = null;
 		ResultSet rs = null;
 		PreparedStatement stmt1 = null;

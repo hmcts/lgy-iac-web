@@ -89,12 +89,34 @@ public class DBConnection {
         PreparedStatement testQuery = null;
         String date =  LocalDate.now().toString();
         try {
-//            testQuery = conn.prepareStatement("SELECT fees_oral FROM " + dbTableName + " LIMIT 1");
+//           testQuery1  = conn.prepareStatement("SELECT fees_oral FROM " + dbTableName + " LIMIT 1");
+
             testQuery = conn.prepareStatement("SELECT * FROM " + dbTableName + " WHERE (startdate < to_timestamp('"+ date +"', 'YYYY-MM-DD HH24:MI:SS'))");
+
             ResultSet rs = testQuery.executeQuery();
 
             Boolean valid = rs.next();
 
+            logger.info("the check dbConnection method is : " + valid);
+
+            logger.info("the date is : " + date);
+
+            if (rs.next()){
+                while (rs.next()) {
+                    logger.info("1 startdate is : " + rs.getString("startdate"));
+                    logger.info("1 fees_paper is : " + rs.getString("fees_paper"));
+                }
+            } else {
+                try {
+                    rs.next();
+                    logger.info("1 startdate is : " + rs.getString("startdate"));
+                    logger.info("1 fees_paper is : " + rs.getString("fees_paper"));
+                } catch (SQLException e) {
+                    logger.error("CheckDBConnection", e);
+
+                }
+                logger.info("this rs is empty");
+            }
 
             testQuery.close();
             rs.close();

@@ -851,6 +851,7 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 
                 logger.info("The returnStringAmount_paper is : " + Helper.returnStringAmount_paper(frm.getS2e().toString()));
                 logger.info("the bean appeal_type is : " + bean_amount.getAppeal_type());
+                logger.info("the  bean_amount.getQb_lsc is : " + bean_amount.getQb_lsc());
 
 				if (Helper.returnStringAmount_paper(frm.getS2e().toString()) == 0
 						|| !bean_amount.getQb_lsc().equals("No")
@@ -889,7 +890,6 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 
 				}
 				// else for amount 0 if LSC remission is entered.
-
 				stmt.executeUpdate();
 				return QueryBuilder2.retrieve(frm, action, datasource,
 						security_token, req);

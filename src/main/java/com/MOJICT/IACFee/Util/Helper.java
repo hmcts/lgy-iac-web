@@ -326,6 +326,8 @@ public class Helper {
 	 */
 	public static int returnStringAmount_paper(String date) {
 
+        logger.info("Entering method returnStringAmount_paper");
+
 		Connection conn = null;
 		ResultSet rs = null;
 		PreparedStatement stmt1 = null;
@@ -338,8 +340,11 @@ public class Helper {
             stmt1 = conn.prepareStatement("SELECT * FROM Fees WHERE (startdate < to_timestamp('"
                                               + date + "', 'YYYY-MM-DD HH24:mi:ss'))");
 			// stmt1.setString(1, date);
+            logger.info("the date is: " + date);
 			rs = stmt1.executeQuery();
 			while (rs.next()) {
+                logger.info("startdate is : " + rs.getString("startdate"));
+                logger.info("fees_paper is: " + rs.getString("fees_paper"));
 				amount = rs.getString("fees_paper");
 			}
 			return Integer.parseInt(amount);

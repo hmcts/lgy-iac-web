@@ -340,11 +340,16 @@ public class Helper {
             stmt1 = conn.prepareStatement("SELECT * FROM Fees WHERE (startdate < to_timestamp('"
                                               + date + "', 'YYYY-MM-DD HH24:mi:ss'))");
 			// stmt1.setString(1, date);
-            logger.info("the date is: " + date);
 			rs = stmt1.executeQuery();
+            logger.info("the date is : " + date);
+            logger.info("1 startdate is : " + rs.getString("startdate"));
+            logger.info("1 fees_paper is : " + rs.getString("fees_paper"));
+            if (rs.next()){
+                rs.next();
+                logger.info("2 startdate is : " + rs.getString("startdate"));
+                logger.info("2 fees_paper is : " + rs.getString("fees_paper"));
+            }
 			while (rs.next()) {
-                logger.info("startdate is : " + rs.getString("startdate"));
-                logger.info("fees_paper is: " + rs.getString("fees_paper"));
 				amount = rs.getString("fees_paper");
 			}
 			return Integer.parseInt(amount);
@@ -360,9 +365,9 @@ public class Helper {
 				logger.error("Helper.returnStringAmount_paper", e);
 			}
 		}
+        logger.info("The amount of returnString Amount is : " + amount);
 		return Integer.parseInt(amount);
 	}
-
 	/**
 	 *
 	 * @param date

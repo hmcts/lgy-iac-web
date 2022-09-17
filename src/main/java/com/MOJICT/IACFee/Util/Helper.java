@@ -342,12 +342,12 @@ public class Helper {
 			// stmt1.setString(1, date);
 			rs = stmt1.executeQuery();
             logger.info("the date is : " + date);
-            logger.info("1 startdate is : " + rs.getString("startdate"));
-            logger.info("1 fees_paper is : " + rs.getString("fees_paper"));
             if (rs.next()){
                 rs.next();
-                logger.info("2 startdate is : " + rs.getString("startdate"));
-                logger.info("2 fees_paper is : " + rs.getString("fees_paper"));
+                logger.info("1 startdate is : " + rs.getString("startdate"));
+                logger.info("1 fees_paper is : " + rs.getString("fees_paper"));
+            }else {
+                logger.info("this rs is empty");
             }
 			while (rs.next()) {
 				amount = rs.getString("fees_paper");
@@ -365,7 +365,6 @@ public class Helper {
 				logger.error("Helper.returnStringAmount_paper", e);
 			}
 		}
-        logger.info("The amount of returnString Amount is : " + amount);
 		return Integer.parseInt(amount);
 	}
 	/**

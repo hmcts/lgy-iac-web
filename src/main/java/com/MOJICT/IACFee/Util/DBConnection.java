@@ -85,37 +85,6 @@ public class DBConnection {
 		}
 	}
 
-//    public boolean checkDBConnection(Connection conn, String dbTableName)  {
-//        PreparedStatement testQuery = null;
-//        String date =  LocalDate.now().toString();
-//        try {
-////           testQuery1  = conn.prepareStatement("SELECT fees_oral FROM " + dbTableName + " LIMIT 1");
-//
-//            testQuery = conn.prepareStatement("SELECT * FROM " + dbTableName + " WHERE (startdate < to_timestamp('"+ date +"', 'YYYY-MM-DD HH24:MI:SS'))");
-//
-//            ResultSet rs = testQuery.executeQuery();
-//
-//            Boolean valid = rs.next();
-//
-//            logger.info("the check dbConnection method is : " + valid);
-//
-//            logger.info("the date is : " + date);
-//
-//            while (rs.next()) {
-//                    logger.info("1 startdate is : " + rs.getString("startdate"));
-//                    logger.info("1 fees_paper is : " + rs.getString("fees_paper"));
-//                }
-//
-//            testQuery.close();
-//            rs.close();
-//            conn.close();
-//
-//            return valid;
-//        } catch (SQLException e) {
-//            logger.error("DBConnection.checkDBConnection", e);
-//            return false;
-//        }
-//    }
 
 	private String getJdbcDriver() {
 		String jdbcDriver = System.getenv("DB_JDBC_DRIVER");

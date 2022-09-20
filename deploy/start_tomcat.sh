@@ -4,9 +4,8 @@ export SECRETS_PATH=/mnt/secrets/lgy-iac/
 export_mounted_keyvault_values () {
   for file in $SECRETS_PATH/*
   do
-    var `basename $file`
-    export var=`cat $file`
-    echo var: $var
+    eval "export `basename $file`=`cat $file`"
+    echo `basename $file` : `cat $file`
   done
 }
 

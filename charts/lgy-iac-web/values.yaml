@@ -32,8 +32,6 @@ java:
           alias: POSTGRES_USER
         - name: web-POSTGRES-PASS
           alias: POSTGRES_PASSWORD
-        - name: web-POSTGRES-PORT
-          alias: POSTGRES_PORT
   environment:
     ENV_NAME: "Azure Dev PG"
     RUN_DB_MIGRATION_ON_STARTUP: 'false'
@@ -42,6 +40,8 @@ java:
     EPDQ_SHAIN: "c"
     EPDQ_SHAOUT: "d"
     TEST_URL: ${SERVICE_FQDN}/IACFees
-    STORAGE_METHOD: "S3"
-    REST_API_URL: "https://j7ouh6nm42.execute-api.eu-west-2.amazonaws.com/Test/"
-    BUCKET_NAME: "upload-pdf-test"
+    STORAGE_METHOD: "file"
+    DB_JDBC_DRIVER: "org.postgresql.Driver"
+    DB_JDBC_URL: "jdbc:postgresql"
+    POSTGRES_PORT: "5432"
+

@@ -1,0 +1,8 @@
+test-url: ${TEST_URL:http://localhost:8080}
+dbHost:  ${POSTGRES_HOST}
+dbPort:  ${POSTGRES_PORT}
+dbName: ${POSTGRES_DATABASE}
+dbUser: ${POSTGRES_USER}
+dbPass: ${POSTGRES_PASSWORD}
+  DB_JDBC_DRIVER: "org.postgresql.Driver"
+

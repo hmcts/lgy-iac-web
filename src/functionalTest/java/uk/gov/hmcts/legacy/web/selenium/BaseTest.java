@@ -1,23 +1,32 @@
 package uk.gov.hmcts.legacy.web.selenium;
 
+import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.apache.log4j.Logger;
 
 import org.openqa.selenium.support.ui.Select;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.test.context.TestPropertySource;
+import org.springframework.test.context.junit4.SpringRunner;
 
+@RunWith(SpringRunner.class)
+@TestPropertySource("classpath:application-functional.yaml")
 public class BaseTest implements IAFTGeneric {
 
     static Logger logger = Logger.getLogger(BaseTest.class);
 
     static WebDriver driver;
 
+    @Value("${test-url}")
+    private static String testUrl;
+
     protected static void init() {
         try {
             System.setProperty("webdriver.chrome.driver", "./src/functionalTest/resources/chromedriver-Darwin-105");
             driver = new ChromeDriver();
-            String testURL = "https://lgy-iac-web-pr-86.dev.platform.hmcts.net/IACFees";
+            String testURL = testUrl;
             redirect(testURL);
         } catch (Exception e) {
             logger.error("BaseTest.init - ", e);

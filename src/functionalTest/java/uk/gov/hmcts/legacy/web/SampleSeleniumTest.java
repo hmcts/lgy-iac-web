@@ -2,6 +2,7 @@ package uk.gov.hmcts.legacy.web;
 
 import org.junit.Test;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Value;
 import uk.gov.hmcts.legacy.web.selenium.BaseTest;
 import uk.gov.hmcts.legacy.web.selenium.WelcomeActions_Scenarios;
 import uk.gov.hmcts.legacy.web.selenium.iaft.sharedpages.WelcomeActions;

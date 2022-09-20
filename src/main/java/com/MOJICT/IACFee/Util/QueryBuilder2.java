@@ -814,8 +814,7 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 		}
 
 		if (action == "save") {
-            logger.info("the bean appeal_type is : " + bean_amount.getAppeal_type());
-            logger.info("the  bean_amount.getQb_lsc is : " + bean_amount.getQb_lsc());
+
 			try {
 				DBConnection dbconnection = new DBConnection();conn=dbconnection.getConnection();
 
@@ -849,8 +848,6 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 						security_token, req);
 				// stmt1.setString(5, "IAFT1");
 
-                logger.info("the bean appeal_type is : " + bean_amount.getAppeal_type());
-                logger.info("the  bean_amount.getQb_lsc is : " + bean_amount.getQb_lsc());
 
 				if (Helper.returnStringAmount_paper(frm.getS2e().toString()) == 0
 						|| !bean_amount.getQb_lsc().equals("No")

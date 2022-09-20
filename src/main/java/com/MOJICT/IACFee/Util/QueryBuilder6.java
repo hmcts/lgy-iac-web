@@ -945,7 +945,6 @@ public class QueryBuilder6 extends GenericQueryBuilder implements
 					stmt1.setString(4, security_token);
 					stmt1.executeUpdate();
 				} else {
-                    logger.info("the bean appeal_type is : " + bean_amount.getAppeal_type());
 					if (bean_amount.getAppeal_type().equals("Oral")
 							&& bean_amount.getQb_lsc().equals("No")) {
 

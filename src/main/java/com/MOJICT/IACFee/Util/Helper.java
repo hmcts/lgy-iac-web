@@ -1,5 +1,6 @@
 package com.MOJICT.IACFee.Util;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -330,17 +331,24 @@ public class Helper {
 		ResultSet rs = null;
 		PreparedStatement stmt1 = null;
 		String amount = "0";
+        Timestamp startdate;
 		try {
 			DBConnection dbconnection = new DBConnection();
 			conn = dbconnection.getConnection();
+
+            logger.info("returnStringAmount_paper: date passed in <" + date + ">");
 
 			//stmt1 = conn.prepareStatement("SELECT * FROM Fees WHERE (startdate < CAST('" + date + "' AS DATETIME))");
 			stmt1 = conn.prepareStatement("SELECT * FROM Fees WHERE (startdate < to_timestamp('"
 							+ date + "'YYYY-MM-DD HH24:mi:ss'))");
 			// stmt1.setString(1, date);
 			rs = stmt1.executeQuery();
+            logger.info("executed Query");
 			while (rs.next()) {
+
 				amount = rs.getString("fees_paper");
+                startdate = rs.getTimestamp("startdate");
+                logger.info("retrieved row: amount <" + amount + "> date <" + startdate.toString() + ">");
 			}
 			return Integer.parseInt(amount);
 		} catch (Exception e) {

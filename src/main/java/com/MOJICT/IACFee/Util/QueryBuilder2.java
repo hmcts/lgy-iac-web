@@ -849,7 +849,6 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 						security_token, req);
 				// stmt1.setString(5, "IAFT1");
 
-                logger.info("The returnStringAmount_paper is : " + Helper.returnStringAmount_paper(frm.getS2e().toString()));
                 logger.info("the bean appeal_type is : " + bean_amount.getAppeal_type());
                 logger.info("the  bean_amount.getQb_lsc is : " + bean_amount.getQb_lsc());
 

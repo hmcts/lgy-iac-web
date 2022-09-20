@@ -101,22 +101,11 @@ public class DBConnection {
 
             logger.info("the date is : " + date);
 
-            if (rs.next()){
-                while (rs.next()) {
-                    logger.info("1 startdate is : " + rs.getString("startdate"));
-                    logger.info("1 fees_paper is : " + rs.getString("fees_paper"));
-                }
-            } else {
-                try {
-                    rs.next();
-                    logger.info("1 startdate is : " + rs.getString("startdate"));
-                    logger.info("1 fees_paper is : " + rs.getString("fees_paper"));
-                } catch (SQLException e) {
-                    logger.error("CheckDBConnection", e);
 
+            while (rs.next()) {
+                    logger.info("1 startdate is : " + rs.getString("startdate"));
+                    logger.info("1 fees_paper is : " + rs.getString("fees_paper"));
                 }
-                logger.info("this rs is empty");
-            }
 
             testQuery.close();
             rs.close();

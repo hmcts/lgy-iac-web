@@ -5,6 +5,7 @@ find /opt/tomcat -exec ls -l {} \;
 (/busybox/sh /opt/tomcat/bin/catalina.sh run)&
 PID=$!
 # Do other stuff
-echo "Hello world!"
+echo "Hi this is my tomcat"
+
 # Wait for server to terminate
 wait $PID

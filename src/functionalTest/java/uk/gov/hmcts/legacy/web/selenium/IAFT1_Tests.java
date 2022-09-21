@@ -1,5 +1,6 @@
 package uk.gov.hmcts.legacy.web.selenium;
 
+import org.springframework.beans.factory.annotation.Value;
 import uk.gov.hmcts.legacy.web.selenium.data.IAFT1_Flows;
 import uk.gov.hmcts.legacy.web.selenium.data.IAFT1_Pages;
 import uk.gov.hmcts.legacy.web.util.DataLoader;
@@ -9,6 +10,8 @@ import org.apache.log4j.Logger;
 public class IAFT1_Tests extends BaseTest implements IAFT1_Flows, IAFT1_Pages, ExpectedResults{
 
 	static Logger logger = Logger.getLogger(IAFT1_Tests.class);
+    @Value("${test-url}")
+    private static String testUrl;
 
 	public static void loadScenarios_IAFT1() {
 		page1.initialise(welcomeActionsSubmitAppeal);
@@ -48,7 +51,7 @@ public class IAFT1_Tests extends BaseTest implements IAFT1_Flows, IAFT1_Pages, E
 		page14.execute();
 		page15.execute();
 		page16.execute();
-		redirect(System.getenv("LOCAL_HOST_URL"));
+		redirect(System.getenv(testUrl));
 	}
 
 

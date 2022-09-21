@@ -22,9 +22,12 @@ public class IAFT_EndToEndTest extends BaseTest {
 	public void BasicIAFTTests() {
 		try {
 			init();
-			logger.info("Test: IAFT1 User Journey");
-			IAFT1_Tests.loadScenarios_IAFT1();
-			IAFT1_Tests.runPages();
+//			logger.info("Test: IAFT1 User Journey");
+//			IAFT1_Tests.loadScenarios_IAFT1();
+//			IAFT1_Tests.runPages();
+            logger.info("Test: IAFT2 User Journey");
+            IAFT2_Tests.loadScenarios_IAFT2();
+            IAFT2_Tests.runPages();
 		} catch (Exception e) {
 			logger.error("IAFT_EndToEndTest.BasicIAFTTests - ", e);
 		}

@@ -1,6 +1,5 @@
 package com.MOJICT.IACFee.Health;
 
-import com.MOJICT.IACFee.Beans.CPIBean;
 import com.MOJICT.IACFee.Util.Helper;
 import org.apache.log4j.Logger;
 import org.apache.struts.action.Action;
@@ -16,14 +15,14 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class S3Liveness extends Action {
-    static Logger logger = Logger.getLogger(S3Liveness.class);
+public class PdfLiveness extends Action {
+    static Logger logger = Logger.getLogger(PdfLiveness.class);
     static String referencePDFName = "/opt/reference.pdf";
     static String saveFilePDFName = "TestPDFtoS3";
 
     public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
                                  HttpServletResponse response) throws IOException, ServletException, Exception {
-        logger.info("In S3Liveness....");
+        logger.info("In PdfLiveness....");
         logger.info("STORAGE_METHOD is: " + System.getenv("STORAGE_METHOD"));
         logger.info("BUCKET_NAME is: " + System.getenv("BUCKET_NAME"));
         logger.info("REST_API_URL is: " + System.getenv("REST_API_URL"));
@@ -50,10 +49,10 @@ public class S3Liveness extends Action {
             }
 
         } catch (Exception e) {
-            logger.error("S3Liveness.readPDFtoBaos", e);
+            logger.error("PdfLiveness.readPDFtoBaos", e);
         }
 
-        logger.info("S3Liveness.readPDFtoBaos - Successfully read in file " + filePath);
+        logger.info("PdfLiveness.readPDFtoBaos - Successfully read in file " + filePath);
 
         return baos;
     }

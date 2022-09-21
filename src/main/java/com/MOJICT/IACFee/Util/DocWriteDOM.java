@@ -148,8 +148,11 @@ public class DocWriteDOM {
 	 * @throws IOException
 	 */
 	public static String getxmlnewappeal(IAFT2Bean frm, HttpServletRequest req, String URN) throws IOException {
+        logger.info("in getxmlnewappeal");
 		DocWriteDOM dw = new DocWriteDOM();
+        logger.info("calling makeDocNewAppeal");
 		Document doc = dw.makeDocNewAppeal(frm);
+        logger.info("calling writeToFile");
 		DocWriteDOM.writetofile(doc, req, frm.getSubmissionURN());
 		return "success";
 	}
@@ -1077,6 +1080,7 @@ public class DocWriteDOM {
 	 * @return
 	 */
 	protected Document makeDocNewAppeal(IAFT2Bean frm) {
+        logger.info("makeDocNewAppeal");
 		Document doc = new Document();
 		try {
 			Element root = getElementWithDefaultNamespace("NewAppeal");

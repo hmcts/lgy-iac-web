@@ -376,7 +376,11 @@
 				scope="request">
 		</action>
 
-    <action path="/health/s3liveness" type="com.MOJICT.IACFee.Health.S3Liveness"
+    <action path="/health/pdfLiveness" type="com.MOJICT.IACFee.Health.PdfLiveness"
+            scope="request">
+    </action>
+
+    <action path="/health/xmlLiveness" type="com.MOJICT.IACFee.Health.XmlLiveness"
             scope="request">
     </action>
 

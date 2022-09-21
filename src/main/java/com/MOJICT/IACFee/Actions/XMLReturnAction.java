@@ -267,12 +267,10 @@ public class XMLReturnAction extends Action {
 					.getSession().getAttribute("security").toString(),
 					datasource, request);
 			String AggrURN = iBean.getAggregatedpaymentURN();
-			logger.debug("Aggeagted payment is generated" + AggrURN
-					+ "Filename is ");
 			String path = servlet.getServletContext().getRealPath("/");
 
-			logger.debug("Aggeagted payment is generated" + AggrURN
-					+ "Filename is " + path);
+			logger.debug("Aggregated payment generated URN <" + AggrURN
+					+ "> Filename path is <" + path + ">");
 
 			if (AggrURN != null && !AggrURN.equals("")) {
 				this.processOutputsForAggregatedAppeals(AggrURN, true, request,
@@ -827,7 +825,8 @@ public class XMLReturnAction extends Action {
 	private void processOutputForSingleAppeal(IAFTBean iBean, boolean payment1,
 			HttpServletRequest request, HttpServletResponse response,
 			String path) throws IOException, DocumentException {
-		String URN = iBean.getSubmissionURN();
+
+        String URN = iBean.getSubmissionURN();
 		ByteArrayOutputStream baos = null;
 
         logger.info("processOutputForSingleAppeal: path <" + path + ">");
@@ -847,8 +846,9 @@ public class XMLReturnAction extends Action {
 				baos = PDFUtilityIAFT2.GenerateIAFT2PDF(
 						path, status, frm2);
 				if (payment1) {
+                    Helper.savePDF(baos, URN, path);
+                    logger.info("httpservletrequest path is <" + request.getRealPath("/") + ">");
 					DocWriteDOM.getxmlnewappeal(frm2, request, URN);
-					Helper.savePDF(baos, URN, path);
 					return;
 				}
 			} else if (iBean.getType().equals(IAFT3)) {

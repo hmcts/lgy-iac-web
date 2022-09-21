@@ -159,7 +159,7 @@ public class Trans_QueryBuilder {
         try
         	{
 
-                logger.info("in Trans_QueryBuilder with oid <" + oid + ">");
+                logger.debug("in Trans_QueryBuilder with oid <" + oid + ">");
         		DBConnection dbconnection=new DBConnection();
         		conn = dbconnection.getConnection();
 

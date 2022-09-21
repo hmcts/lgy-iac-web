@@ -1,6 +1,5 @@
 package com.MOJICT.IACFee.Util;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -331,24 +330,20 @@ public class Helper {
 		ResultSet rs = null;
 		PreparedStatement stmt1 = null;
 		String amount = "0";
-        Timestamp startdate;
 		try {
 			DBConnection dbconnection = new DBConnection();
 			conn = dbconnection.getConnection();
 
             logger.info("returnStringAmount_paper: date passed in <" + date + ">");
 
+            // Replace MSSQL syntax with PostgreSQL syntax for timestamp query
 			//stmt1 = conn.prepareStatement("SELECT * FROM Fees WHERE (startdate < CAST('" + date + "' AS DATETIME))");
 			stmt1 = conn.prepareStatement("SELECT * FROM Fees WHERE (startdate < to_timestamp('"
 							+ date + "','YYYY-MM-DD HH24:mi:ss'))");
-			// stmt1.setString(1, date);
 			rs = stmt1.executeQuery();
-            logger.info("executed Query");
 			while (rs.next()) {
-
 				amount = rs.getString("fees_paper");
-                startdate = rs.getTimestamp("startdate");
-                logger.info("retrieved row: amount <" + amount + "> date <" + startdate.toString() + ">");
+                logger.info("retrieved row: amount <" + amount + "> date <" + rs.getTimestamp("startdate").toString() + ">");
 			}
 			return Integer.parseInt(amount);
 		} catch (Exception e) {
@@ -381,12 +376,17 @@ public class Helper {
 			DBConnection dbconnection = new DBConnection();
 			conn = dbconnection.getConnection();
 
-			stmt1 = conn.prepareStatement("SELECT * FROM Fees WHERE (startdate < CAST('" + date + "' AS DATETIME))");
-			// stmt1.setString(1, date);
-			rs = stmt1.executeQuery();
-			while (rs.next()) {
-				amount = rs.getString("fees_oral");
-			}
+            logger.info("returnStringAmount_oral: date passed in <" + date + ">");
+
+            // Replace MSSQL syntax with PostgreSQL syntax for timestamp query
+            //stmt1 = conn.prepareStatement("SELECT * FROM Fees WHERE (startdate < CAST('" + date + "' AS DATETIME))");
+            stmt1 = conn.prepareStatement("SELECT * FROM Fees WHERE (startdate < to_timestamp('"
+                                              + date + "','YYYY-MM-DD HH24:mi:ss'))");
+            rs = stmt1.executeQuery();
+            while (rs.next()) {
+                amount = rs.getString("fees_oral");
+                logger.info("retrieved row: amount <" + amount + "> date <" + rs.getTimestamp("startdate").toString() + ">");
+            }
 			return Integer.parseInt(amount);
 		} catch (Exception e) {
 			logger.error("Helper.returnStringAmount_oral", e);
@@ -453,7 +453,6 @@ public class Helper {
 			try {
 				String bucketName = CPIBean.getBUCKET_NAME();
 				S3Storage S3Storage = new S3Storage();
-                logger.info("calling S£Storage.uploadS3");
 				return S3Storage.uploadToS3(new ByteArrayEntity(baos.toByteArray()), fileName, bucketName);
 			} catch (Exception ex) {
 				logger.error("Helper.savePDF", ex);

@@ -25,9 +25,12 @@ public class IAFT_EndToEndTest extends BaseTest {
 //			logger.info("Test: IAFT1 User Journey");
 //			IAFT1_Tests.loadScenarios_IAFT1();
 //			IAFT1_Tests.runPages();
-            logger.info("Test: IAFT2 User Journey");
-            IAFT2_Tests.loadScenarios_IAFT2();
-            IAFT2_Tests.runPages();
+//          logger.info("Test: IAFT2 User Journey");
+//          IAFT2_Tests.loadScenarios_IAFT2();
+//          IAFT2_Tests.runPages();
+            logger.info("Test: IAFT3 User Journey");
+            IAFT3_Tests.loadScenarios_IAFT3();
+            IAFT3_Tests.runPages();
 		} catch (Exception e) {
 			logger.error("IAFT_EndToEndTest.BasicIAFTTests - ", e);
 		}

@@ -3,6 +3,7 @@ package uk.gov.hmcts.legacy.web.selenium.iaft;
 import uk.gov.hmcts.legacy.web.selenium.iaft.IaftPageFactory;
 import uk.gov.hmcts.legacy.web.selenium.iaft.iaft1.Iaft1PageFactory;
 import uk.gov.hmcts.legacy.web.selenium.iaft.iaft2.Iaft2PageFactory;
+import uk.gov.hmcts.legacy.web.selenium.iaft.iaft3.Iaft3PageFactory;
 
 public enum IAFTFlowEnum {
     IAFT1_FLOW("iaft1"),
@@ -28,8 +29,8 @@ public enum IAFTFlowEnum {
                 return new Iaft1PageFactory();
             case IAFT2_FLOW:
                 return new Iaft2PageFactory();
-//            case IAFT3_FLOW:
-//                return new Iaft3PageFactory();
+            case IAFT3_FLOW:
+                return new Iaft3PageFactory();
 //            case IAFT5_FLOW:
 //                return new Iaft5PageFactory();
 //            case IAFT6_FLOW:

@@ -1,7 +1,7 @@
 package uk.gov.hmcts.legacy.web.selenium;
 
-import uk.gov.hmcts.legacy.web.selenium.data.IAFT1_Flows;
 import org.apache.log4j.Logger;
+import uk.gov.hmcts.legacy.web.selenium.data.IAFT1_Flows;
 import uk.gov.hmcts.legacy.web.selenium.data.WelcomeActions_Pages;
 import uk.gov.hmcts.legacy.web.selenium.iaft.sharedpages.WelcomeActions;
 

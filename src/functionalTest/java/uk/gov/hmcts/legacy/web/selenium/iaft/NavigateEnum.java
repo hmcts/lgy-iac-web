@@ -2,21 +2,38 @@ package uk.gov.hmcts.legacy.web.selenium.iaft;
 
 public enum NavigateEnum {
 
-    CONTINUE ( "continue"),
+	/** The CONTINUE. */
+	CONTINUE ( "continue"),
+	/** The PREVIOUS. */
+	PREVIOUS ("previous"),
+	/** The FINISH. */
+	FINISH ("finish"),
+	/** The NEXT. */
+	NEXT("next"),
+	/** The SAVE & NEXT. */
+	SAVE_NEXT("Save & Next"),
+	/** The CONFIRM_PAYMENT. */
+	CONFIRM_PAYMENT("Yes, I confirm my payment");
 
-    PREVIOUS ("previous"),
+	/** The navigation. */
+	String navigation;
 
-    FINISH ("finish"),
+	/**
+	 * Instantiates a new navigate enum.
+	 *
+	 * @param aNavigation
+	 *            the a navigation
+	 */
+	private NavigateEnum(String aNavigation){
+		navigation = aNavigation;
+	}
 
-    NEXT("next");
-
-    String navigation;
-
-    private NavigateEnum(String aNavigation){
-        navigation = aNavigation;
-    }
-
-    public String getValue(){
-        return navigation;
-    }
+	/**
+	 * Gets the value.
+	 *
+	 * @return the value
+	 */
+	public String getValue(){
+		return navigation;
+	}
 }

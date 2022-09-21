@@ -22,42 +22,45 @@ import com.MOJICT.IACFee.Beans.*;
 import com.MOJICT.IACFee.Util.*;
 
 public class AmountAction extends Action implements BeanProperties {
-	
+
 	/**
 	* log4j logging solution
 	*/
 	static Logger logger = Logger.getLogger(AmountAction.class);
-	
+
 	/**
 	 * This handles the final step of the IAFT process which calculates the total payment due.
 	 */
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws IOException, ServletException, Exception {
-		
+
 		String securityToken = request.getSession().getAttribute("token").toString();
 		logger.info("AmountAction.execute - using security token: "+securityToken);
 		DataSource datasource = getDataSource(request);
-		
+
 		IAFTBean iBean = IAFTBeanFactory.getBeanInstance(securityToken, datasource, request);
 		logger.debug("Coming after retrieval and form type is"+iBean.getType());
 		String orderID = setOrderID(iBean, request);
-		
+
 		setAppealCountForPotentialTopUps(orderID , request);
-		
+
+        logger.info("the orderID is : " + orderID);
+        logger.info("the request is : " + request);
+
 		request.getSession().setAttribute("paymenttype", "submission");
 		int amount = 0;
-		
+
 		try {
 			String AggrURN = iBean.getAggregatedpaymentURN();
-			
+
 			ArrayList<AggregatedSubmissionBean> asBeansArrayList=null;
 			boolean flag=false;
 			if (AggrURN != null) {
 				amount = 0;
-				
+
 				//ArrayList<AggregatedSubmissionBean> asBeansArrayList = QueryBuilder.getAggregatedsubmission(datasource,
 					//	AggrURN);
-				
+
 				asBeansArrayList = QueryBuilder.getAggregatedsubmission(datasource,
 						AggrURN,request);
 			}
@@ -66,7 +69,7 @@ public class AmountAction extends Action implements BeanProperties {
 				 asBeansArrayList = QueryBuilder.getAggregatedsubmission(datasource,
 						iBean.getPaymentURN(),request);
 			}
-				
+
 				for (AggregatedSubmissionBean asBean : asBeansArrayList) {
 					if(asBean.getStatus().equals("Completed"))
 					{
@@ -76,22 +79,22 @@ public class AmountAction extends Action implements BeanProperties {
 					{
 						flag=true;
 					}
-					
-					
+
+
 				}
 				request.getSession().setAttribute("appealstatus", flag);
 				request.getSession().setAttribute("aggramount", amount);
 				request.getSession().setAttribute("asbean", asBeansArrayList);
 
-			} 
+			}
 		 catch (Exception ex) {
 			logger.error("AmountAction.execute - ", ex);
 			return mapping.findForward("failure");
 		}
-		
+
 		return evaluateNextActionForward(amount,  mapping);
 	}
-	
+
 	/**
 	 * Evaluate what next action to perform is
 	 * @param amount
@@ -105,14 +108,14 @@ public class AmountAction extends Action implements BeanProperties {
 			return mapping.findForward("success");
 		}
 	}
-	
+
 	/**
-	 * Set the order id. 
+	 * Set the order id.
 	 * The order id is unique number identifying a payment on the IAC database.
-	 * It is used to reconcile with the ARIA system who retrieve it from the PDF or XML 
+	 * It is used to reconcile with the ARIA system who retrieve it from the PDF or XML
 	 * produced by this application. The format of the order id is:
 	 * The URN :
-	 * 	- paymentURN for a single appeal 
+	 * 	- paymentURN for a single appeal
 	 *  - aggregatedURN for a multiple appeal
 	 * The order id is stored on the session as oid.
 	 * @param iBean
@@ -148,7 +151,7 @@ public class AmountAction extends Action implements BeanProperties {
 					{
 					logger.debug("Single URN"+((AggregatedSubmissionBean)asBeansArrayList.get(1)).getPaymenturn());
 					urn = ((AggregatedSubmissionBean)asBeansArrayList.get(1)).getUrn();
-				
+
 					}
 					urn=urn.replaceFirst("77", "88");
 				}
@@ -162,13 +165,13 @@ public class AmountAction extends Action implements BeanProperties {
 			{
 				urn = ((AggregatedSubmissionBean)asBeansArrayList.get(position)).getUrn();
 				urn=urn.replaceFirst("77", "88");
-				
+
 			}
 			else if(count==1&&asBeansArrayList.size()<2)
 			{
 				urn = ((AggregatedSubmissionBean)asBeansArrayList.get(position)).getUrn();
 				urn=urn.replaceFirst("77", "88");
-				
+
 			}
 			else
 			{
@@ -180,12 +183,12 @@ public class AmountAction extends Action implements BeanProperties {
 			logger.debug("Single URN"+iBean.getPaymentURN());
 			urn = iBean.getPaymentURN();
 		}
-		request.getSession().setAttribute("oid", urn);		
+		request.getSession().setAttribute("oid", urn);
 		return urn;
 	}
-	
+
 	/**
-	 * The application needs to keep track of how many appeals 
+	 * The application needs to keep track of how many appeals
 	 * need to be considered if the user wants to make top up
 	 * payments.
 	 * @param urn
@@ -194,7 +197,7 @@ public class AmountAction extends Action implements BeanProperties {
 	private void setAppealCountForPotentialTopUps(String urn , HttpServletRequest request){
 		request.getSession().setAttribute("count", Trans_QueryBuilder.getcount(urn, getDataSource(request)));
 	}
-	
+
 	/**
 	 * Set the amount on the session
 	 * @param iBean
@@ -204,7 +207,7 @@ public class AmountAction extends Action implements BeanProperties {
 	 */
 	private  int setSessionAmount(IAFTBean iBean, HttpServletRequest request) throws Exception {
 		int amount = 0;
-		
+
 		if(iBean.getType().equals(IAFT1)){
 			IAFT1Bean iBean1 = (IAFT1Bean)iBean;
 			request.getSession().setAttribute("IAFT1Bean", iBean1);
@@ -213,7 +216,7 @@ public class AmountAction extends Action implements BeanProperties {
 					iBean1.getS2e_service_year()));
 			if (iBean1.getQb_lsc().equals("No")) {
 				amount = iBean1.getPaymentvalue();
-				
+
 			}
 		} else if (iBean.getType().equals(IAFT2)){
 			IAFT2Bean iBean2 = (IAFT2Bean)iBean;

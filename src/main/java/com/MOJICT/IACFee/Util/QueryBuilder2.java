@@ -25,13 +25,13 @@ import org.apache.log4j.Logger;
  */
 public class QueryBuilder2 extends GenericQueryBuilder implements
 		QueryBuilder2Properties {
-	
+
 	/** log4j logging solution. */
 	static Logger logger = Logger.getLogger(QueryBuilder2.class);
 
 	/**
 	 * Retrieve.
-	 * 
+	 *
 	 * @param frm
 	 *            the frm
 	 * @param action
@@ -188,7 +188,7 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 					bean.setS2e_month(rs.getDate(54).getMonth() + 1);
 					bean.setS2e_year(1900 + rs.getDate(54).getYear());
 				}
-			
+
 
 				bean.setS3a(rs.getString(56));
 				bean.setS3b(rs.getString(57));
@@ -333,7 +333,7 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 
 	/**
 	 * IAF t2_1.
-	 * 
+	 *
 	 * @param frm
 	 *            the frm
 	 * @param action
@@ -418,25 +418,25 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 				rs.next();
 				submission_urn = rs.getString("Id");
 				if (!save.equals("update")){
-                	
+
                 	stmturn.setString(1, SecurityToken
 							.generateSubmissionURN(submission_urn)
 							+ "");
 					stmturn.executeUpdate();
-					
+
 				if (frm.getQb_lsc().equals("No")) {
-				
+
 					bean.setSubmissionURN("44"
 							+ "88"
 							+ SecurityToken
 									.generateSubmissionURN(submission_urn));
 
 					bean.setPaymentURN(bean.getSubmissionURN());
-				
+
 
 				}
 				if (req.getSession().getAttribute("aggrtoken") != null) {
-					
+
 					bean.setSubmissionURN("44"
 							+ "77"
 							+ SecurityToken
@@ -458,7 +458,7 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
                 {
                 	IAFT2Bean iaf=(IAFT2Bean)QueryBuilder2.retrieve(frm, action, datasource, security_token, req);
                 	if (frm.getQb_lsc().equals("No")) {
-    					
+
     					bean.setSubmissionURN("44"
     							+ "88"
     							+ iaf.getSubmissionURN().substring(4));
@@ -467,7 +467,7 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 
     				}
     				if (req.getSession().getAttribute("aggrtoken") != null) {
-    				
+
 
     					bean.setSubmissionURN("44"
     							+ "77"
@@ -476,7 +476,7 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
     					bean.setPaymentURN(bean.getSubmissionURN());
     				}
     				if (!frm.getQb_lsc().equals("No")) {
-    				
+
     					bean.setSubmissionURN("44"
     							+ "99"
     							+ iaf.getSubmissionURN().substring(4));
@@ -484,7 +484,7 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
     					bean.setPaymentURN(bean.getSubmissionURN());
 
     				}
-                	
+
                 }
 				if (save.equals("update")) {
 
@@ -634,15 +634,15 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 					QueryBuilder.closePreparedStatement(stmt1);
 					QueryBuilder.closePreparedStatement(stmturn);
 					QueryBuilder.closePreparedStatement(stmturn_get);
-					
+
 					QueryBuilder.closeConnection(conn);
 					logger.debug("\t\tMethod: IAFT1_2 Status:Save End");
 				} catch (SQLException sqle) {
 					logger.error("QueryBuilder2.IAFT2_1", sqle);
 				}
 			}
-						
-				
+
+
 			return bean;
 		} else {
 			return bean;
@@ -651,7 +651,7 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 
 	/**
 	 * IAF t2_2.
-	 * 
+	 *
 	 * @param frm
 	 *            the frm
 	 * @param action
@@ -694,8 +694,8 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 				try {
 					QueryBuilder.closeResultSet(rs);
 					QueryBuilder.closePreparedStatement(stmt);
-					
-					
+
+
 					QueryBuilder.closeConnection(conn);
 					logger.debug("\t\tMethod: IAFT1_2 Status:Save End");
 				} catch (SQLException sqle) {
@@ -739,7 +739,7 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 				try {
 					QueryBuilder.closeResultSet(rs);
 					QueryBuilder.closePreparedStatement(stmt);
-					
+
 					QueryBuilder.closeConnection(conn);
 					logger.debug("\t\tMethod: IAFT1_2 Status:Save End");
 				} catch (SQLException sqle) {
@@ -753,7 +753,7 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 
 	/**
 	 * IAF t2_3.
-	 * 
+	 *
 	 * @param frm
 	 *            the frm
 	 * @param action
@@ -768,6 +768,8 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 	 */
 	public static IAFT2Bean IAFT2_3(IAFT2Bean frm, String action,
 			DataSource datasource, String security_token, HttpServletRequest req) {
+
+        logger.info("Entering IAFT2_3");
 
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -802,7 +804,7 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 					QueryBuilder.closeResultSet(rs);
 					QueryBuilder.closePreparedStatement(stmt);
 					QueryBuilder.closePreparedStatement(stmt1);
-					
+
 					QueryBuilder.closeConnection(conn);
 					logger.debug("\t\tMethod: IAFT1_2 Status:Save End");
 				} catch (SQLException sqle) {
@@ -846,6 +848,7 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 						security_token, req);
 				// stmt1.setString(5, "IAFT1");
 
+
 				if (Helper.returnStringAmount_paper(frm.getS2e().toString()) == 0
 						|| !bean_amount.getQb_lsc().equals("No")
 						) {
@@ -859,6 +862,7 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 					stmt1.setString(4, security_token);
 					stmt1.executeUpdate();
 				} else {
+
 					if (bean_amount.getAppeal_type().equals("Oral")
 							&& bean_amount.getQb_lsc().equals("No")) {
 
@@ -882,7 +886,6 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 
 				}
 				// else for amount 0 if LSC remission is entered.
-
 				stmt.executeUpdate();
 				return QueryBuilder2.retrieve(frm, action, datasource,
 						security_token, req);
@@ -894,14 +897,14 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 					QueryBuilder.closeResultSet(rs);
 					QueryBuilder.closePreparedStatement(stmt);
 					QueryBuilder.closePreparedStatement(stmt1);
-					
-					
+
+
 					QueryBuilder.closeConnection(conn);
 					logger.debug("\t\tMethod: IAFT1_2 Status:Save End");
 				} catch (SQLException sqle) {
 					logger.error("QueryBuilder2.IAFT2_3", sqle);
 				}
-			
+
 			}
 		} else {
 			return bean;
@@ -910,7 +913,7 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 
 	/**
 	 * IAF t2_4.
-	 * 
+	 *
 	 * @param frm
 	 *            the frm
 	 * @param action
@@ -953,8 +956,8 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 				try {
 					QueryBuilder.closeResultSet(rs);
 					QueryBuilder.closePreparedStatement(stmt);
-					
-					
+
+
 					QueryBuilder.closeConnection(conn);
 					logger.debug("\t\tMethod: IAFT1_2 Status:Save End");
 				} catch (SQLException sqle) {
@@ -990,8 +993,8 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 				try {
 					QueryBuilder.closeResultSet(rs);
 					QueryBuilder.closePreparedStatement(stmt);
-					
-					
+
+
 					QueryBuilder.closeConnection(conn);
 					logger.debug("\t\tMethod: IAFT1_2 Status:Save End");
 				} catch (SQLException sqle) {
@@ -1006,7 +1009,7 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 
 	/**
 	 * IAF t2_5.
-	 * 
+	 *
 	 * @param frm
 	 *            the frm
 	 * @param action
@@ -1050,8 +1053,8 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 				try {
 					QueryBuilder.closeResultSet(rs);
 					QueryBuilder.closePreparedStatement(stmt);
-					
-					
+
+
 					QueryBuilder.closeConnection(conn);
 					logger.debug("\t\tMethod: IAFT2_5 Status:Save End");
 				} catch (SQLException sqle) {
@@ -1078,8 +1081,8 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 				try {
 					QueryBuilder.closeResultSet(rs);
 					QueryBuilder.closePreparedStatement(stmt);
-					
-					
+
+
 					QueryBuilder.closeConnection(conn);
 					logger.debug("\t\tMethod: IAFT2_5 Status:Save End");
 				} catch (SQLException sqle) {
@@ -1094,7 +1097,7 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 
 	/**
 	 * IAF t2_6.
-	 * 
+	 *
 	 * @param frm
 	 *            the frm
 	 * @param action
@@ -1136,8 +1139,8 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 				try {
 					QueryBuilder.closeResultSet(rs);
 					QueryBuilder.closePreparedStatement(stmt);
-					
-					
+
+
 					QueryBuilder.closeConnection(conn);
 					logger.debug("\t\tMethod: IAFT2_6 Status:Save End");
 				} catch (SQLException sqle) {
@@ -1199,8 +1202,8 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 				try {
 					QueryBuilder.closeResultSet(rs);
 					QueryBuilder.closePreparedStatement(stmt);
-					
-					
+
+
 					QueryBuilder.closeConnection(conn);
 					logger.debug("\t\tMethod: IAFT1_2 Status:Save End");
 				} catch (SQLException sqle) {
@@ -1215,7 +1218,7 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 
 	/**
 	 * IAF t2_7.
-	 * 
+	 *
 	 * @param frm
 	 *            the frm
 	 * @param action
@@ -1286,7 +1289,7 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 				stmt.setString(14, frm.getS5j());
 
 				stmt.setString(15, frm.getS5b_other());
-				
+
 				stmt.setString(16, frm.getRep_sign());
 				stmt.setString(17, frm.getS5_rep_agreed());
 				stmt.setString(18, security_token);
@@ -1303,8 +1306,8 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 				try {
 					QueryBuilder.closeResultSet(rs);
 					QueryBuilder.closePreparedStatement(stmt);
-					
-					
+
+
 					QueryBuilder.closeConnection(conn);
 					logger.debug("\t\tMethod: IAFT1_2 Status:Save End");
 				} catch (SQLException sqle) {
@@ -1319,7 +1322,7 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 
 	/**
 	 * IAF t2_8.
-	 * 
+	 *
 	 * @param frm
 	 *            the frm
 	 * @param action
@@ -1360,8 +1363,8 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 				try {
 					QueryBuilder.closeResultSet(rs);
 					QueryBuilder.closePreparedStatement(stmt);
-					
-					
+
+
 					QueryBuilder.closeConnection(conn);
 					logger.debug("\t\tMethod: IAFT1_2 Status:Save End");
 				} catch (SQLException sqle) {
@@ -1396,8 +1399,8 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 				try {
 					QueryBuilder.closeResultSet(rs);
 					QueryBuilder.closePreparedStatement(stmt);
-					
-					
+
+
 					QueryBuilder.closeConnection(conn);
 					logger.debug("\t\tMethod: IAFT1_2 Status:Save End");
 				} catch (SQLException sqle) {
@@ -1413,7 +1416,7 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 
 	/**
 	 * IAF t2_9.
-	 * 
+	 *
 	 * @param frm
 	 *            the frm
 	 * @param action
@@ -1454,8 +1457,8 @@ public class QueryBuilder2 extends GenericQueryBuilder implements
 				try {
 					QueryBuilder.closeResultSet(rs);
 					QueryBuilder.closePreparedStatement(stmt);
-					
-					
+
+
 					QueryBuilder.closeConnection(conn);
 					logger.debug("\t\tMethod: IAFT1_2 Status:Save End");
 				} catch (SQLException sqle) {

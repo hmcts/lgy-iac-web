@@ -298,11 +298,9 @@ public class XMLReturnAction extends Action {
 					.getSession().getAttribute("security").toString(),
 					datasource, request);
 			String AggrURN = iBean.getAggregatedpaymentURN();
-			logger.debug("Aggeagted payment is generated" + AggrURN
-					+ "Filename is ");
 			String path = servlet.getServletContext().getRealPath("/");
 
-			logger.debug("Aggeagted payment is generated" + AggrURN
+			logger.debug("Aggregated payment is generated" + AggrURN
 					+ "Filename is " + path);
 			if (AggrURN != null && !AggrURN.equals("")) {
 				this.processOutputsForAggregatedNullAppeals(AggrURN, true, request,
@@ -593,7 +591,52 @@ public class XMLReturnAction extends Action {
 									Helper.savePDF(baos, URN, paymentURN, path);
 				        	 }
 				         }
+				        /* else if(asBeansArrayList.size()>=2&&asBean.getAmount()!=0)
+				         {
+				        	 if(((AggregatedSubmissionBean)asBeansArrayList.get(0)).getAmount()!=0&&((AggregatedSubmissionBean)asBeansArrayList.get(1)).getAmount()!=0)
+				        	 {
+				        		 baos = PDFUtilityIAFT1.GenerateIAFT1PDF(path, status, aggBean);
+				        		 DocWriteDOM.getxmlnewappeal(aggBean, request, paymentURN+"_"+URN);
+									logger.debug("Its coming here in IAFT1" + IAFT1);
+									//baos = PDFUtilityIAFT1.GenerateIAFT1PDF(path, status, aggBean);
+									Helper.savePDF(baos, URN, paymentURN, path);
+				        	 }
+				        	 else
+				        	 {
+
+				        		 if(asBeansArrayList.size()==2)
+				        		 {
+				        	     aggBean.setAggregatedpaymentURN(null);
+				        		 URN=URN.replaceFirst("77","88");
+				        		 aggBean.setSubmissionURN(URN);
+					        	 aggBean.setPaymentURN(URN);
+					        	 baos = PDFUtilityIAFT1.GenerateIAFT1PDF(path, status, aggBean);
+
+					        	 Helper.savePDF(baos, URN, path);
+
+
+					        	 DocWriteDOM.getxmlnewappeal(aggBean, request, paymentURN+"_"+URN);
+				        		 }
+				        		 else
+				        		 {
+				        			 baos = PDFUtilityIAFT1.GenerateIAFT1PDF(path, status, aggBean);
+										DocWriteDOM.getxmlnewappeal(aggBean, request, paymentURN+"_"+URN);
+										Helper.savePDF(baos, URN, paymentURN, path);
+				        		 }
+
 				}
+
+				         }
+				         else
+				         {
+				        baos = PDFUtilityIAFT1.GenerateIAFT1PDF(path, status, aggBean);
+						DocWriteDOM.getxmlnewappeal(aggBean, request, paymentURN+"_"+URN);
+						logger.debug("Its coming here in IAFT1" + IAFT1);
+						//baos = PDFUtilityIAFT1.GenerateIAFT1PDF(path, status, aggBean);
+						Helper.savePDF(baos, URN, paymentURN, path);
+				         */
+						}
+
 				else if (type.equals("IAFT2")) {
 					IAFT2Bean aggBean = (IAFT2Bean) iAggBean;
 
@@ -607,22 +650,66 @@ public class XMLReturnAction extends Action {
 			         }
 					 else
 			         {
-			        	 if(count==1) {
+			        	 if(count==1)
+			        	 {aggBean.setAggregatedpaymentURN(null);
+			        	 URN=URN.replaceFirst("77","88");
+			        	 aggBean.setSubmissionURN(URN);
+			        	 aggBean.setPaymentURN(URN);
+			        	 baos = PDFUtilityIAFT2.GenerateIAFT2PDF(path, status, aggBean);
+			        	 Helper.savePDF(baos, URN, path);
+			        	 //aggBean.setSubmissionURN(URN);
+			        	 DocWriteDOM.getxmlnewappeal(aggBean, request, paymentURN+"_"+URN);}
+			        	 else
+			        	 {DocWriteDOM.getxmlnewappeal(aggBean, request, paymentURN+"_"+URN);
+							logger.debug("Its coming here in IAFT1" + IAFT1);
+							baos = PDFUtilityIAFT2.GenerateIAFT2PDF(path, status, aggBean);
+							//baos = PDFUtilityIAFT1.GenerateIAFT1PDF(path, status, aggBean);
+							Helper.savePDF(baos, URN, paymentURN, path);
+			        	}
+			        }
+				 }/*
+
+					 else if(asBeansArrayList.size()>=2&&asBean.getAmount()!=0)
+			         {
+			        	 if(((AggregatedSubmissionBean)asBeansArrayList.get(0)).getAmount()!=0&&((AggregatedSubmissionBean)asBeansArrayList.get(1)).getAmount()!=0)
+			        	 {
+			        		 	DocWriteDOM.getxmlnewappeal(aggBean, request, paymentURN+"_"+URN);
+								logger.debug("Its coming here in IAFT1" + IAFT1);
+								baos = PDFUtilityIAFT2.GenerateIAFT2PDF(path, status, aggBean);
+								//baos = PDFUtilityIAFT1.GenerateIAFT1PDF(path, status, aggBean);
+								Helper.savePDF(baos, URN, paymentURN, path);
+
+			        	 }
+			        	 else
+			        	 {
+			        		 if(asBeansArrayList.size()==2)
+			        		 {
                              aggBean.setAggregatedpaymentURN(null);
                              URN=URN.replaceFirst("77","88");
                              aggBean.setSubmissionURN(URN);
                              aggBean.setPaymentURN(URN);
                              baos = PDFUtilityIAFT2.GenerateIAFT2PDF(path, status, aggBean);
                              Helper.savePDF(baos, URN, path);
+					        	 //aggBean.setSubmissionURN(URN);
                              DocWriteDOM.getxmlnewappeal(aggBean, request, paymentURN+"_"+URN);
-                         } else {
+
+			        		 }
+			        		 else
+			        			 {baos = PDFUtilityIAFT2.GenerateIAFT2PDF(path, status, aggBean);
+
                              DocWriteDOM.getxmlnewappeal(aggBean, request, paymentURN+"_"+URN);
-                             logger.debug("Its coming here in IAFT1" + IAFT1);
+							    Helper.savePDF(baos, URN, paymentURN, path);}
+
+			        	 }
+
+			         }
+			         else
+			         {
                              baos = PDFUtilityIAFT2.GenerateIAFT2PDF(path, status, aggBean);
+						DocWriteDOM.getxmlnewappeal(aggBean, request,  paymentURN+"_"+URN);
 							Helper.savePDF(baos, URN, paymentURN, path);
 			        	}
-			        }
-				 }
+				}*/
 				 else if (type.equals("IAFT3")) {
 					IAFT3Bean aggBean = (IAFT3Bean) iAggBean;
 
@@ -825,7 +912,6 @@ public class XMLReturnAction extends Action {
 	private void processOutputForSingleAppeal(IAFTBean iBean, boolean payment1,
 			HttpServletRequest request, HttpServletResponse response,
 			String path) throws IOException, DocumentException {
-
         String URN = iBean.getSubmissionURN();
 		ByteArrayOutputStream baos = null;
 
@@ -847,7 +933,7 @@ public class XMLReturnAction extends Action {
 						path, status, frm2);
 				if (payment1) {
                     Helper.savePDF(baos, URN, path);
-                    logger.info("httpservletrequest path is <" + request.getRealPath("/") + ">");
+                    logger.debug("httpservletrequest path is <" + request.getRealPath("/") + ">");
 					DocWriteDOM.getxmlnewappeal(frm2, request, URN);
 					return;
 				}

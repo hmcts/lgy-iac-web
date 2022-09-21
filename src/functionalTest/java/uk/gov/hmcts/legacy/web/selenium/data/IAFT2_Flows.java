@@ -73,12 +73,12 @@ public interface IAFT2_Flows {
             Page3.POST_Abuja,
             Page3.SERVICE_DECSION_METHOD_FAX_XPATH,
             "AnotherName",
-            Page3.DAY_1,
-            Page3.MONTH_11,
-            Page3.YEAR_2021,
-            Page3.DAY_1,
-            Page3.MONTH_11,
-            Page3.YEAR_2021,
+            Page3.DAY_18,
+            Page3.MONTH_9,
+            Page3.YEAR_2022,
+            Page3.DAY_19,
+            Page3.MONTH_9,
+            Page3.YEAR_2022,
             NavigateEnum.NEXT.getValue()};
 
     public static final String[] full_stage4Options = {
@@ -221,12 +221,12 @@ public interface IAFT2_Flows {
             Page3.POST_Abuja,
             Page3.SERVICE_DECSION_METHOD_FAX_XPATH,
             "AnotherName",
-            Page3.DAY_1,
-            Page3.MONTH_11,
-            Page3.YEAR_2021,
-            Page3.DAY_1,
-            Page3.MONTH_11,
-            Page3.YEAR_2021,
+            Page3.DAY_18,
+            Page3.MONTH_9,
+            Page3.YEAR_2022,
+            Page3.DAY_19,
+            Page3.MONTH_9,
+            Page3.YEAR_2022,
             NavigateEnum.NEXT.getValue()};
 
     public static final String[] quick_stage3Options_DecisionDate = {

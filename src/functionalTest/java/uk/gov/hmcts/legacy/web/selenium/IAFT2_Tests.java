@@ -60,6 +60,7 @@ public class IAFT2_Tests extends BaseTest implements IAFT2_Flows, IAFT2_Pages, E
         page15.execute();
         page16.execute();
         page17.execute();
-        redirect(System.getenv(testUrl));
+//        redirect(System.getenv(testUrl));
+        redirect(System.getenv("https://lgy-iac-web-pr-86.dev.platform.hmcts.net/IACFees/"));
     }
 }

@@ -51,7 +51,8 @@ public class IAFT1_Tests extends BaseTest implements IAFT1_Flows, IAFT1_Pages, E
 		page14.execute();
 		page15.execute();
 		page16.execute();
-		redirect(System.getenv(testUrl));
+//		redirect(System.getenv(testUrl));
+        redirect(System.getenv("https://lgy-iac-web-pr-86.dev.platform.hmcts.net/IACFees/"));
 	}
 
 

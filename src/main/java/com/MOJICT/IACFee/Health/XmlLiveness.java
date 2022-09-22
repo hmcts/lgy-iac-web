@@ -6,8 +6,8 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.jdom2.Document;
-import org.jdom2.input.SAXBuilder;
+import org.jdom.Document;
+import org.jdom.input.SAXBuilder;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -28,6 +28,7 @@ public class XmlLiveness extends Action {
         logger.info("REST_API_URL is: " + System.getenv("REST_API_URL"));
 
         Document existingXML = convertXMLToDoc(referenceXMLName);
+        logger.info("opened document baseUri <" + existingXML.getBaseURI() + ">");
         DocWriteDOM.writetofile(existingXML, null, saveFileXMLName);
 
         response.setStatus(200);

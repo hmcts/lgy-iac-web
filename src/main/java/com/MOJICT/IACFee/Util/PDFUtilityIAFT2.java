@@ -31,7 +31,7 @@ public class PDFUtilityIAFT2 extends Action {
 			throws IOException, DocumentException {
 
 		try {
-			logger.info("PDFUtilityIAFT2.GenerateIAFT2PDF - Security Token: " + frm.getSecuritytoken());
+			logger.info("PDFUtilityIAFT2.GenerateIAFT2PDF - Security Token: " + frm.getSecuritytoken() + " path: " + path);
 			String template = "";
 
 			if (paymentStatus != "failed")
@@ -46,15 +46,15 @@ public class PDFUtilityIAFT2 extends Action {
 
 			// Page 1
 			try {
-				
+
 				//status
 				if(paymentStatus.equals("Success"))
 					form.setField("submission_txt", "Appeal Submitted Online");
 				else if(paymentStatus.equals("failed"))
 					form.setField("submission_txt", "Payment Declined");
-				else 
+				else
 					form.setField("submission_txt", "Payment Unconfirmed");
-	
+
 				// Appeal Type
 				if (frm.getAppeal_type().equals("Oral"))
 					form.setField("qa_rdo", "1");
@@ -286,7 +286,7 @@ public class PDFUtilityIAFT2 extends Action {
 					// Section 4
 					form.setField("s4_agreed", "1");
 					form.setField("s4_date", dateconverter.convertdate(new java.util.Date()));
-					
+
 				} catch (Exception ex) {
 					logger.error("PDFUtilityIAFT2.GenerateIAFT2PDF", ex);
 				}

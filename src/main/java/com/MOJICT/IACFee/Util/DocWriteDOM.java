@@ -65,8 +65,9 @@ public class DocWriteDOM {
 		String fileName = urn + ".xml";
 
 		try {
+            logger.debug("in writetofile");
 			XMLOutputter outputter = new XMLOutputter();
-
+            logger.debug("after XMLOutputer");
 			outputter.getFormat().setEncoding("UTF-8"); //Version 1.13
 			//outputter.setEncoding("UTF-8"); // Version 1.0
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();

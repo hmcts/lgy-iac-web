@@ -376,7 +376,15 @@
 				scope="request">
 		</action>
 
-		<action path="/getamount1" type="com.MOJICT.IACFee.Actions.AmountfrwAction"
+    <action path="/health/pdfLiveness" type="com.MOJICT.IACFee.Health.PdfLiveness"
+            scope="request">
+    </action>
+
+    <action path="/health/xmlLiveness" type="com.MOJICT.IACFee.Health.XmlLiveness"
+            scope="request">
+    </action>
+
+    <action path="/getamount1" type="com.MOJICT.IACFee.Actions.AmountfrwAction"
 			scope="request">
 			<forward name="success" path="/tiles/IAFT1/confirm.jsp" />
 			<forward name="successpdf" path="basket.definition" />

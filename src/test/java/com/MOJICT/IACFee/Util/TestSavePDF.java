@@ -20,7 +20,7 @@ public class TestSavePDF {
     static Logger logger = Logger.getLogger(TestSavePDF.class);
     static String saveFilePath = "./test-output/";
     static String saveFilePDFName = "TestPDF";
-    static String referencePDFName = "229910219260.pdf";
+    static String referencePDFName = "reference.pdf";
     static String saveFileAggregatedName = "Aggregated";
     static String bucketName = "upload-pdf-test";
     static String apiURL = "https://j7ouh6nm42.execute-api.eu-west-2.amazonaws.com/Test/";

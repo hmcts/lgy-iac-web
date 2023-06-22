@@ -161,7 +161,7 @@ dependencies {
     testImplementation group: 'commons-io', name: 'commons-io', version: '2.1'
     testImplementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.53.1'
     testImplementation group: 'org.seleniumhq.selenium', name: 'selenium-server', version: '2.53.1'
-    testImplementation group: 'org.apache.poi', name: 'poi', version: '3.9'
+    testImplementation group: 'org.apache.poi', name: 'poi', version: '3.17'
     testImplementation group: 'org.dbunit', name: 'dbunit', version: '2.4.8'
     testImplementation group: 'strutstestcase', name: 'strutstestcase', version: '2.1.4-1.2-2.4'
     testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '4.1.1'

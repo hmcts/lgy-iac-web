@@ -140,7 +140,7 @@ dependencies {
     implementation group: 'struts', name: 'struts', version: '1.1-rc2'
     implementation group: 'servletapi', name: 'servlet-api', version: '2.4-20040521'
     implementation group: 'com.lowagie', name: 'itext', version: '1.4.8'
-    implementation group: 'commons-codec', name: 'commons-codec', version: '1.4'
+    implementation group: 'commons-codec', name: 'commons-codec', version: '1.16.1'
     implementation group: 'commons-httpclient', name: 'commons-httpclient', version: '2.0.2'
     implementation group: 'org.apache.httpcomponents', name: 'httpmime', version: '4.1.2'
     implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.1.2'
